@@ -5,11 +5,11 @@
 
             <div class="switch-lang__btns mt-4">
                 <button type="button" class="btn-flat btn-large mr-3" @click="switchLang">
-                    <img :src="`/storage/other/${switchTo}.png`">
+                    <img :src="`/images/other/${switchTo}.png`">
                     {{ _messagesYes }}
                 </button>
                 <button type="button" class="btn-flat btn-large" @click="cancelSwitching">
-                    <img :src="`/storage/other/${switchFrom}.png`">
+                    <img :src="`/assets/images/other/${switchFrom}.png`">
                     {{ _messagesNo }}
                 </button>
             </div>

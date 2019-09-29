@@ -5,7 +5,7 @@
                 <option value="en" :selected="lang == 'en'">English</option>
                 <option value="ru" :selected="lang == 'ru'">Русский</option>
             </select>
-            <img :src="`/storage/other/${flag}.png`" class="dropdown__flag">
+            <img :src="`/assets/images/other/${flag}.png`" class="dropdown__flag">
         </li>
     </div>
 </template>
