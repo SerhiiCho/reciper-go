@@ -174,9 +174,9 @@
     <div class="nav-wrapper main-navbar">
         <div class="px-3 position-relative">
             <!-- Logo -->
-            <a href="<%=  %>" title="<%= t("home.home") %>" class="brand-logo no-select">
+            <a href="plush" title="<%= t("home.home") %>" class="brand-logo no-select">
                 <div class="d-inline-block left"
-                    data-async-load="asset('storage/other/logo.png') }}"
+                    data-async-load="<%= assetPath("images/other/logo.png") %>"
                     data-alt="logo"
                     data-height="30"
                     style="min-width:25px; height:1px"
@@ -184,14 +184,14 @@
                 <span class="left pl-2"><%= t("messages.app_name") %></span>
             </a>
             <!-- Hamburger menu -->
-            <a href="javascript:;" data-target="mobile-sidenav" class="sidenav-trigger no-select">
+            <a href="javascript:" data-target="mobile-sidenav" class="sidenav-trigger no-select">
                 <i class="fas fa-bars"></i>
             </a>
 
             <div class="right">
                 <!-- @auth -->
                     <!-- Dropdown Trigger 2 User -->
-                    <a href="javascript:;"
+                    <a href="javascript:"
                         class="right dropdown-trigger position-relative align-to-the-middle"
                         data-target="user-menu-dropdown"
                     >
@@ -204,7 +204,7 @@
                     </a>
                 <!-- @else -->
                     <!-- Dropdown Trigger 2  -->
-                    <a href="javascript:;"
+                    <a href="javascript:"
                         class="right dropdown-trigger position-relative align-to-the-middle"
                         data-target="user-menu-dropdown"
                         id="_hamb-menu"
@@ -216,7 +216,7 @@
                 <!-- @endauth -->
 
                 <!-- Search button -->
-                <a href="javascript:;" data-target="mobile-demo"
+                <a href="javascript:" data-target="mobile-demo"
                     class="hide-on-small-only right mr-4 align-to-the-middle"
                     title="<%= t("pages.search") %>"
                     id="nav-btn-for-search"
@@ -225,7 +225,7 @@
                 </a>
 
                 <!-- @auth Notifications bell -->
-                    <a href="javascript:;"
+                    <a href="javascript:"
                         id="mark-notifs-as-read"
                         class="right ml-1 mr-4 dropdown-trigger position-relative align-to-the-middle"
                         title="<%= t("notifications.notifications") %>"
@@ -264,7 +264,7 @@
                 </li>
 
                 <li> <!-- Categories Dropdown Trigger Categories -->
-                    <a href="javascript:;"
+                    <a href="javascript:"
                         class="dropdown-trigger"
                         data-target="categories-dropdown"
                     >
@@ -306,7 +306,7 @@
     <ul id="notifications-dropdown" class="dropdown bottom-borders">
         <!-- @forelse ($notifications as $notif) -->
             <li class="">
-                <!-- <a href="{{ ($notif['data']['link'] ?? 'javascript:;') }}"> -->
+                <!-- <a href="{{ ($notif['data']['link'] ?? 'javascript:') }}"> -->
                 <a href="javascript:">
                     <span>
                         <div>

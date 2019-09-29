@@ -54,13 +54,11 @@ func App() *buffalo.App {
 		//  c.Value("tx").(*pop.Connection)
 		// Remove to disable this.
 		app.Use(popmw.Transaction(models.DB))
-
-		// Setup and use translations:
 		app.Use(translations())
 
 		app.GET("/", HomeHandler)
 
-		app.ServeFiles("/", assetsBox) // serve files from the public directory
+		app.ServeFiles("/", assetsBox)
 	}
 
 	return app
