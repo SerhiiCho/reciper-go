@@ -1,7 +1,7 @@
 package models
 
-// Recipe model
-type Recipe struct {
+// Recipes model
+type Recipes struct {
 	ID      uint   `json:"id,omitempty"`
 	TitleRu string `json:"title_ru,omitempty"`
 	TitleEn string `json:"title_en,omitempty"`
