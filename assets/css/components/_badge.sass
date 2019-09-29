@@ -1,0 +1,73 @@
+.level-badge,
+.level-badge--wrap
+    width: 33px
+    height: 23px
+    background: #181919
+    position: relative
+    text-align: center
+
+    &::before, &::after
+        content: ""
+        position: absolute
+        left: 0
+        width: 0
+        height: 0
+        border-left: 16.7px solid transparent
+        border-right: 16.7px solid transparent
+
+    &::before
+        top: -8px
+        border-bottom: 9px solid #181919
+
+    &::after
+        bottom: -12px
+        border-top: 12px solid levelColor(silver)
+
+    span
+        font-size: 1.6em
+        font-weight: bold
+        font-family: sans-serif
+        line-height: 23px
+        color: levelColor(silver)
+
+    &.badge-gold-color
+        &::after
+            border-top-color: levelColor(gold)
+
+        span
+            color: levelColor(gold)
+
+    &.badge-purple-color
+        &::after
+            border-top-color: levelColor(purple)
+
+        span
+            color: levelColor(purple)
+
+    &.badge-blue-color
+        &::after
+            border-top-color: levelColor(blue)
+
+        span
+            color: levelColor(blue)
+
+.level-badge--wrap
+    &::before
+        top: -13px
+        border-bottom: 13px solid levelColor(silver)
+
+    &::after
+        bottom: -8px
+        border-top: 9px solid #181919
+
+    &.badge-gold-color
+        &::before
+            border-bottom-color: levelColor(gold)
+
+    &.badge-purple-color
+        &::before
+            border-bottom-color: levelColor(purple)
+
+    &.badge-blue-color
+        &::before
+            border-bottom-color: levelColor(blue)

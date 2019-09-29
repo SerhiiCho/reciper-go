@@ -1,0 +1,41 @@
+.collapsible
+    border-top: 1px solid #ddd
+    border-right: 1px solid #ddd
+    border-left: 1px solid #ddd
+    margin: 0.5rem 0 1rem 0
+
+    .dark-theme &
+        border-color: colorDark(paper-dark)
+
+    &-header
+        display: -webkit-box
+        display: -webkit-flex
+        display: -ms-flexbox
+        display: flex
+        cursor: pointer
+        -webkit-tap-highlight-color: transparent
+        line-height: 1.5
+        padding: 1rem
+        background-color: #fff
+        border-bottom: 1px solid #f6f6f6
+
+        .dark-theme &
+            background-color: colorDark(paper-dark)
+            border-bottom-color: lighten(colorDark(paper), 15%)
+
+    i
+        width: 2rem
+        font-size: 1.6rem
+        display: inline-block
+        text-align: center
+        margin-right: 1rem
+
+.collapsible-body
+    display: none
+    border-bottom: 1px solid #ddd
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    padding: 2rem
+
+    .dark-theme &
+        border-bottom-color: colorDark(paper)

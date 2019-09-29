@@ -1,0 +1,138 @@
+$bar-height: 65px
+
+.single__author-col
+    max-width: 1280px
+    padding: 2px 30px
+    margin: 0 auto
+
+    &--wrap
+        height: $bar-height
+
+    &__user
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+        height: $bar-height
+
+        &__badge
+            height: 100%
+            display: flex
+            margin-right: 14px
+            @include justify-center
+
+        &__info
+            height: 100%
+            display: inline-block
+            padding-top: 11px
+
+            &__name
+                color: color(main)
+                text-transform: uppercase
+                font-weight: bold
+                margin-right: 5px
+                letter-spacing: .5px
+                margin: 0
+
+                .dark-theme &
+                    color: #eee
+
+            &__level
+                margin: 0
+                font-size: 12px
+                font-weight: bold
+                color: #6b6b6b
+                margin-bottom: 1px
+
+                .dark-theme &
+                    color: #ddd
+
+        &__icon
+            width: 52px
+            height: 52px
+            border-radius: 50%
+            border: 2px solid levelColor(silver)
+            display: inline-block
+            background-position: top !important
+            background-size: 57px !important
+            background-repeat: no-repeat !important
+            margin-right: 13px
+
+            &.gold-color
+                border-color: levelColor(gold)
+
+            &.blue-color
+                border-color: levelColor(blue)
+
+            &.purple-color
+                border-color: levelColor(purple)
+
+    &__buttons
+        height: $bar-height
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        position: relative
+        margin: 0
+
+        li
+            display: inline-block
+            margin-right: 10px
+
+            &:last-of-type
+                margin-right: 0
+
+        &__popup-btn
+            width: 40px
+            height: 100%
+            display: inline-block
+            text-align: center
+            font-size: 22px
+
+        &__popup-window
+            width: 217px
+            position: absolute
+            background-color: color(paper)
+            right: -100px
+            top: 15px
+            opacity: 0
+            z-index: 1
+            border-radius: 7px 0 7px 7px
+            transition: transform 150ms, right 150ms, top 150ms, opacity 100ms
+            transform: scale(0, 0)
+            padding: 13px
+            text-align: center
+
+            .dark-theme &
+                background-color: colorDark(paper-dark)
+
+            .btn-flat
+                @include border-bottom
+                border-radius: 0
+
+                &:hover
+                    background-color: rgba(0,0,0,.017)
+
+            &.active
+                right: 50px
+                opacity: 1
+                top: 30px
+                transition: transform 150ms, right 150ms, top 150ms, opacity 100ms
+                transform: scale(1, 1)
+
+@media (max-width: $media-sm)
+    .single__author-col
+        padding: 5px 12px
+        margin: 5px auto
+
+        &__user
+            justify-content: center
+            @include border-bottom
+
+        &__buttons
+            height: 43px
+            justify-content: space-evenly
+
+            &__popup-window.active
+                right: 40px
+                top: 42px

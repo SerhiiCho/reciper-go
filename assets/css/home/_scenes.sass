@@ -1,0 +1,49 @@
+.home-scenes
+    padding-top: 2em
+
+    &__item
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: 320px
+        max-width: 280px
+        padding: 20px
+        margin: auto
+        margin-bottom: 14px
+        text-align: center
+        transition: background-color 300ms
+        background-color: color(main-light)
+        transform: translateY(-80px)
+
+        .dark-theme &
+            background-color: colorDark(main-light)
+
+        &:hover
+            background-color: darken(color(main-light), 4%)
+
+            .dark-theme &
+                background-color: darken(colorDark(main-light), 4%)
+
+        &:hover img
+            transform: scale(1.1)
+
+        &__text
+            font-size: 1.2em
+            color: color(grey-dark)
+
+            .dark-theme &
+                color: #ddd
+
+        img
+            transition: transform 3s
+
+        [data-async-load]
+            min-height: 127px
+
+@media (max-width: $media-md)
+    .home-scenes
+        &__item
+            height: auto
+
+            &__text
+                font-size: 1.2em

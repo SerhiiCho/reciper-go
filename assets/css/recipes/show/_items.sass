@@ -1,0 +1,44 @@
+.single__items
+    width: 100%
+    max-width: 100%
+    text-align: left
+    line-height: 2.7
+    background: color(paper-dark)
+
+    .dark-theme &
+        background: colorDark(paper-dark)
+
+    &__line
+        display: flex
+        font-size: 1.1em
+        border-bottom: 1px solid #c3c3c3
+        cursor: pointer
+        align-items: center
+
+        &:hover
+            background: rgba(0, 0, 0, .05)
+
+        .dark-theme &
+            border-bottom-color: lighten(colorDark(paper), 17%)
+
+            &:hover
+                background: rgba(0,0,0,.2)
+
+        &__num
+            width: 50px
+            height: 50px
+            text-align: center
+
+            i
+                font-size: 1.4em
+                font-weight: bold
+                line-height: 50px
+
+        &__text
+            width: 100%
+            display: inline-block
+
+            p
+                line-height: 1.7
+                margin: 7px 0
+                padding: 0 10px

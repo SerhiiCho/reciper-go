@@ -1,0 +1,219 @@
+html
+    line-height: 1.15
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+    line-height: 1.5
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+    font-weight: normal
+    color: rgba(0, 0, 0, 0.87)
+
+@media only screen and (min-width: 0)
+    html
+        font-size: 14px
+
+@media only screen and (min-width: $media-md)
+    html
+        font-size: 14.5px
+
+@media only screen and (min-width: $media-lg)
+    html
+        font-size: 15px
+
+body
+    margin: 0
+
+article,
+aside,
+footer,
+header,
+nav,
+section
+    display: block
+
+h1
+    font-size: 2em
+    margin: 0.67em 0
+
+h1, h2, h3, h4, h5, h6
+    font-weight: 400
+    line-height: 1.3
+
+p
+    font-size: 1.04rem
+
+figcaption,
+figure,
+main
+    display: block
+
+figure
+    margin: 1em 40px
+
+hr
+    -webkit-box-sizing: content-box
+    box-sizing: content-box
+    height: 0
+    overflow: visible
+
+pre
+    font-family: monospace, monospace
+    font-size: 1em
+
+a
+    background-color: transparent
+    -webkit-text-decoration-skip: objects
+
+b,
+strong
+    font-weight: inherit
+
+b,
+strong
+    font-weight: bolder
+
+small
+    font-size: 75%
+
+audio,
+video
+    display: inline-block
+
+audio:not([controls])
+    display: none
+    height: 0
+
+img
+    border-style: none
+
+svg:not(:root)
+    overflow: hidden
+
+button,
+input,
+select,
+textarea
+    font-family: sans-serif
+    font-size: 100%
+    line-height: 1.15
+    margin: 0
+
+input:-webkit-autofill
+    -webkit-text-fill-color: #111 !important
+    -webkit-box-shadow: 0 0 0 1000px #eee inset !important
+
+    .dark-theme &
+        -webkit-text-fill-color: #eee !important
+        -webkit-box-shadow: 0 0 0 1000px lighten(colorDark(paper), 3%) inset !important
+
+button
+    cursor: pointer
+
+button,
+input
+    overflow: visible
+
+button,
+select
+    text-transform: none
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"]
+    -webkit-appearance: button
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner
+    border-style: none
+    padding: 0
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring
+    outline: 1px dotted ButtonText
+
+legend
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    color: inherit
+    display: table
+    max-width: 100%
+    padding: 0
+    white-space: normal
+
+textarea
+    overflow: auto
+
+[type="checkbox"],
+[type="radio"]
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    padding: 0
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button
+    height: auto
+
+[type="search"]
+    -webkit-appearance: textfield
+    outline-offset: -2px
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration
+    -webkit-appearance: none
+
+::-webkit-file-upload-button
+    -webkit-appearance: button
+    font: inherit
+
+canvas
+    display: inline-block
+
+template
+    display: none
+
+[hidden]
+    display: none
+
+html
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+*,
+*:before,
+*:after
+    -webkit-box-sizing: inherit
+    box-sizing: inherit
+
+button,
+input,
+optgroup,
+select,
+textarea
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
+
+ul:not(.browser-default)
+    padding-left: 0
+    list-style-type: none
+
+ul:not(.browser-default)>li
+    list-style-type: none
+
+a
+    color: color(main)
+    text-decoration: none
+    -webkit-tap-highlight-color: transparent
+
+blockquote
+    margin: 20px 0
+    padding-left: 1.5rem
+    border-left: 5px solid color(main)
+
+i
+    line-height: inherit
+
+table, th, td
+    border: none

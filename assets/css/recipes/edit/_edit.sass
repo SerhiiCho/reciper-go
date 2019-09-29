@@ -1,0 +1,25 @@
+.add-remove-field
+    display: inline-block
+    font-weight: bold
+    font-size: .9em
+    outline: none
+    padding: 5px 8px
+    border-radius: 4px
+    cursor: pointer
+    transition: background-color 200ms
+    font-size: 1em
+
+    &:hover
+        background: lighten(color(main-light), 20%)
+
+    .dark-theme &
+        background: #c8c8c8
+
+        &:hover
+            background: #feeeff
+
+.disable
+    opacity: .4
+
+    &:hover
+        cursor: not-allowed

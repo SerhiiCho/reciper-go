@@ -1,0 +1,53 @@
+.preview-image
+    display: inline-block
+    overflow: hidden
+
+    &:hover label
+        opacity: 1
+
+    &:hover .preview-overlay
+        opacity: .5
+
+    &-recipe
+        width: 427.5px
+        height: 285px
+
+        img
+            width: 427.5px
+            height: 285px
+            object-fit: cover
+            object-position: left
+
+    &-profile
+        width: 270px
+        height: 270px
+
+        img
+            width: 270px !important
+            height: auto !important
+
+    .preview-overlay
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 100%
+        background: #000
+        opacity: 0
+        transition: opacity 200ms
+
+    label
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: 0
+
+@media (max-width: $media-phone)
+    .preview-image
+        &-recipe
+            width: 247.5px
+            height: 165px
+
+            img
+                width: 247.5px
+                height: 165px

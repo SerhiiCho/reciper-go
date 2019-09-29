@@ -1,0 +1,130 @@
+body
+    font-family: $mainFont
+    background-color: color(paper)
+    font-size: 1rem
+    color: #181818
+    line-height: 1.5
+    overflow-x: hidden
+
+    &.dark-theme
+        color: #dddddd
+        background-color: colorDark(paper)
+
+.form-wrapper
+    background: color(paper-dark)
+    padding-top: 1em !important
+    padding-bottom: 2em !important
+    max-width: 570px
+    margin: 0 auto
+
+    .dark-theme &
+        background: rgba(colorDark(paper-dark), .8)
+        color: #ddd
+
+.no-items-text
+    text-align: center
+    margin-top: 2.4em
+    font-size: 1.3em
+
+@media (max-width: $media-phone)
+    .no-items-text
+        font-size: 1.2em
+
+.image-bg
+    // background: url('../images/header/by-daria-yakovleva-3.jpg')
+    background-size: cover
+
+.float-none
+    float: none !important
+
+.fa-15x
+    font-size: 1.4em !important
+    width: 20px
+
+.scroll
+    overflow: scroll
+
+.break-word
+    word-wrap: break-word
+
+.text-hover:hover
+    text-decoration: underline
+
+.small-notif
+    &::after,
+    &::before
+        content: ''
+        position: absolute
+        left: 7px
+        background: color(red)
+        border: solid 1px #fff
+        border-radius: 50%
+
+    &::before
+        width: 13px
+        height: 13px
+        top: 8px
+
+    &::after
+        width: 15px
+        height: 15px
+        top: 7px
+        animation: pulse-animation 1.2s cubic-bezier(0.24, 0, 0.38, 1) infinite
+        transition: opacity 0.3s, visibility 0s 1s, -webkit-transform 0.3s
+
+.min-w
+    min-width: 190px
+
+.min-h
+    height: 120px
+    overflow-y: hidden
+
+.wrapper
+    max-width: 1150px
+    margin: auto
+
+.page
+    max-width: 1150px
+    margin: auto
+    padding: 1.3em 1em 2em 1em
+    min-height: 20em
+
+.header
+    font-family: $headerFont
+    display: inline-block
+    font-size: 1.5em
+    margin: 0.4em 0
+
+.online-icon-on,
+.online-icon-off
+    display: inline-block
+    width: 10px
+    height: 10px
+    border-radius: 50%
+    margin-right: 2px
+
+.online-icon-on
+    background: darkgreen
+
+.online-icon-off
+    background: brown
+
+.unstyled-list
+    list-style: none
+
+.async-loaded
+    transition: opacity 500ms, box-shadow 200ms
+    opacity: 0
+
+::-webkit-scrollbar
+    -webkit-appearance: none
+    width: 5px
+    height: 5px
+
+::-webkit-scrollbar-corner
+    background-color: transparent
+
+::-webkit-scrollbar-thumb
+    border-radius: 4px
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5)
+    background-color: rgba(175, 169, 255, 0.7)

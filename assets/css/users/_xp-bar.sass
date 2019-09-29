@@ -1,0 +1,33 @@
+.xp-bar
+    width: 100%
+    max-width: 350px
+    height: 25px
+    background: color(grey-dark)
+    position: relative
+    border: solid 2px #222
+    border-radius: 17px
+    overflow: hidden
+    margin: auto
+
+    .dark-theme &
+        box-shadow: 0px 0px 20px 1px color(main)
+
+    &::after
+        content: attr(data-xp)
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        transition: opacity 100ms
+        font-size: 1em
+        color: color(paper)
+        text-shadow: 1px 1px 1px #000
+        font-weight: bold
+
+    &__line
+        background: #5c08aa
+        background: linear-gradient(to bottom, color(main) 0%, #7718cf 60%, #5c08aa 95%)
+        line-height: 30px
+        height: 100%
+        transition: 7000ms background
+        box-shadow: 2.5px 1px rgba(0, 0, 0, .1)

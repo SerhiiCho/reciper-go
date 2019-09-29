@@ -1,0 +1,95 @@
+.collection
+    margin: 0.5rem 0 1rem 0
+    border: 1px solid color(main-light)
+    border-radius: 2px
+    overflow: hidden
+    position: relative
+
+    .dark-theme &
+        border-color: lighten(colorDark(paper), 13%)
+
+    a.collection-item
+        display: block
+        transition: .25s
+        color: #616161
+        transition: background-color 200ms
+
+        &:not(.active):hover
+            background-color: darken(color(paper), 2%)
+
+            .dark-theme &
+                background-color: lighten(colorDark(paper), 10%)
+
+    .collection-item
+        background-color: color(paper)
+        line-height: 1.5rem
+        padding: 10px 20px
+        margin: 0
+        border-bottom: 1px solid color(main-light)
+
+        .dark-theme &
+            color: #cacaca
+            border-color: lighten(colorDark(paper), 13%)
+            background-color: colorDark(paper-dark)
+
+        &.avatar
+            min-height: 84px
+            padding-left: 72px
+            position: relative
+
+            &:not(.circle-clipper) > .circle,
+            & :not(.circle-clipper) > .circle
+                position: absolute
+                width: 42px
+                max-height: 66px
+                border-radius: 5px
+                overflow: hidden
+                left: 15px
+                display: inline-block
+                vertical-align: middle
+
+            i.circle
+                font-size: 18px
+                line-height: 42px
+                color: #fff
+                background-color: #999
+                text-align: center
+
+            .title
+                font-size: 16px
+
+            p
+                margin: 0
+
+            .secondary-content
+                position: absolute
+                top: 16px
+                right: 16px
+
+        &:last-child
+            border-bottom: none
+
+        &.active
+            background-color: darken(color(paper), 5%)
+
+            .dark-theme &
+                background-color: lighten(colorDark(paper), 15%)
+
+    &.with-header .collection-header
+        background-color: color(paper)
+        border-bottom: 1px solid color(main-light)
+        padding: 10px 20px
+
+        .collection-item
+            padding-left: 30px
+
+            &.avatar
+                padding-left: 72px
+
+    .secondary-content
+        float: right
+        color: color(main)
+
+.collapsible .collection
+    margin: 0
+    border: none

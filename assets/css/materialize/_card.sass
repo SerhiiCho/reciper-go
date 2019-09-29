@@ -1,0 +1,93 @@
+.card
+    position: relative
+    margin: 0.5em 0
+    @include border
+
+    &__content
+        min-height: 90px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        padding: 12px
+        padding-top: 0
+
+        &--sm
+            min-height: 60px
+
+        &__favs
+            margin-top: 7px
+
+            &__time
+                color: #808080
+
+                i.fas
+                    margin-right: 2px
+                    font-size: 1.2em
+
+            .btn-favs
+                margin-right: 13px
+
+                i
+                    width: 10px
+                    height: 10px
+                    border-radius: 50%
+                    display: inline-block
+                    margin-right: 11px
+
+        &__title
+            font-size: 1.15em
+            color: #313131
+            line-height: 1.1
+            margin: 0
+            margin-bottom: 8px
+
+            .dark-theme &
+                color: #e1e1e1
+
+    &__image
+        position: relative
+
+        img
+            min-height: 170px
+            position: relative
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0
+            width: 100%
+
+    .activator i
+        cursor: pointer
+        display: block
+
+    .card-reveal
+        padding: 24px
+        position: absolute
+        background-color: #fff
+        width: 100%
+        overflow-y: auto
+        left: 0
+        top: 100%
+        height: 100%
+        z-index: 3
+        display: none
+
+        .dark-theme &
+            background-color: colorDark(paper-dark)
+
+    .activator
+        cursor: pointer
+
+    &__status
+        height: 24px
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top: 10px
+        background-color: white
+        z-index: 5
+        border-radius: 0 5px 5px 0
+        box-shadow: 1px 1px 5px black
+        padding: 0 7px
+        color: black

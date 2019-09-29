@@ -1,0 +1,21 @@
+.home-section
+    color: #333
+    background-color: color(paper)
+    padding: 1em
+    margin: auto
+
+    .dark-theme &
+        background-color: colorDark(paper)
+
+    &__inner
+        max-width: 1150px
+        margin: auto
+
+    &--after-scene
+        transform: translateY(-90px)
+
+    &--contrast
+        background-color: color(paper-dark)
+
+        .dark-theme &
+            background-color: colorDark(paper-dark)

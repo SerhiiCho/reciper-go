@@ -1,0 +1,43 @@
+span.badge
+    min-width: 3rem
+    padding: 0 6px
+    margin-left: 14px
+    text-align: center
+    font-size: 1rem
+    line-height: 22px
+    height: 22px
+    color: #757575
+    float: right
+    box-sizing: border-box
+
+span.badge.new
+    font-weight: 300
+    font-size: 0.8rem
+    color: #fff
+    background-color: color(main)
+    border-radius: 2px
+
+span.badge.new:after
+    content: ""
+
+span.badge[data-badge-caption]::after
+    content: " " attr(data-badge-caption)
+
+nav ul a span.badge
+    display: inline-block
+    float: none
+    margin-left: 4px
+    line-height: 22px
+    height: 22px
+    -webkit-font-smoothing: auto
+
+.collection-item span.badge
+    margin-top: calc(0.75rem - 11px)
+
+.collapsible span.badge
+    margin-left: auto
+
+table span.badge
+    display: inline-block
+    float: none
+    margin-left: auto

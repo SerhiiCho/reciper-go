@@ -1,0 +1,14 @@
+.page-loading-bar
+    height: 2px
+    position: fixed
+    top: 0
+    left: 0
+    right: 100%
+    background-color: color(red)
+    transition: right 250ms ease-in-out
+    z-index: 9999
+    opacity: 0
+
+    &--run
+        opacity: 1
+        right: 0

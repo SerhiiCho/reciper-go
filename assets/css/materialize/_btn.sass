@@ -1,0 +1,258 @@
+.btn,
+.btn-large,
+.btn-small,
+.btn-flat
+    border: none
+    border-radius: 2px
+    display: inline-block
+    height: 36px
+    line-height: 36px
+    padding: 0 16px
+    text-transform: uppercase
+    vertical-align: middle
+    -webkit-tap-highlight-color: transparent
+
+    .dark-theme &
+        color: #eee
+
+.btn.disabled,
+.disabled.btn-large,
+.disabled.btn-small,
+.btn-floating.disabled,
+.btn-large.disabled,
+.btn-small.disabled,
+.btn-flat.disabled,
+.btn:disabled,
+.btn-large:disabled,
+.btn-small:disabled,
+.btn-floating:disabled,
+.btn-large:disabled,
+.btn-small:disabled,
+.btn-flat:disabled,
+.btn[disabled],
+[disabled].btn-large,
+[disabled].btn-small,
+.btn-floating[disabled],
+.btn-large[disabled],
+.btn-small[disabled],
+.btn-flat[disabled]
+    pointer-events: none
+    background-color: #DFDFDF !important
+    box-shadow: none
+    color: #9F9F9F
+    cursor: default
+
+    .dark-theme &
+        background-color: lighten(colorDark(paper), 17%) !important
+
+.btn.disabled:hover,
+.disabled.btn-large:hover,
+.disabled.btn-small:hover,
+.btn-floating.disabled:hover,
+.btn-large.disabled:hover,
+.btn-small.disabled:hover,
+.btn-flat.disabled:hover,
+.btn:disabled:hover,
+.btn-large:disabled:hover,
+.btn-small:disabled:hover,
+.btn-floating:disabled:hover,
+.btn-large:disabled:hover,
+.btn-small:disabled:hover,
+.btn-flat:disabled:hover,
+.btn[disabled]:hover,
+[disabled].btn-large:hover,
+[disabled].btn-small:hover,
+.btn-floating[disabled]:hover,
+.btn-large[disabled]:hover,
+.btn-small[disabled]:hover,
+.btn-flat[disabled]:hover
+    background-color: #DFDFDF !important
+    color: #9F9F9F !important
+
+.btn,
+.btn-large,
+.btn-small,
+.btn-floating,
+.btn-large,
+.btn-small,
+.btn-flat
+    font-size: 14px
+    outline: 0
+
+.btn i,
+.btn-large i,
+.btn-small i,
+.btn-floating i,
+.btn-large i,
+.btn-small i,
+.btn-flat i
+    line-height: inherit
+
+.btn,
+.btn-large,
+.btn-small
+    text-decoration: none
+    color: #fff
+    background-color: color(main)
+    text-align: center
+    letter-spacing: .5px
+    transition: background-color .2s ease-out
+    cursor: pointer
+
+.btn:hover,
+.btn.btn-large:hover,
+.btn.btn-small:hover
+    background-color: color(main-hover)
+
+.btn-floating--wrap
+    position: fixed
+    right: 23px
+    bottom: 23px
+    padding-top: 15px
+    z-index: 997
+
+.btn-floating
+    display: inline-block
+    color: #fff
+    position: relative
+    overflow: hidden
+    z-index: 1
+    width: 40px
+    height: 40px
+    line-height: 40px
+    padding: 0
+    background-color: color(main)
+    border-radius: 50%
+    transition: background-color .3s
+    cursor: pointer
+    vertical-align: middle
+    border: none
+
+    i
+        width: inherit
+        display: inline-block
+        text-align: center
+        color: #fff
+        line-height: 40px
+
+    &:hover
+        background-color: color(main-hover)
+
+    &:before
+        border-radius: 0
+
+    &.btn-large
+        width: 56px
+        height: 56px
+        padding: 0
+
+        i
+            line-height: 56px
+
+    &.btn-small
+        width: 32.4px
+        height: 32.4px
+
+        i
+            line-height: 32.4px
+
+.btn-flat
+    box-shadow: none
+    background-color: transparent
+    color: #343434
+    cursor: pointer
+    transition: background-color .2s
+
+    &:focus, &:hover
+        box-shadow: none
+
+    &:focus
+        background-color: rgba(0, 0, 0, 0.1)
+
+    &.disabled
+        background-color: transparent !important
+        cursor: default
+        color: #bdbdbd !important
+
+        .dark-theme &
+            background-color: lighten(colorDark(paper-dark), 12%) !important
+
+.btn-large
+    height: 54px
+    line-height: 54px
+    font-size: 15px
+    padding: 0 28px
+
+    i
+        font-size: 1.6rem
+
+.btn-small
+    height: 32.4px
+    line-height: 32.4px
+    font-size: 13px
+
+    i
+        font-size: 1.2rem
+
+button:focus
+    outline: none
+
+.btn-sort
+    padding: 2px 7px
+    margin: 5px 4px
+    letter-spacing: -0.5px
+    height: 23px
+    line-height: 20px
+    text-transform: capitalize
+    font-weight: bold
+    background: transparent
+    color: color(main)
+
+    &:hover,
+    &.active
+        background: #dcdcdc
+
+        .dark-theme &
+            background: lighten(colorDark(paper), 23%)
+
+    &.active
+        transform: scale(1.05)
+
+        .dark-theme &
+            background: darken(color(main-light), 5%)
+            color: #222
+
+    .dark-theme &
+        background: lighten(colorDark(paper), 15%)
+        color: #ebebeb
+
+.btn-loading
+    position: relative
+    color: transparent !important
+
+    &:after
+        content: ""
+        width: 1rem
+        height: 1rem
+        position: absolute
+        display: block
+        top: 50%
+        left: 50%
+        margin-left: -0.5rem
+        margin-top: -0.5rem
+        border: 2px solid white
+        border-radius: 0.5rem
+        border-right-color: transparent
+        border-top-color: transparent
+        animation: fill-unfill-rotate 1s infinite linear
+
+.btn-flat.btn-loading,
+.btn-loading:disabled,
+.btn-loading.disabled
+    &:after
+        border-left-color: color(main)
+        border-bottom-color: color(main)
+
+        .dark-theme &
+            border-left-color: white
+            border-bottom-color: white

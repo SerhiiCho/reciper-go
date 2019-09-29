@@ -4,18 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Buffalo - Reciper Go</title>
-    <%= stylesheetTag("application.css") %>
+    <%= stylesheetTag("app.css") %>
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= authenticity_token %>" />
     <link rel="icon" href="<%= assetPath("images/favicon.ico") %>">
   </head>
   <body>
 
-    <div class="container">
+    <div class="container" id="app">
       <%= partial("flash.html") %>
       <%= yield %>
     </div>
 
-    <%= javascriptTag("application.js") %>
+    <%= javascriptTag("app.js") %>
   </body>
 </html>

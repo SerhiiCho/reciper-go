@@ -1,44 +1,33 @@
 {
-  "name": "buffalo",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "webpack --watch",
-    "build": "webpack -p --progress"
-  },
-  "repository": "github.com/gobuffalo/buffalo",
-  "dependencies": {
-    "bootstrap": "4.3.1",
-    "popper.js": "^1.14.4",
-    "@fortawesome/fontawesome-free": "^5.8.1",
-    "jquery": "~3.4.1",
-    "jquery-ujs": "~1.2.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-loader": "^8.0.5",
-
-    "css-loader": "~1.0.0",
-    "expose-loader": "~0.7.5",
-    "file-loader": "~2.0.0",
-    "gopherjs-loader": "^0.0.1",
-    "sass-loader": "~7.1.0",
-    "style-loader": "~0.23.0",
-    "url-loader": "~1.1.1",
-
-    "npm-install-webpack-plugin": "4.0.5",
-    "uglifyjs-webpack-plugin": "~1.3.0",
-    "mini-css-extract-plugin": "^0.4.2",
-    "webpack-clean-obsolete-chunks": "^0.4.0",
-    "copy-webpack-plugin": "~4.5.2",
-
-    "webpack": "~4.5.0",
-    "webpack-cli": "3.1.0",
-    "webpack-livereload-plugin":"2.1.1",
-    "webpack-manifest-plugin": "~2.0.0",
-    "node-sass": "~4.12.0"
-  }
+      "name": "Reciper",
+      "version": "1.0",
+      "scripts": {
+            "dev": "npm run development",
+            "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+            "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+            "watch-poll": "npm run watch -- --watch-poll",
+            "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+            "prod": "npm run production",
+            "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+      },
+      "repository": "github.com/gobuffalo/buffalo",
+      "dependencies": {
+            "chart.js": "^2.7.2",
+            "npm": "^6.9.0",
+            "vue-chartjs": "^3.4.0",
+            "vue-loader": "^15.7.1"
+      },
+      "devDependencies": {
+            "axios": "^0.19.0",
+            "babel": "^6.23.0",
+            "browser-sync": "^2.26.5",
+            "browser-sync-webpack-plugin": "^2.0.1",
+            "cross-env": "^6.0.0",
+            "css-loader": "^2.1.1",
+            "laravel-mix": "^4.0.16",
+            "sass": "^1.20.3",
+            "sass-loader": "^7.1.0",
+            "vue": "^2.6.10",
+            "vue-template-compiler": "^2.6.10"
+      }
 }

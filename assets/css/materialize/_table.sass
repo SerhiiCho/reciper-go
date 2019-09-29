@@ -1,0 +1,103 @@
+table
+    width: 100%
+    display: table
+    border-collapse: collapse
+    border-spacing: 0
+
+    tr
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+
+    td, th
+        padding: 9px 5px
+        display: table-cell
+        text-align: left
+        vertical-align: middle
+        border-radius: 2px
+
+    thead
+        background: darken(color(main-light), 5%)
+
+        .dark-theme &
+            background: darken(colorDark(paper), 4%)
+
+    &.striped tr
+        border-bottom: none
+
+    &.striped > tbody > tr > td
+        border-radius: 0
+
+    &.highlight > tbody > tr
+        transition: background-color .25s ease
+
+        &:hover
+            background-color: color(main-light)
+
+            .dark-theme &
+                background-color: colorDark(paper-dark)
+
+    & > tbody > tr:nth-child(odd)
+        background-color: color(paper-dark)
+
+        .dark-theme &
+            background-color: lighten(colorDark(paper), 3%)
+
+    &.centered thead tr th,
+    &.centered tbody tr td
+        text-align: center
+
+    .dark-theme &
+        border-bottom-color: colorDark(paper-dark)
+
+@media only screen and (max-width: $media-md)
+    table
+        &.responsive-table
+            width: 100%
+            border-collapse: collapse
+            border-spacing: 0
+            display: block
+            position: relative
+
+            td:empty:before
+                content: '\00a0'
+
+            th, td
+                margin: 0
+                vertical-align: top
+
+            th
+                text-align: left
+                display: block
+
+            thead
+                display: block
+                float: left
+                border: 0
+                border-right: 1px solid rgba(0, 0, 0, 0.12)
+
+                .dark-theme &
+                    background-color: colorDark(paper-dark)
+
+                tr
+                    display: block
+                    padding: 0 10px 0 0
+
+                    th::before
+                        content: "\00a0"
+
+            tbody
+                display: block
+                width: auto
+                position: relative
+                overflow-x: auto
+                white-space: nowrap
+
+                tr
+                    display: inline-block
+                    vertical-align: top
+                    border-bottom: none
+                    padding: 0 10px
+
+            td
+                display: block
+                min-height: 1.25em
+                text-align: left

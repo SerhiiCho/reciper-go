@@ -1,0 +1,37 @@
+$colors: (
+    main: #484074,
+    main-light: #d2cfe4,
+    main-hover: #403967,
+    main-dark: #292543,
+    paper: #fdfdfd,
+    paper-dark: #f1f1f1,
+    grey: #727272,
+    grey-dark: #262525,
+    red: #cf4545,
+    green: #1c7a20
+);
+
+$colorsDark: (
+    paper: #10171e,
+    paper-dark: #15202b,
+    main: #282c49,
+    main-dark: #181b31,
+    main-light: #514d6c,
+    grey: #8f8f8f
+);
+
+$media-phone: 481px;
+$media-sm: 601px;
+$media-md: 993px;
+$media-lg: 1201px;
+
+// Fonts
+$mainFont: Arial, Helvetica;
+$headerFont: Arial, Helvetica;
+
+$levels-colors: (
+    silver: #c0c0c0,
+    gold: #ecb613,
+    blue: #548bbe,
+    purple: #9c85d6
+);

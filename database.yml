@@ -1,11 +1,11 @@
 ---
 development:
   dialect: "mysql"
-  database: "reciper_go_development"
+  database: "reciper"
   host: "localhost"
   port: "3306"
-  user: "root"
-  password: "root"
+  user: "serhii"
+  password: "111111"
 
 test:
   dialect: "mysql"
@@ -17,11 +17,11 @@ test:
   # Note that if you use `url`, other configurations are silently ignored.
   # In this case, the URL must contain all required connection parameters.
   #
-  database: "reciper_go_test"
+  database: "reciper"
   host: "localhost"
   port: "3306"
-  user: "root"
-  password: "root"
+  user: "serhii"
+  password: "111111"
 
 production:
   #
