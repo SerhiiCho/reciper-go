@@ -72,7 +72,7 @@ func App() *buffalo.App {
 // for more information: https://gobuffalo.io/en/docs/localization
 func translations() buffalo.MiddlewareFunc {
 	var err error
-	if T, err = i18n.New(packr.New("app:locales", "../locales"), "en-US"); err != nil {
+	if T, err = i18n.New(packr.New("app:locales", "../locales"), "en"); err != nil {
 		app.Stop(err)
 	}
 	return T.Middleware()

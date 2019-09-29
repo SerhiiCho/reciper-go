@@ -1,0 +1,961 @@
+
+- id: admin.feedback_has_been_deleted
+  translation: "Отзыв успешно удален"
+- id: admin.statistics
+  translation: "Статистика"
+- id: admin.no_unapproved
+  translation: "Нет непроверенных рецептов"
+- id: approves.approved_1
+  translation: "Ура! Ваш рецепт &quot;{{ .title }}&quot; превосходен, поэтому он уже опубликован и доступен для всех посетителей. Спасибо за ваш труд, который несомненно кого-то порадует."
+- id: approves.approved_2
+  translation: "Превосходно! Ваш замечательный рецепт &quot;{{ .title }}&quot; опубликован и доступен для всех посетителей. Спасибо за это маленькое чудо."
+- id: approves.approved_3
+  translation: "Ваш рецепт &quot;{{ .title }}&quot; нам очень понравился, он опубликован и уже доступен для всех посетителей. Мы рады что вы часть нашей огромной семьи."
+- id: approves.approved_4
+  translation: "Рады вам сообщить, что ваш превосходный рецепт &quot;{{ .title }}&quot; опубликован и доступен для всех посетителей. Мы благодарны вам за то что вы пишите такие отличные рецепты."
+- id: approves.approved_5
+  translation: "Мы проверили ваш рецепт &quot;{{ .title }}&quot; и он оказался превосходным. Теперь он опубликован и доступен для всех посетителей. Мы благодарны вам за то что вы пишите такие отличные рецепты."
+- id: approves.already_approved
+  translation: "Рецепт уже опубликован"
+- id: approves.recipe_published
+  translation: "Рецепт опубликован"
+- id: approves.recipe_not_published
+  translation: "Рецепт не опубликован"
+- id: approves.message_required
+  translation: "Поле для ввода сообщения обязательно к заполнению"
+- id: approves.message_min
+  translation: "Сообщение должно быть не менее {{ .min }} символов"
+- id: approves.message_max
+  translation: "Сообщение должно быть не более {{ .max }} символов"
+- id: approves.unapproved_waiting
+  translation: "Не проверенные"
+- id: approves.unapproved_verifying
+  translation: "Проверяются"
+- id: approves.finish_checking
+  translation: "Закончите проверку рецепта"
+- id: approves.my_approves
+  translation: "Мои проверки"
+- id: approves.verifications
+  translation: "Проверочная"
+- id: approves.currently_approving
+  translation: "&lt;u&gt;&lt;b&gt;{{ .admin }}&lt;/b&gt;&lt;/u&gt; проверяет рецепт автора &lt;u&gt;&lt;b&gt;{{ .user }}&lt;/b&gt;&lt;/u&gt;"
+- id: approves.waiting_for_approves
+  translation: "Ожидает проверки..."
+- id: approves.user_verifying
+  translation: "{{ .user }} проверяет..."
+- id: approves.approve_or_not
+  translation: "Проверьте рецепт на наличие ошибок, нецензурных слов и ссылок на различные ресурсы. Также убедитесь что содержание этого рецепта не имеет негативного эффекта на читателей. Хотите опубликовать этот рецепт?"
+- id: approves.are_you_sure_to_cancel
+  translation: "Вы точно хотите вернуть этот рецепт автору на доработку?"
+- id: approves.set_message_desc
+  translation: "Изложите причину по которой рецепт не может быть опубликован, чтобы автор рецепта мог исправить ошибку"
+- id: approves.set_message
+  translation: "Введите сообщение автору рецепта"
+- id: approves.are_you_sure_to_publish
+  translation: "Подтвердите что вы хотите опубликовать этот рецепт"
+- id: auth.failed
+  translation: "Эти данные не совпадают."
+- id: auth.throttle
+  translation: "Слишком много попыток входа. Пожалуйста, попробуйте еще раз через {{ .seconds }} секунд."
+- id: auth.access_denied
+  translation: "Доступ к этой странице запрещен"
+- id: auth.access_denied_only_auth
+  translation: "Доступ к этой странице разрешен только зарегистрированным пользователям."
+- id: auth.register
+  translation: "Регистрация"
+- id: auth.logout
+  translation: "Выйти"
+- id: auth.login
+  translation: "Войти"
+- id: auth.username
+  translation: "Логин"
+- id: auth.username_desc
+  translation: "Введите ваш уникальный логин"
+- id: auth.username_string
+  translation: "Логин должен быть строкой"
+- id: auth.username_alpha_dash
+  translation: "Поле логин может содержать только латинские буквы, цифры, нижнее подчеркивание и дефис"
+- id: auth.username_regex
+  translation: "Поле логин может содержать только латинские буквы, цифры, нижнее подчеркивание и дефис"
+- id: auth.username_required
+  translation: "Поле логин обязательно к заполнению"
+- id: auth.username_min
+  translation: "Количество символов в поле Логин должно быть не менее {{ .min }}"
+- id: auth.username_max
+  translation: "Количество символов в поле Логин не может превышать {{ .max }}"
+- id: auth.username_unique
+  translation: "Такой логин уже существует"
+- id: auth.password_string
+  translation: "Пароль должен быть строкой"
+- id: auth.password_required
+  translation: "Пароль обязателен к заполнению"
+- id: auth.password_min
+  translation: "Количество символов в поле Пароль должно быть не менее {{ .min }}"
+- id: auth.password_max
+  translation: "Количество символов в поле Пароль не может превышать {{ .max }}"
+- id: auth.password_confirmed
+  translation: "Пароли не совпадают"
+- id: contact.contact_message_required
+  translation: "Поле сообщение обязательно к заполнению"
+- id: contact.contact_email_required
+  translation: "Поле для электронного адреса обязательно к заполнению"
+- id: contact.contact_email_email
+  translation: "Эл. адрес должен быть правильным адресом"
+- id: contact.contact_message_min
+  translation: "Количество символов в поле Сообщение должно быть не менее {{ .min }}"
+- id: contact.contact_message_max
+  translation: "Количество символов в поле Сообщение не может превышать {{ .max }}"
+- id: contact.sure_del_feed
+  translation: "Подтвердите что вы хотите удалить это сообщение"
+- id: contact.intro
+  translation: "Если у вас есть просьбы или возражения в адрес нашей работы, мы всегда готовы выслушать ваше мнение или замечание. Для этого мы создали эту страницу, на которой вы имеете возможность отправить нам сообщение, которое мы обязательно прочтем и предпримем необходимые меры."
+- id: date.ago
+  translation: "назад"
+- id: date.online
+  translation: "В сети"
+- id: date.less_than_hour
+  translation: "меньше часа"
+- id: date.second
+  translation: "секунда"
+- id: date.seconds
+  translation: "секунды"
+- id: date.seconds2
+  translation: "секунд"
+- id: date.minute
+  translation: "минута"
+- id: date.minutes
+  translation: "минуты"
+- id: date.minutes2
+  translation: "минут"
+- id: date.hour
+  translation: "час"
+- id: date.hours
+  translation: "часа"
+- id: date.hours2
+  translation: "часов"
+- id: date.day
+  translation: "день"
+- id: date.days
+  translation: "дня"
+- id: date.days2
+  translation: "дней"
+- id: date.week
+  translation: "неделя"
+- id: date.weeks
+  translation: "недели"
+- id: date.weeks2
+  translation: "недель"
+- id: date.month
+  translation: "месяц"
+- id: date.months
+  translation: "месяца"
+- id: date.months2
+  translation: "месяцев"
+- id: date.year
+  translation: "год"
+- id: date.years
+  translation: "года"
+- id: date.years2
+  translation: "лет"
+- id: date.decade
+  translation: "десятилетие"
+- id: date.decades
+  translation: "десятилетия"
+- id: date.decades2
+  translation: "десятилетий"
+- id: date.month_1
+  translation: "Январь"
+- id: date.month_2
+  translation: "Февраль"
+- id: date.month_3
+  translation: "Март"
+- id: date.month_4
+  translation: "Апрель"
+- id: date.month_5
+  translation: "Май"
+- id: date.month_6
+  translation: "Июнь"
+- id: date.month_7
+  translation: "Июль"
+- id: date.month_8
+  translation: "Август"
+- id: date.month_9
+  translation: "Сентябрь"
+- id: date.month_10
+  translation: "Октябрь"
+- id: date.month_11
+  translation: "Ноябрь"
+- id: date.month_12
+  translation: "Декабрь"
+- id: documents.documents
+  translation: "Документы"
+- id: documents.terms
+  translation: "Пользовательское Соглашение"
+- id: documents.info
+  translation: "Информация"
+- id: errors.401
+  translation: "Ошибка 401"
+- id: errors.401_title
+  translation: "Не авторизован"
+- id: errors.401_description
+  translation: "Доступ к этой странице требует авторизацию"
+- id: errors.403
+  translation: "Ошибка 403"
+- id: errors.403_title
+  translation: "Запрещено"
+- id: errors.403_description
+  translation: "Сервер понял запрос, но отказывается его выполнять. Авторизация не поможет, и запрос НЕ ДОЛЖЕН повториться."
+- id: errors.419
+  translation: "Ошибка 419"
+- id: errors.419_title
+  translation: "Время ожидания сессии истекло"
+- id: errors.419_description
+  translation: "Извините, но время ожидания сессии истекло. Обновите страницу и попробуйте еще"
+- id: errors.404
+  translation: "Ошибка 404"
+- id: errors.404_title
+  translation: "Страница не найдена"
+- id: errors.404_description
+  translation: "Страница на которую вы хотели перейти не найдена"
+- id: errors.500
+  translation: "Ошибка 500"
+- id: errors.500_title
+  translation: "Ошибка сервера"
+- id: errors.500_description
+  translation: "Приносим извинения. Что-то пошло не так на сервере, мы не можем быть конкретными в определении проблемы но мы сейчас работаем над ее устранением."
+- id: errors.503_title
+  translation: "Обслуживание сайта"
+- id: errors.503_description
+  translation: "В настоящее время сервер не может обработать запрос из-за временного обслуживания сайта. Это временно, и вскоре связь будет восстановлена"
+- id: feedback.feedback
+  translation: "Обратная связь"
+- id: feedback.report
+  translation: "Жалоба"
+- id: feedback.contact_us
+  translation: "Связь с нами"
+- id: feedback.report_recipe
+  translation: "Жалоба на рецепт"
+- id: feedback.report_message_desc
+  translation: "Если вы имеете замечание либо жалобу на данный рецепт, опишите свою претензию ниже в поле для ввода сообщения, и мы незамедлительно разберемся в этой ситуации."
+- id: feedback.success_message
+  translation: "Мы получили ваше сообщение. Спасибо за ваше время, мы его несомненно ценим."
+- id: feedback.operation_denied
+  translation: "Сообщение можно отправлять не чаще чем раз в день"
+- id: feedback.already_reported_today
+  translation: "Вы уже отправляли жалобу на данный рецепт"
+- id: forms.name
+  translation: "Имя"
+- id: forms.pwd
+  translation: "Пароль"
+- id: forms.add
+  translation: "Добавить"
+- id: forms.save
+  translation: "Сохранить"
+- id: forms.email
+  translation: "Эл. адрес"
+- id: forms.deleting
+  translation: "Удалить"
+- id: forms.message
+  translation: "Сообщение"
+- id: forms.new_pwd
+  translation: "Новый пароль"
+- id: forms.select_file
+  translation: "Выбрать файл"
+- id: forms.cancel
+  translation: "Отмена"
+- id: forms.change_pwd
+  translation: "Изменение пароля"
+- id: forms.current_pwd
+  translation: "Ваш текущий пароль"
+- id: forms.repeat_new_pwd
+  translation: "Повторите новый пароль"
+- id: forms.send
+  translation: "Отправить"
+- id: forms.agree_to_terms
+  translation: "Нажимая кнопку &quot;{{ .btn }}&quot; вы принимаете условия указанные в &lt;a href=&quot;/docs/terms/&quot; class=&quot;text&quot; style=&quot;text-decoration{{ .underline }}&quot; target=&quot;_blank&quot;&gt;Пользовательском соглашении&lt;/a&gt;"
+- id: forms.forgot_pwd
+  translation: "Забыли пароль?"
+- id: forms.remember_me
+  translation: "Запомнить меня"
+- id: forms.pwd_confirm
+  translation: "Повторите пароль"
+- id: forms.message_desc
+  translation: "Это поле для вашего сообщения"
+- id: forms.name_desc
+  translation: "Вы можете указать ваше имя или псевдоним как вам удобно. Имя которое вы укажете будет отображаться на всех ваших рецептах и на личной странице. Имя можно изменить в любое время в настройках. Пример: Александра Македонская"
+- id: forms.email_desc
+  translation: "Введите адрес вашей электронной почты."
+- id: forms.pwd_desc
+  translation: "Введите придуманный вами пароль. Он нужен будет вам для входа в ваш личный кабинет. Пароль является подтверждением вашей личности, чтоб никто крове вас не мог получить доступ к редактированию ваших рецептов. Внимание! Ваш пароль должен быть надёжным, для этого он должен содержать символы, буквы и цифры."
+- id: forms.pwd2_desc
+  translation: "Введите пароль повторно чтобы убедиться что вы не допустили ошибок"
+- id: home.home
+  translation: "Главная"
+- id: home.to_home
+  translation: "На главную"
+- id: home.last_recipes
+  translation: "Последние рецепты"
+- id: home.breakfast
+  translation: "завтрак"
+- id: home.lunch
+  translation: "обед"
+- id: home.dinner
+  translation: "ужин"
+- id: home.or
+  translation: "или"
+- id: home.show_simple_recipes
+  translation: "Показать простые рецепты"
+- id: home.add_your_recipe
+  translation: "Написать свой рецепт"
+- id: logs.path_to_file
+  translation: "Путь к файлу"
+- id: logs.all_errors
+  translation: "Кол-во ошибок"
+- id: logs.open_file
+  translation: "Открыть файл"
+- id: logs.download_file
+  translation: "Скачать файл"
+- id: logs.delete_file
+  translation: "Удалить файл"
+- id: logs.file_size
+  translation: "Размер файла"
+- id: logs.created_at
+  translation: "Дата создания"
+- id: logs.updated_at
+  translation: "Дата обновления"
+- id: logs.confirm
+  translation: "Вы точно хотите удалить файл за {{ .date }} число?"
+- id: logs.page_is_not_avail
+  translation: "Эта страница доступна только для пользователей с определенными правами"
+- id: logs.deleted
+  translation: "Запись удалена"
+- id: manage-users.ban
+  translation: "Заблокировать"
+- id: manage-users.unban
+  translation: "Разблокировать"
+- id: manage-users.manage-users
+  translation: "Управление пользователями"
+- id: manage-users.management
+  translation: "Управление"
+- id: manage-users.manage
+  translation: "Управлять"
+- id: manage-users.are_you_sure_to_ban
+  translation: "Вы уверены что хотите заблокировать этого пользователя?"
+- id: manage-users.are_you_sure_to_unban
+  translation: "Вы уверены что хотите блокировать этого пользователя?"
+- id: manage-users.days
+  translation: "Дни"
+- id: manage-users.what_reason_to_ban
+  translation: "Укажите причину по которой пользователю будет закрыт доступ, и кол-во дней в течении которых у пользователя ограниченный доступ к сайту"
+- id: manage-users.active_users
+  translation: "Активные пользователи"
+- id: manage-users.inactive_users
+  translation: "Не активные пользователи"
+- id: manage-users.banned_users
+  translation: "Заблокированные пользователи"
+- id: manage-users.user_banned
+  translation: "Пользователь был заблокирован. Количество дней на которые пользователь заблокирован: {{ .days }}"
+- id: manage-users.user_unbanned
+  translation: "Пользователь разблокирован"
+- id: manage-users.user_already_banned
+  translation: "Вы не можете заблокировать этого пользователя так как он уже заблокирован"
+- id: manage-users.days_required
+  translation: "Укажите количество дней на которые вы хотите заблокировать пользователя"
+- id: manage-users.days_numeric
+  translation: "Дни нужно указать числами"
+- id: manage-users.message_required
+  translation: "Поле для ввода сообщения обязательно к заполнению"
+- id: manage-users.message_min
+  translation: "Количество символов в поле Сообщение должно быть не менее {{ .min }}"
+- id: manage-users.message_max
+  translation: "Количество символов в поле Сообщение не может превышать {{ .max }}"
+- id: messages.yes
+  translation: "Да"
+- id: messages.no
+  translation: "Нет"
+- id: messages.on
+  translation: "вкл."
+- id: messages.off
+  translation: "откл."
+- id: messages.go
+  translation: "Перейти"
+- id: messages.back
+  translation: "Назад"
+- id: messages.app_name
+  translation: "Ресипёр"
+- id: messages.no_messages
+  translation: "Нет сообщений"
+- id: messages.dark_mode
+  translation: "Ночной режим"
+- id: messages.download
+  translation: "Скачать"
+- id: messages.print
+  translation: "Печать"
+- id: messages.open
+  translation: "Открыть"
+- id: messages.edit
+  translation: "Изменить"
+- id: messages.published
+  translation: "Опубликованные"
+- id: messages.drafts
+  translation: "Черновики"
+- id: messages.sent
+  translation: "Отправлено"
+- id: messages.message
+  translation: "Сообщение"
+- id: messages.senders_number
+  translation: "Номер отправителя"
+- id: messages.u_need_to_login
+  translation: "Вам нужно авторизоваться"
+- id: messages.email_confirmation
+  translation: "Подтверждение эл. адреса"
+- id: messages.confirm_email_message
+  translation: "Для того чтобы подтвердить адрес эл. почты на Ресипер нажмите на кнопку ниже"
+- id: messages.in_ru
+  translation: "На русском"
+- id: messages.in_en
+  translation: "На английском"
+- id: messages.mail_footer
+  translation: "С уважением комманда Ресипер"
+- id: messages.general
+  translation: "Общая"
+- id: messages.favorites
+  translation: "Избранное"
+- id: messages.login_to_add_recipe
+  translation: "Для того чтобы добавить рецепт вы должны быть авторизованы. Пожалуйста войдите на свою страницу, либо зарегистрируйтесь."
+- id: messages.sure_to_logout
+  translation: "Вы точно хотите выйти с вашей страницы?"
+- id: messages.adminka
+  translation: "Админка"
+- id: messages.error
+  translation: "Ошибка"
+- id: messages.success
+  translation: "Выполнено"
+- id: messages.query_error
+  translation: "Некоторые данные невозможно отобразить"
+- id: messages.congrats_streak_days
+  translation: "&lt;i class=&quot;fas fa-fire left&quot; style=&quot;color{{ .orangered }}&quot;&gt;&lt;/i&gt; + {{ .xp }} опыта за ударный режим"
+- id: messages.edit_item
+  translation: "Изменить {{ .item }}"
+- id: messages.help
+  translation: "Помощь"
+- id: messages.created_at
+  translation: "Дата создания"
+- id: messages.updated_at
+  translation: "Дата обновления"
+- id: notifications.notifications
+  translation: "Оповещения"
+- id: notifications.no_notifs
+  translation: "Нет оповещений"
+- id: notifications.you_got_points
+  translation: "Ваш опыт вырос на {{ .points }} очков"
+- id: pages.navigation
+  translation: "Навигация"
+- id: pages.statistics
+  translation: "Статистика"
+- id: pages.search_details
+  translation: "Что искать?"
+- id: pages.search
+  translation: "Поиск"
+- id: pages.title_footer
+  translation: "При копировании любых материалов с сайта активная ссылка на этот сайт обязательна."
+- id: pages.nothing_found
+  translation: "Ничего не найдено"
+- id: pages.use_search
+  translation: "Воспользуйтесь поиском чтобы найти рецепты или ингредиенты"
+- id: pagination.previous
+  translation: "Назад"
+- id: pagination.next
+  translation: "Вперед"
+- id: passwords.password
+  translation: "Пароль должен быть не менее 8 символов и совпадать с подтверждением."
+- id: passwords.reset
+  translation: "Ваш пароль был сброшен!"
+- id: passwords.sent
+  translation: "Ссылка на сброс пароля была отправлена!"
+- id: passwords.token
+  translation: "Ошибочный код сброса пароля"
+- id: passwords.user
+  translation: "Не удалось найти пользователя с указанным электронным адресом"
+- id: passwords.reset_pwd
+  translation: "Сбросить пароль"
+- id: passwords.new_pwd
+  translation: "Новый пароль"
+- id: passwords.repeat_new_pwd
+  translation: "Повторите новый пароль"
+- id: passwords.sent_code
+  translation: "Отправить код сброса пароля"
+- id: passwords.sent_code_desc
+  translation: "После отправки этой формы, на вашу электронную почту придёт сообщение с ссылкой на сброс пароля, перейдя по этой ссылке, вы попадете на страницу где сможете ввести свой новый пароль."
+- id: passwords.we_got_request
+  translation: "Мы получили запрос на восстановление пароля для пользователя {{ .username }}, указавшего в настройках этот адрес электронной почты. Для сброса пароля нажмите кнопку ниже"
+- id: passwords.ignore_if_not_you
+  translation: "Если вы не делали никаких запросов и получили это сообщение по ошибке, просто проигнорируйте это письмо."
+- id: recipers.recipers
+  translation: "Ресипёры"
+- id: recipers.my_account
+  translation: "Моя страница"
+- id: recipers.all_recipers
+  translation: "Все Ресипёры"
+- id: recipers.most_viewed_recipe
+  translation: "Самый просматриваемый рецепт"
+- id: recipers.most_liked_recipe
+  translation: "Самый популярный рецепт"
+- id: recipers.most_favorite_recipe
+  translation: "Самый избранный рецепт"
+- id: recipers.next_streak_day
+  translation: "Часов осталось до след. ударного дня"
+- id: recipers.go_to_recipe
+  translation: "Перейти к рецепту"
+- id: recipers.go_to_profile
+  translation: "К странице"
+- id: recipers.no_recipes_yet
+  translation: "У вас пока нет рецептов"
+- id: recipers.no_recipes
+  translation: "Нет рецептов"
+- id: recipers.all_recipes
+  translation: "Всего рецептов"
+- id: recipers.reciper_doesnt_have_recipes
+  translation: "У этого Ресипёра нет пока рецептов"
+- id: recipers.amount_of_views
+  translation: "Кол-во просмотров"
+- id: recipers.amount_of_likes
+  translation: "Кол-во полученных сердечек"
+- id: recipers.amount_of_favs
+  translation: "Кол-во полученных звезд"
+- id: recipers.exp_of_reciper
+  translation: "Опыт Ресипёра"
+- id: recipers.popularity_of_reciper
+  translation: "Очки популярности Ресипёра"
+- id: recipers.reciper
+  translation: "Ресипёр"
+- id: recipers.streak_days
+  translation: "Дней в ударном режиме"
+- id: recipers.popularity_chart
+  translation: "График популярности"
+- id: recipers.likes
+  translation: "Сердца"
+- id: recipers.thousand
+  translation: "тыс."
+- id: recipers.million
+  translation: "млн."
+- id: recipers.billion
+  translation: "млд."
+- id: recipers.trillion
+  translation: "трн."
+- id: recipers.xp
+  translation: "Опыт"
+- id: recipers.level
+  translation: "Уровень"
+- id: recipers.popularity
+  translation: "Популярность"
+- id: recipers.views
+  translation: "Просмотры"
+- id: recipers.reciper_is_not_active
+  translation: "Этот Ресипёр деактивировал свою страницу"
+- id: recipers.activate_account_desc
+  translation: "Количество дней до полного удалениия страницы: {{ .days }}. Если вы хотите восстановить ваши данные, нажмите кнопку ниже."
+- id: recipers.recover
+  translation: "Восстановить"
+- id: recipers.are_you_sure_to_recover
+  translation: "Подтвердите востановление вашей страницы"
+- id: recipers.we_missed_you
+  translation: "Мы скучали за вами"
+- id: recipers.account_recovered
+  translation: "&lt;i class=&quot;fas fa-heart red-text left&quot;&gt;&lt;/i&gt; Ура! Страница восстановлена, добро пожаловать в семью"
+- id: recipers.reciper_found
+  translation: "Ресипёр найден"
+- id: recipers.reciper_not_found
+  translation: "Ресипёр не найден"
+- id: recipers.account_deactivate
+  translation: "Ваша страница деактивирована"
+- id: recipes.new_recipe
+  translation: "Новый рецепт"
+- id: recipes.add_recipe
+  translation: "Добавить рецепт"
+- id: recipes.my_recipes
+  translation: "Мои рецепты"
+- id: recipes.popular
+  translation: "Популярные"
+- id: recipes.last
+  translation: "Последние"
+- id: recipes.show_menu
+  translation: "Показать меню"
+- id: recipes.next
+  translation: "Далее"
+- id: recipes.watched
+  translation: "Просмотренные"
+- id: recipes.added_to_favs
+  translation: "Рецепт добавлен в избранное"
+- id: recipes.deleted_from_favs
+  translation: "Рецепт удален с избранного"
+- id: recipes.add_to_favs
+  translation: "Добавить в избранное"
+- id: recipes.remove_from_favs
+  translation: "Удалить с избранного"
+- id: recipes.loved
+  translation: "Любимые"
+- id: recipes.title
+  translation: "Название"
+- id: recipes.name_for_recipe
+  translation: "Укажите название рецепта"
+- id: recipes.min
+  translation: "мин"
+- id: recipes.intro
+  translation: "Описание"
+- id: recipes.categories_title
+  translation: "Категории"
+- id: recipes.short_intro
+  translation: "Краткое описание рецепта"
+- id: recipes.search_by_author
+  translation: "Показать все рецепты этого автора"
+- id: recipes.ingredients
+  translation: "Ингредиенты"
+- id: recipes.text_of_recipe
+  translation: "Процесс приготовления"
+- id: recipes.category
+  translation: "Категория"
+- id: recipes.categories
+  translation: "Категории"
+- id: recipes.time
+  translation: "Время приготовления"
+- id: recipes.meal_desc
+  translation: "Время приема блюда"
+- id: recipes.image
+  translation: "Изображение"
+- id: recipes.recipes
+  translation: "Рецепты"
+- id: recipes.all_recipes
+  translation: "Все рецепты"
+- id: recipes.amount_of_recipes
+  translation: "Кол-во рецептов"
+- id: recipes.like
+  translation: "Нравится"
+- id: recipes.dislike
+  translation: "Не нравится"
+- id: recipes.simple
+  translation: "Простые"
+- id: recipes.added
+  translation: "Добавлено"
+- id: recipes.more
+  translation: "Еще рецепты"
+- id: recipes.are_you_sure_to_delete
+  translation: "Вы точно хотите удалить этот рецепт?"
+- id: recipes.are_you_sure_to_draft
+  translation: "Ваш рецепт не будет доступен для посетителей после переноса его в черновики. Вы точно хотите поместить этот рецепт в черновики?"
+- id: recipes.status
+  translation: "Статус"
+- id: recipes.checked
+  translation: "Проверен"
+- id: recipes.not_ready
+  translation: "Не готов"
+- id: recipes.verifying
+  translation: "Проверяется"
+- id: recipes.want_to_switch_lang
+  translation: "Для того чтобы перевести рецепт на английский язык вам нужно сменить язык язык сайта. Сменить язык на ангийский?"
+- id: recipes.no_rights_to_see
+  translation: "У вас нет права просматривать этот рецепт, так как он еще не опубликован"
+- id: recipes.not_written
+  translation: "Этот рецепт находится в процессе написания"
+- id: recipes.not_approved
+  translation: "Этот рецепт еще не проверен"
+- id: recipes.cant_draft
+  translation: "У вас нет прав на редактирование этого рецепта"
+- id: recipes.added_to_approving
+  translation: "Рецепт добавлен на рассмотрение и будет опубликован после одобрения администрацией"
+- id: recipes.saved
+  translation: "Рецепт сохранен в черновики"
+- id: recipes.you_gave_recipe_back_on_editing
+  translation: "Вы вернули рецепт на повторное редактирование"
+- id: recipes.deleted_fail
+  translation: "Произошла ошибка во время удаления рецепта"
+- id: recipes.title_required
+  translation: "Название рецепта обязательно к заполнению"
+- id: recipes.title_min
+  translation: "Количество символов в поле Название должно быть не менее {{ .min }}"
+- id: recipes.title_max
+  translation: "Количество символов в поле Название не может превышать {{ .max }}"
+- id: recipes.intro_min
+  translation: "Количество символов в поле Краткое описание должно быть не менее {{ .min }}"
+- id: recipes.intro_max
+  translation: "Количество символов в поле Краткое описание не может превышать {{ .max }}"
+- id: recipes.ingredients_min
+  translation: "Количество символов в поле Ингредиенты описание должно быть не менее {{ .min }}"
+- id: recipes.ingredients_max
+  translation: "Количество символов в поле Ингредиенты не может превышать {{ .max }}"
+- id: recipes.text_min
+  translation: "Количество символов в поле приготовление не должно быть менее {{ .min }} символов"
+- id: recipes.text_max
+  translation: "Количество символов в поле приготовление не должно быть более {{ .max }} символов"
+- id: recipes.categories_required
+  translation: "Рецепт должен иметь хотя бы одну категорию"
+- id: recipes.categories_distinct
+  translation: "Категории должны быть разными, удалите повторяющиеся категории"
+- id: recipes.categories_between
+  translation: "У рецепта должна быть категория"
+- id: recipes.categories_numeric
+  translation: "Поля выбора категорий должны содержать только предложенные варианты"
+- id: recipes.meal_numeric
+  translation: "Поле Время приема должно быть числом"
+- id: recipes.meal_between
+  translation: "Поле Время приема должно содержать один из предложенных вариантов"
+- id: recipes.time_numeric
+  translation: "Время должно быть числом"
+- id: recipes.time_between
+  translation: "Время должно быть числом между {{ .min }} и {{ .max }}"
+- id: recipes.image_mimes
+  translation: "Изображение должно быть файлом изображения в форматах: {{ .values }}"
+- id: recipes.image_max
+  translation: "Максимальный допустимый объем изображения {{ .max }} кбайт"
+- id: register.scene_add_account
+  translation: "Создайте персональную страницу за 10 секунд. Просто введите желаемый логин и пароль"
+- id: register.scene_add_recipe
+  translation: "Добавляйте рецепты в удобном интерфейсе с возможностью сохранения и предосмотром рецепта"
+- id: register.scene_translate
+  translation: "Переведите свой рецепт на другой язык и сделайте его открытым для всего мира"
+- id: register.scene_watch_stats
+  translation: "Вам доступна подробная статистика ваших рецептов в разделе статистики"
+- id: settings.saved
+  translation: "Настройки сохранены"
+- id: settings.pwd_wrong
+  translation: "Неверный пароль"
+- id: settings.photo_deleted
+  translation: "Фото успешно удалено"
+- id: settings.saved_now_verify_email
+  translation: "Эл. адрес сохранен. Для того чтобы подтвердить этот эл. адрес, мы отправили сообщение на вашу эл. почту с кодом подтверждения"
+- id: settings.email_is_empty
+  translation: "Поле Эл. адрес очищено"
+- id: settings.email_verified
+  translation: "Эл. адрес успешно подтвержден"
+- id: settings.general
+  translation: "Общее"
+- id: settings.general_desc
+  translation: "Изменить имя, пароль или статус"
+- id: settings.photo
+  translation: "Фотография"
+- id: settings.photo_desc
+  translation: "Поменять фотографию страницы"
+- id: settings.settings
+  translation: "Настройки"
+- id: settings.status
+  translation: "Статус"
+- id: settings.settings_photo
+  translation: "Настройки фото"
+- id: settings.choose_photo
+  translation: "Здесь вы можете выбрать фото, которое будет отображаться на вашей странице и во всех ваших рецептах. Для этого наведите на фото и нажмите кнопку &quot;{{ .btn }}&quot; чтобы выбрать файл."
+- id: settings.reciper_name
+  translation: "Имя ресипёра"
+- id: settings.there_are_no_file
+  translation: "Для начала выберите файл"
+- id: settings.delete_account
+  translation: "Удалить страницу"
+- id: settings.delete_account_desc
+  translation: "Для подтверждения удаления страницы, введите ваш текущий пароль и нажмите удалить. Ваша страница будет деактивирована без потери данных. Вы можете восстановить доступ к странице в течении 30 дней после удаления. По истечению срока ваша страница будет удаленна безвозвратно."
+- id: settings.are_you_sure_to_deactivate
+  translation: "Нам будет вас не хватать 😢 Вы точно хотите деактивировать страницу?"
+- id: settings.email_change_once_per_week
+  translation: "Эл. адрес можно менять только раз в неделю"
+- id: settings.verified
+  translation: "&lt;i class=&quot;fas fa-check&quot;&gt;&lt;/i&gt; Эл. адрес подтвержден!"
+- id: settings.not_verified
+  translation: "&lt;i class=&quot;fas fa-times&quot;&gt;&lt;/i&gt; Эл. адрес не подтвержден!"
+- id: settings.token_required
+  translation: "Токен верификации не обнаружен"
+- id: settings.photo_image
+  translation: "Файл не является изображением"
+- id: settings.photo_max
+  translation: "Изображение не должно превышать {{ .max }} Кбайт"
+- id: settings.photo_uploaded
+  translation: "Загрузка не удалась, возможно это связано с большим расширением, изображение не должно превышать 1999 Кбайт"
+- id: settings.photo_mimes
+  translation: "Изображение должно быть только в форматах {{ .values }}"
+- id: settings.name_min
+  translation: "Имя должно быть хотя бы {{ .min }} символов"
+- id: settings.name_max
+  translation: "Имя не должно превышать {{ .max }} символов"
+- id: settings.about_me_max
+  translation: "Поле &quot;Обо мне&quot; не должно превышать {{ .max }} символов"
+- id: settings.old_pwd_required
+  translation: "Старый пароль обязателен к заполнению"
+- id: settings.old_pwd_string
+  translation: "Старый пароль должен быть строкой"
+- id: settings.pwd_required
+  translation: "Пароль обязателен к заполнению"
+- id: settings.pwd_string
+  translation: "Пароль должен быть строкой"
+- id: settings.pwd_min
+  translation: "Пароль должен иметь хотя бы {{ .min }} символов"
+- id: settings.pwd_max
+  translation: "Пароль должен иметь не более {{ .max }} символов"
+- id: settings.pwd_confirmed
+  translation: "Пароли не совпадают"
+- id: settings.email_max
+  translation: "Эл. адрес не должен превышать {{ .max }} символов"
+- id: settings.email_email
+  translation: "Эл. адрес должен иметь правильный формат"
+- id: settings.email_unique
+  translation: "Пользователь с таким эл. адресом уже существует"
+- id: tips.view
+  translation: "Просмотреть"
+- id: tips.publish
+  translation: "Опубликовать"
+- id: tips.add_to_drafts
+  translation: "В черновики"
+- id: tips.likes_tip
+  translation: "Сердца: {{ .value }}"
+- id: tips.rating_tip
+  translation: "Популярность: {{ .value }}"
+- id: tips.views_tip
+  translation: "Просмотры: {{ .value }}"
+- id: tips.remember_info
+  translation: "Поставьте галочку если вы не хотите заполнять эту форму каждый раз когда хотите войти на свою страницу"
+- id: tips.email_settings_tip
+  translation: "Ваша эл. почта нужна только для случая если вы забудете пароль, то у вас будет возможность восстановить доступ к вашей странице."
+- id: tips.your_translation
+  translation: "Ваш перевод"
+- id: tips.recipes_text
+  translation: "Опишите процесс приготовления блюда по пунктам, используя кнопку Ввод (Enter) для отделения пунктов друг от друга. Пример: &lt;br&gt;После того как морковь почищена, натираем ее на терке (Enter)&lt;br&gt;В натертую морковь добавляем 1 чайную ложку соли, пол чайной ложки сахара и 3 капли уксуса."
+- id: tips.recipes_ingredients
+  translation: "Укажите все ингредиенты блюда. После каждого ингредиента нажимайте кнопку Ввод (Enter) чтобы разделить их на строки. Пример:&lt;br&gt;1 кг моркови (Enter)&lt;br&gt;1 маленькая луковица (Enter)&lt;br&gt;1 зубчик чеснока"
+- id: tips.recipes_intro
+  translation: "В этом поле укажите краткое описание рецепта. Пример:&lt;br&gt;Самый простой рецепт манной каши на молоке, который вы можете только найти. Конечно после того как каша готова мы можем добавить в нее например варенья или простых ягод, тем самым украшая и обогащая ее вкус."
+- id: tips.recipes_meal
+  translation: "Лучшее время для приема вашего блюда. &lt;br&gt;Завтрак - это заряд бодрости. На завтрак обычно едят зерновые и молочные продукты, яйца, фрукты, напитки. Обед должен быть сытным и нежирным. Обычно в обед едят каши, мясо или рыбу, первые блюда (супы, борщи), овощи. Ужин - это вечерняя трапеза. Для ужина подходит мяснысные и рыбные блюда, овощи."
+- id: tips.recipes_time
+  translation: "Время приготовления включает в себя только само приготовление. Например настаивание теста не учитывается, но время приготовления и запекания учитывается."
+- id: validation.accepted
+  translation: "Вы должны принять {{ .attribute }}."
+- id: validation.active_url
+  translation: "Поле {{ .attribute }} содержит недействительный URL."
+- id: validation.after
+  translation: "В поле {{ .attribute }} должна быть дата после {{ .date }}."
+- id: validation.after_or_equal
+  translation: "В поле {{ .attribute }} должна быть дата после или равняться {{ .date }}."
+- id: validation.alpha
+  translation: "Поле {{ .attribute }} может содержать только буквы."
+- id: validation.alpha_dash
+  translation: "Поле {{ .attribute }} может содержать только буквы, цифры и дефис."
+- id: validation.alpha_num
+  translation: "Поле {{ .attribute }} может содержать только буквы и цифры."
+- id: validation.array
+  translation: "Поле {{ .attribute }} должно быть массивом."
+- id: validation.before
+  translation: "В поле {{ .attribute }} должна быть дата до {{ .date }}."
+- id: validation.before_or_equal
+  translation: "В поле {{ .attribute }} должна быть дата до или равняться {{ .date }}."
+- id: validation.between
+  translation: "Длина цифрового поля {{ .attribute }} должна быть между {{ .min }} и {{ .max }}."
+- id: validation.boolean
+  translation: "Поле {{ .attribute }} должно иметь значение логического типа."
+- id: validation.confirmed
+  translation: "Поле {{ .attribute }} не совпадает с подтверждением."
+- id: validation.date
+  translation: "Поле {{ .attribute }} не является датой."
+- id: validation.date_format
+  translation: "Поле {{ .attribute }} не соответствует формату {{ .format }}."
+- id: validation.different
+  translation: "Поля {{ .attribute }} и {{ .other }} должны различаться."
+- id: validation.digits
+  translation: "Длина цифрового поля {{ .attribute }} должна быть {{ .digits }}."
+- id: validation.dimensions
+  translation: "Поле {{ .attribute }} имеет недопустимые размеры изображения."
+- id: validation.distinct
+  translation: "Поле {{ .attribute }} содержит повторяющееся значение."
+- id: validation.email
+  translation: "Поле {{ .attribute }} должно быть действительным электронным адресом."
+- id: validation.file
+  translation: "Поле {{ .attribute }} должно быть файлом."
+- id: validation.filled
+  translation: "Поле {{ .attribute }} обязательно для заполнения."
+- id: validation.exists
+  translation: "Выбранное значение для {{ .attribute }} некорректно."
+- id: validation.image
+  translation: "Поле {{ .attribute }} должно быть изображением."
+- id: validation.in
+  translation: "Выбранное значение для {{ .attribute }} ошибочно."
+- id: validation.in_array
+  translation: "Поле {{ .attribute }} не существует в {{ .other }}."
+- id: validation.integer
+  translation: "Поле {{ .attribute }} должно быть целым числом."
+- id: validation.ip
+  translation: "Поле {{ .attribute }} должно быть действительным IP-адресом."
+- id: validation.ipv4
+  translation: "Поле {{ .attribute }} должно быть действительным IPv4-адресом."
+- id: validation.ipv6
+  translation: "Поле {{ .attribute }} должно быть действительным IPv6-адресом."
+- id: validation.json
+  translation: "Поле {{ .attribute }} должно быть JSON строкой."
+- id: validation.max.numeric
+  translation: "Поле {{ .attribute }} не может быть более {{ .max }}."
+- id: validation.max.file
+  translation: "Размер файла в поле {{ .attribute }} не может быть более {{ .max }} Килобайт(а)."
+- id: validation.max.string
+  translation: "Количество символов в поле {{ .attribute }} не может превышать {{ .max }}."
+- id: validation.max.array
+  translation: "Количество элементов в поле {{ .attribute }} не может превышать {{ .max }}."
+- id: validation.mimes
+  translation: "Поле {{ .attribute }} должно быть файлом одного из следующих типов: {{ .values }}."
+- id: validation.mimetypes
+  translation: "Поле {{ .attribute }} должно быть файлом одного из следующих типов: {{ .values }}."
+- id: validation.min.numeric
+  translation: "Поле {{ .attribute }} должно быть не менее {{ .min }}."
+- id: validation.min.file
+  translation: "Размер файла в поле {{ .attribute }} должен быть не менее {{ .min }} Килобайт(а)."
+- id: validation.min.string
+  translation: "Количество символов в поле {{ .attribute }} должно быть не менее {{ .min }}."
+- id: validation.min.array
+  translation: "Количество элементов в поле {{ .attribute }} должно быть не менее {{ .min }}."
+- id: validation.not_in
+  translation: "Выбранное значение для {{ .attribute }} ошибочно."
+- id: validation.numeric
+  translation: "Поле {{ .attribute }} должно быть числом."
+- id: validation.present
+  translation: "Поле {{ .attribute }} должно присутствовать."
+- id: validation.regex
+  translation: "Поле {{ .attribute }} имеет ошибочный формат."
+- id: validation.required
+  translation: "Поле {{ .attribute }} обязательно для заполнения."
+- id: validation.required_if
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда {{ .other }} равно {{ .value }}."
+- id: validation.required_unless
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда {{ .other }} не равно {{ .values }}."
+- id: validation.required_with
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда {{ .values }} указано."
+- id: validation.required_with_all
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда {{ .values }} указано."
+- id: validation.required_without
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда {{ .values }} не указано."
+- id: validation.required_without_all
+  translation: "Поле {{ .attribute }} обязательно для заполнения, когда ни одно из {{ .values }} не указано."
+- id: validation.same
+  translation: "Значение {{ .attribute }} должно совпадать с {{ .other }}."
+- id: validation.size.numeric
+  translation: "Поле {{ .attribute }} должно быть равным {{ .size }}."
+- id: validation.size.file
+  translation: "Размер файла в поле {{ .attribute }} должен быть равен {{ .size }} Килобайт(а)."
+- id: validation.size.string
+  translation: "Количество символов в поле {{ .attribute }} должно быть равным {{ .size }}."
+- id: validation.size.array
+  translation: "Количество элементов в поле {{ .attribute }} должно быть равным {{ .size }}."
+- id: validation.string
+  translation: "Поле {{ .attribute }} должно быть строкой."
+- id: validation.timezone
+  translation: "Поле {{ .attribute }} должно быть действительным часовым поясом."
+- id: validation.unique
+  translation: "Такое значение поля {{ .attribute }} уже существует."
+- id: validation.uploaded
+  translation: "Загрузка поля {{ .attribute }} не удалась."
+- id: validation.url
+  translation: "Поле {{ .attribute }} имеет ошибочный формат."
+- id: visitors.visitors
+  translation: "Посетители"
+- id: visitors.visitor
+  translation: "Посетитель"
+- id: visitors.recipes_viewed
+  translation: "Просмотрено рецептов"
+- id: visitors.first_visit
+  translation: "Первый визит"
+- id: visitors.days_with_us
+  translation: "Дней с момента первого визита"
+- id: visitors.last_activity
+  translation: "Последняя активность"

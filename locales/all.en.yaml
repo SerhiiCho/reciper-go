@@ -1,0 +1,959 @@
+
+- id: admin.feedback_has_been_deleted
+  translation: "Feedback was successfully deleted"
+- id: admin.statistics
+  translation: "Statistic"
+- id: admin.no_unapproved
+  translation: "There are no unapproved recipes"
+- id: approves.approved_1
+  translation: "Hooray! Your recipe &quot;{{ .title }}&quot; is excellent, so it is already published and available to all visitors. Thank you for your effort, which undoubtedly will please someone."
+- id: approves.approved_2
+  translation: "Excellent! Your wonderful recipe &quot;{{ .title }}&quot; is published and available to all visitors. Thank you for this little miracle."
+- id: approves.approved_3
+  translation: "We really liked your recipe &quot;{{ .title }}&quot;, it is already available to all visitors. We are glad that you are part of our huge family."
+- id: approves.approved_4
+  translation: "We are glad to inform you that your excellent recipe &quot;{{ .title }}&quot; is published and available to all visitors. Thank you for writing such great recipes."
+- id: approves.approved_5
+  translation: "We just verified your recipe &quot;{{ .title }}&quot; and we like it. Now it's published and available to all our visitors. We appreciate your effort"
+- id: approves.already_approved
+  translation: "The recipe is already published"
+- id: approves.recipe_published
+  translation: "The recipe is published"
+- id: approves.recipe_not_published
+  translation: "The recipe is not published"
+- id: approves.message_required
+  translation: "Message field is required"
+- id: approves.message_min
+  translation: "The message must be at least {{ .min }} characters"
+- id: approves.message_max
+  translation: "The message may not be greater than {{ .max }} characters"
+- id: approves.unapproved_waiting
+  translation: "Unapproved"
+- id: approves.unapproved_verifying
+  translation: "Verifying"
+- id: approves.finish_checking
+  translation: "Finish recipe verification"
+- id: approves.my_approves
+  translation: "My recipes"
+- id: approves.verifications
+  translation: "Verifications"
+- id: approves.currently_approving
+  translation: "&lt;u&gt;&lt;b&gt;{{ .admin }}&lt;/b&gt;&lt;/u&gt; is currently verifying the recipe from &lt;u&gt;&lt;b&gt;{{ .user }}&lt;/b&gt;&lt;/u&gt;"
+- id: approves.waiting_for_approves
+  translation: "Waiting for verification..."
+- id: approves.user_verifying
+  translation: "{{ .user }} is verifying..."
+- id: approves.approve_or_not
+  translation: "Check the recipe for errors, obscene words and links to various resources. Also make sure that the content of this recipe does not have a negative effect on readers. Are you sure you to publish this recipe?"
+- id: approves.are_you_sure_to_cancel
+  translation: "Do you really want to return this recipe to the author for revision?"
+- id: approves.set_message_desc
+  translation: "State the reason why the recipe cannot be published so that the author of the recipe could correct the error."
+- id: approves.set_message
+  translation: "Enter the message to the author of the recipe."
+- id: approves.are_you_sure_to_publish
+  translation: "Confirm that you want to publish this recipe"
+- id: auth.failed
+  translation: "These credentials do not match our records."
+- id: auth.throttle
+  translation: "Too many login attempts. Please try again in {{ .seconds }} seconds."
+- id: auth.access_denied
+  translation: "You don't have an access to this page"
+- id: auth.access_denied_only_auth
+  translation: "Access to this page is only for authorized users"
+- id: auth.register
+  translation: "Register"
+- id: auth.logout
+  translation: "Sign out"
+- id: auth.login
+  translation: "Sign in"
+- id: auth.username
+  translation: "Username"
+- id: auth.username_desc
+  translation: "Enter your unique username"
+- id: auth.username_string
+  translation: "Username must be a string"
+- id: auth.username_alpha_dash
+  translation: "Username field can only contain latin letters, numbers, underscore and dash"
+- id: auth.username_regex
+  translation: "Username field can only contain latin letters, numbers, underscore and dash"
+- id: auth.username_required
+  translation: "Username field is required"
+- id: auth.username_min
+  translation: "The username must be at least {{ .min }} characters"
+- id: auth.username_max
+  translation: "The username may not be greater than {{ .max }} characters"
+- id: auth.username_unique
+  translation: "This username is already taken"
+- id: auth.password_string
+  translation: "Password must be a string"
+- id: auth.password_required
+  translation: "Password is required"
+- id: auth.password_min
+  translation: "The password must be at least {{ .min }} characters"
+- id: auth.password_max
+  translation: "The password may not be greater than {{ .max }} characters"
+- id: auth.password_confirmed
+  translation: "Both passwords are not matching"
+- id: contact.contact_message_required
+  translation: "Message field is required"
+- id: contact.contact_email_required
+  translation: "Email field is required"
+- id: contact.contact_email_email
+  translation: "The email must be a valid email address"
+- id: contact.contact_message_min
+  translation: "The message must be at least {{ .min }} characters"
+- id: contact.contact_message_max
+  translation: "The message may not be greater than {{ .max }} characters"
+- id: contact.sure_del_feed
+  translation: "Confirm that you want to remove this message"
+- id: contact.intro
+  translation: "If you have any requests or objections to our work, we are always ready to listen to your opinion or comment. We have created this page where you can send us a message, which we will read and take the necessary measures."
+- id: date.ago
+  translation: "ago"
+- id: date.online
+  translation: "Online"
+- id: date.less_than_hour
+  translation: "less than an hour"
+- id: date.second
+  translation: "second"
+- id: date.seconds
+  translation: "seconds"
+- id: date.seconds2
+  translation: "seconds"
+- id: date.minute
+  translation: "minute"
+- id: date.minutes
+  translation: "minutes"
+- id: date.minutes2
+  translation: "minutes"
+- id: date.hour
+  translation: "hour"
+- id: date.hours
+  translation: "hours"
+- id: date.hours2
+  translation: "hours"
+- id: date.day
+  translation: "day"
+- id: date.days
+  translation: "days"
+- id: date.days2
+  translation: "days"
+- id: date.week
+  translation: "week"
+- id: date.weeks
+  translation: "weeks"
+- id: date.weeks2
+  translation: "weeks"
+- id: date.month
+  translation: "month"
+- id: date.months
+  translation: "months"
+- id: date.months2
+  translation: "months"
+- id: date.year
+  translation: "year"
+- id: date.years
+  translation: "years"
+- id: date.years2
+  translation: "years"
+- id: date.decade
+  translation: "decade"
+- id: date.decades
+  translation: "decades"
+- id: date.decades2
+  translation: "decades"
+- id: date.month_1
+  translation: "January"
+- id: date.month_2
+  translation: "February"
+- id: date.month_3
+  translation: "March"
+- id: date.month_4
+  translation: "April"
+- id: date.month_5
+  translation: "May"
+- id: date.month_6
+  translation: "June"
+- id: date.month_7
+  translation: "July"
+- id: date.month_8
+  translation: "August"
+- id: date.month_9
+  translation: "September"
+- id: date.month_10
+  translation: "October"
+- id: date.month_11
+  translation: "November"
+- id: date.month_12
+  translation: "December"
+- id: documents.documents
+  translation: "Documents"
+- id: documents.terms
+  translation: "Terms of use"
+- id: documents.info
+  translation: "Information"
+- id: errors.401
+  translation: "Error 401"
+- id: errors.401_title
+  translation: "Unauthorized"
+- id: errors.401_description
+  translation: "Sorry, you are not authorized to access this page."
+- id: errors.403
+  translation: "Error 403"
+- id: errors.403_title
+  translation: "Forbidden"
+- id: errors.403_description
+  translation: "The server understood the request, but is refusing to fulfill it. Authorization will not help and the request SHOULD NOT be repeated."
+- id: errors.419
+  translation: "Error 419"
+- id: errors.419_title
+  translation: "Expired"
+- id: errors.419_description
+  translation: "Sorry, your session has expired. Please refresh and try again."
+- id: errors.404
+  translation: "Error 404"
+- id: errors.404_title
+  translation: "Page not found"
+- id: errors.404_description
+  translation: "The page you were looking for could not be found."
+- id: errors.500
+  translation: "Error 500"
+- id: errors.500_title
+  translation: "Server error"
+- id: errors.500_description
+  translation: "Something has gone wrong on the server, we cannot be specific on what the exact problem is"
+- id: errors.503_title
+  translation: "Website is unavailable due to a temporary maintenance"
+- id: errors.503_description
+  translation: "The server is currently unable to handle the request due to a temporary maintenance of the website. The implication is that this is a temporary condition which will be alleviated after some delay."
+- id: feedback.feedback
+  translation: "Feedback"
+- id: feedback.report
+  translation: "Report"
+- id: feedback.contact_us
+  translation: "Contact us"
+- id: feedback.report_recipe
+  translation: "Report the recipe"
+- id: feedback.report_message_desc
+  translation: "If you have a comment or complaint about this recipe, describe your complaint in the message field below, and we will immediately deal with this situation."
+- id: feedback.success_message
+  translation: "We received your message. Thank you for your time, we certainly appreciate it."
+- id: feedback.operation_denied
+  translation: "The message can be sent no more than once a day."
+- id: feedback.already_reported_today
+  translation: "You have already sent a complain on this recipe."
+- id: forms.name
+  translation: "Name"
+- id: forms.pwd
+  translation: "Password"
+- id: forms.add
+  translation: "Add"
+- id: forms.save
+  translation: "Save"
+- id: forms.email
+  translation: "Email"
+- id: forms.deleting
+  translation: "Delete"
+- id: forms.message
+  translation: "Message"
+- id: forms.new_pwd
+  translation: "New password"
+- id: forms.select_file
+  translation: "Choose a file"
+- id: forms.cancel
+  translation: "Cancel"
+- id: forms.change_pwd
+  translation: "Change password"
+- id: forms.current_pwd
+  translation: "Your current password"
+- id: forms.repeat_new_pwd
+  translation: "Repeat a new password"
+- id: forms.send
+  translation: "Send"
+- id: forms.agree_to_terms
+  translation: "By clicking on the &quot;{{ .btn }}&quot; button, you accept the terms specified in the &lt;a href=&quot;/docs/terms/&quot; class=&quot;text&quot; style=&quot;text-decoration{{ .underline }}&quot; target=&quot;_blank&quot;&gt;User Agreement&lt;/a&gt;"
+- id: forms.forgot_pwd
+  translation: "Forgot the password?"
+- id: forms.remember_me
+  translation: "Remember me"
+- id: forms.pwd_confirm
+  translation: "Repeat the password"
+- id: forms.message_desc
+  translation: "This field is for your message"
+- id: forms.name_desc
+  translation: "You can specify your name or nickname as you like. The name you specify will be displayed on all your recipes and on your account profile. The name can be changed at any time in the settings. Example: Alexandra"
+- id: forms.email_desc
+  translation: "Enter your email address."
+- id: forms.pwd_desc
+  translation: "Enter a new password. You will need it to enter your account. The password is a confirmation of your identity, so that no one can have the access to edit your recipes. Attention! Your password must be strong, for this it must contain characters, letters and numbers."
+- id: forms.pwd2_desc
+  translation: "Enter the password again to make sure that you did not make any mistakes"
+- id: home.home
+  translation: "Home"
+- id: home.to_home
+  translation: "To home page"
+- id: home.last_recipes
+  translation: "Newest recipes"
+- id: home.breakfast
+  translation: "breakfast"
+- id: home.lunch
+  translation: "lunch"
+- id: home.dinner
+  translation: "dinner"
+- id: home.or
+  translation: "or"
+- id: home.show_simple_recipes
+  translation: "Show simple recipes"
+- id: home.add_your_recipe
+  translation: "Add your own recipe"
+- id: logs.path_to_file
+  translation: "Path to the file"
+- id: logs.all_errors
+  translation: "Amount of errors"
+- id: logs.open_file
+  translation: "Open a file"
+- id: logs.download_file
+  translation: "Download a file"
+- id: logs.delete_file
+  translation: "Remove a file"
+- id: logs.file_size
+  translation: "File size"
+- id: logs.confirm
+  translation: "Are you sure to delete a log file for {{ .date }} date?"
+- id: logs.page_is_not_avail
+  translation: "This can be viewed only by users with certain rights"
+- id: logs.deleted
+  translation: "Log file has been removed"
+- id: manage-users.ban
+  translation: "Block"
+- id: manage-users.unban
+  translation: "Unblock"
+- id: manage-users.manage-users
+  translation: "Manage users"
+- id: manage-users.management
+  translation: "Management"
+- id: manage-users.manage
+  translation: "Manage"
+- id: manage-users.are_you_sure_to_ban
+  translation: "Are you sure you want to block this user?"
+- id: manage-users.are_you_sure_to_unban
+  translation: "Are you sure you want to unblock this user?"
+- id: manage-users.days
+  translation: "Days"
+- id: manage-users.what_reason_to_ban
+  translation: "Specify the reason for which the user will be blocked, and the number of days during which the user has limited access to the site"
+- id: manage-users.active_users
+  translation: "Active users"
+- id: manage-users.inactive_users
+  translation: "Inactive users"
+- id: manage-users.banned_users
+  translation: "Blocked users"
+- id: manage-users.user_banned
+  translation: "User was blocked. Number of days for which the user is blocked: {{ .days }}"
+- id: manage-users.user_unbanned
+  translation: "User unblocked"
+- id: manage-users.user_already_banned
+  translation: "You cannot block the user that is already blocked"
+- id: manage-users.days_required
+  translation: "Specify the number of days for which you want to block the user."
+- id: manage-users.days_numeric
+  translation: "Days must be specified in numbers"
+- id: manage-users.message_required
+  translation: "The message field is required"
+- id: manage-users.message_min
+  translation: "The message must be at least {{ .min }} characters"
+- id: manage-users.message_max
+  translation: "The message may not be greater than {{ .max }} characters"
+- id: messages.yes
+  translation: "Yes"
+- id: messages.no
+  translation: "No"
+- id: messages.on
+  translation: "on"
+- id: messages.off
+  translation: "off"
+- id: messages.go
+  translation: "Read"
+- id: messages.back
+  translation: "Back"
+- id: messages.app_name
+  translation: "Reciper"
+- id: messages.no_messages
+  translation: "There are no messages"
+- id: messages.dark_mode
+  translation: "Night mode"
+- id: messages.download
+  translation: "Download"
+- id: messages.print
+  translation: "Print"
+- id: messages.open
+  translation: "Open"
+- id: messages.edit
+  translation: "Edit"
+- id: messages.published
+  translation: "Published"
+- id: messages.drafts
+  translation: "Drafts"
+- id: messages.sent
+  translation: "Sent"
+- id: messages.message
+  translation: "Message"
+- id: messages.senders_number
+  translation: "Sender's number"
+- id: messages.u_need_to_login
+  translation: "You need to sign in"
+- id: messages.email_confirmation
+  translation: "Email confirmation"
+- id: messages.confirm_email_message
+  translation: "In order to confirm email on Reciper click on button below"
+- id: messages.in_ru
+  translation: "In russian"
+- id: messages.in_en
+  translation: "In english"
+- id: messages.mail_footer
+  translation: "Thanks for being with Reciper"
+- id: messages.general
+  translation: "General"
+- id: messages.favorites
+  translation: "Favorites"
+- id: messages.login_to_add_recipe
+  translation: "In order to add your own recipe you has to be signed in. Please sign in into your account or register."
+- id: messages.sure_to_logout
+  translation: "Are you sure you want to sign out from your account?"
+- id: messages.adminka
+  translation: "Admin"
+- id: messages.error
+  translation: "Error"
+- id: messages.success
+  translation: "Done"
+- id: messages.query_error
+  translation: "Some content can't be shown due to the unexpected error"
+- id: messages.congrats_streak_days
+  translation: "&lt;i class=&quot;fas fa-fire left&quot; style=&quot;color{{ .orangered }}&quot;&gt;&lt;/i&gt; + {{ .xp }} for streak days"
+- id: messages.edit_item
+  translation: "Edit {{ .item }}"
+- id: messages.help
+  translation: "Help"
+- id: messages.created_at
+  translation: "Created at"
+- id: messages.updated_at
+  translation: "Updated at"
+- id: notifications.notifications
+  translation: "Notifications"
+- id: notifications.no_notifs
+  translation: "There are no messages"
+- id: notifications.you_got_points
+  translation: "You've got {{ .points }} xp points"
+- id: pages.navigation
+  translation: "Navigation"
+- id: pages.statistics
+  translation: "Statistic"
+- id: pages.search_details
+  translation: "What to search for?"
+- id: pages.search
+  translation: "Search"
+- id: pages.title_footer
+  translation: "When copying any materials from the site, an active link to this site is required."
+- id: pages.nothing_found
+  translation: "Nothing has been found"
+- id: pages.use_search
+  translation: "Use the search to find recipes or ingredients"
+- id: pagination.previous
+  translation: "&amp;laquo; Previous"
+- id: pagination.next
+  translation: "Next &amp;raquo;"
+- id: passwords.password
+  translation: "Password must be at least 8 characters and match the confirmation"
+- id: passwords.reset
+  translation: "You password has been reset!"
+- id: passwords.sent
+  translation: "Link to reset your password has been sent!"
+- id: passwords.token
+  translation: "Wrong password reset code"
+- id: passwords.user
+  translation: "Could not find the user with specified email address"
+- id: passwords.reset_pwd
+  translation: "Reset the password"
+- id: passwords.new_pwd
+  translation: "New password"
+- id: passwords.repeat_new_pwd
+  translation: "Repeat the new password"
+- id: passwords.sent_code
+  translation: "Send reset password code"
+- id: passwords.sent_code_desc
+  translation: "After sending this form, you will receive a message with a link to reset your password by clicking on this link, you will be taken to a page where you can enter your new password."
+- id: passwords.we_got_request
+  translation: "We received a request to reset the password for the user {{ .username }}, who specified this email address in the settings. To reset your password, click the button below."
+- id: passwords.ignore_if_not_you
+  translation: "If you have not made any requests and received this message by mistake, just ignore this email."
+- id: recipers.recipers
+  translation: "Recipers"
+- id: recipers.my_account
+  translation: "My profile"
+- id: recipers.all_recipers
+  translation: "All Recipers"
+- id: recipers.most_viewed_recipe
+  translation: "The most viewed recipe"
+- id: recipers.most_liked_recipe
+  translation: "The most liked recipe"
+- id: recipers.most_favorite_recipe
+  translation: "The most favorite recipe"
+- id: recipers.next_streak_day
+  translation: "Hours left to the next streak day"
+- id: recipers.go_to_recipe
+  translation: "Go to the recipe"
+- id: recipers.go_to_profile
+  translation: "Go to a profile"
+- id: recipers.no_recipes_yet
+  translation: "You don't have any recipes yet"
+- id: recipers.no_recipes
+  translation: "There are no recipes"
+- id: recipers.all_recipes
+  translation: "All recipes"
+- id: recipers.reciper_doesnt_have_recipes
+  translation: "This Reciper doesn't have any recipes"
+- id: recipers.amount_of_views
+  translation: "All views from your recipes"
+- id: recipers.amount_of_likes
+  translation: "All likes from your recipes"
+- id: recipers.amount_of_favs
+  translation: "All stars from your recipes"
+- id: recipers.exp_of_reciper
+  translation: "Reciper Experience"
+- id: recipers.popularity_of_reciper
+  translation: "Reciper popularity points"
+- id: recipers.reciper
+  translation: "Reciper"
+- id: recipers.streak_days
+  translation: "Streak days"
+- id: recipers.popularity_chart
+  translation: "Popularity chart"
+- id: recipers.likes
+  translation: "Likes"
+- id: recipers.thousand
+  translation: "K"
+- id: recipers.million
+  translation: "M"
+- id: recipers.billion
+  translation: "B"
+- id: recipers.trillion
+  translation: "T"
+- id: recipers.xp
+  translation: "Experience"
+- id: recipers.level
+  translation: "Level"
+- id: recipers.popularity
+  translation: "Popularity"
+- id: recipers.views
+  translation: "Views"
+- id: recipers.reciper_is_not_active
+  translation: "This Reciper deactivated the account"
+- id: recipers.activate_account_desc
+  translation: "The account will be deleted in {{ .days }} days. If you want to restore your data, click button below."
+- id: recipers.recover
+  translation: "Recover"
+- id: recipers.are_you_sure_to_recover
+  translation: "Confirm restoring your account"
+- id: recipers.we_missed_you
+  translation: "We missed you"
+- id: recipers.account_recovered
+  translation: "&lt;i class=&quot;fas fa-heart red-text left&quot;&gt;&lt;/i&gt; Hooray! The account has been restored. Welcome back to the family"
+- id: recipers.reciper_found
+  translation: "Reciper found"
+- id: recipers.reciper_not_found
+  translation: "Reciper not found"
+- id: recipers.account_deactivate
+  translation: "You account is deactivated"
+- id: recipes.new_recipe
+  translation: "New recipe"
+- id: recipes.add_recipe
+  translation: "Add recipe"
+- id: recipes.my_recipes
+  translation: "My Recipes"
+- id: recipes.popular
+  translation: "Popular"
+- id: recipes.last
+  translation: "Last"
+- id: recipes.show_menu
+  translation: "Show menu"
+- id: recipes.next
+  translation: "Next"
+- id: recipes.watched
+  translation: "Watched"
+- id: recipes.added_to_favs
+  translation: "Recipe added to favorites"
+- id: recipes.deleted_from_favs
+  translation: "Recipe deleted from favorites"
+- id: recipes.add_to_favs
+  translation: "Add to Favorites"
+- id: recipes.remove_from_favs
+  translation: "Remove from favorites"
+- id: recipes.loved
+  translation: "Favorite"
+- id: recipes.title
+  translation: "Title"
+- id: recipes.name_for_recipe
+  translation: "Specify the name of the recipe"
+- id: recipes.min
+  translation: "min"
+- id: recipes.intro
+  translation: "Description"
+- id: recipes.categories_title
+  translation: "Categories"
+- id: recipes.short_intro
+  translation: "Short description of the recipe"
+- id: recipes.search_by_author
+  translation: "Show all recipes by this author"
+- id: recipes.ingredients
+  translation: "Ingredients"
+- id: recipes.text_of_recipe
+  translation: "Cooking steps"
+- id: recipes.category
+  translation: "Category"
+- id: recipes.categories
+  translation: "Categories"
+- id: recipes.time
+  translation: "Cooking time"
+- id: recipes.meal_desc
+  translation: "Meal reception time"
+- id: recipes.image
+  translation: "Image"
+- id: recipes.recipes
+  translation: "Recipes"
+- id: recipes.all_recipes
+  translation: "All Recipes"
+- id: recipes.amount_of_recipes
+  translation: "Number of recipes"
+- id: recipes.like
+  translation: "Like"
+- id: recipes.dislike
+  translation: "Dislike"
+- id: recipes.simple
+  translation: "Simple"
+- id: recipes.added
+  translation: "Added"
+- id: recipes.more
+  translation: "More recipes"
+- id: recipes.are_you_sure_to_delete
+  translation: "Do you really want to delete this recipe?"
+- id: recipes.are_you_sure_to_draft
+  translation: "Your recipe will not be available to visitors after moving it to drafts. Do you really want to put this recipe in drafts? "
+- id: recipes.status
+  translation: "Status"
+- id: recipes.checked
+  translation: "Verified"
+- id: recipes.not_ready
+  translation: "Not ready"
+- id: recipes.verifying
+  translation: "Verifying"
+- id: recipes.want_to_switch_lang
+  translation: "In order to translate the recipe into Russian you need to change the site language. Change the language to Russian?"
+- id: recipes.no_rights_to_see
+  translation: "You do not have the right to view this recipe, as it has not yet been published"
+- id: recipes.not_written
+  translation: "This recipe is in the process of writing"
+- id: recipes.not_approved
+  translation: "This recipe has not yet been verified"
+- id: recipes.cant_draft
+  translation: "You do not have permission to edit this recipe"
+- id: recipes.added_to_approving
+  translation: "The recipe has been added for review and will be published after approval by the administration"
+- id: recipes.saved
+  translation: "Recipe saved to draft"
+- id: recipes.you_gave_recipe_back_on_editing
+  translation: "You returned the recipe for re-editing"
+- id: recipes.deleted_fail
+  translation: "An error occurred while deleting the recipe"
+- id: recipes.title_required
+  translation: "The title field is required"
+- id: recipes.title_min
+  translation: "The title must be at least {{ .min }} characters"
+- id: recipes.title_max
+  translation: "The title may not be greater than {{ .max }} characters"
+- id: recipes.intro_min
+  translation: "The intro must be at least {{ .min }} characters"
+- id: recipes.intro_max
+  translation: "The intro may not be greater than {{ .max }} characters"
+- id: recipes.ingredients_min
+  translation: "The ingredients field must be at least {{ .min }} characters"
+- id: recipes.ingredients_max
+  translation: "The ingredients field may not be greater than {{ .max }} characters"
+- id: recipes.text_min
+  translation: "The text must be at least {{ .min }} characters"
+- id: recipes.text_max
+  translation: "The text may not be greater than {{ .max }} characters"
+- id: recipes.categories_required
+  translation: "The category field is required"
+- id: recipes.categories_distinct
+  translation: "Categories must be different, remove duplicate categories"
+- id: recipes.categories_between
+  translation: "The categories are required"
+- id: recipes.categories_numeric
+  translation: "Category selection fields should contain only proposed options"
+- id: recipes.meal_numeric
+  translation: "The reception time field must be a number"
+- id: recipes.meal_between
+  translation: "The reception time field must contain one of the suggested options"
+- id: recipes.time_numeric
+  translation: "The time must be a number"
+- id: recipes.time_between
+  translation: "The time must be a number between {{ .min }} and {{ .max }}"
+- id: recipes.image_mimes
+  translation: "The image must only be in the following formats {{ .values }}"
+- id: recipes.image_max
+  translation: "Maximum allowable image size {{ .max }} kB"
+- id: register.scene_add_account
+  translation: "Create a personal account in 10 seconds. Just enter username and password you want"
+- id: register.scene_add_recipe
+  translation: "Add recipes with nice interface and ability to save or preview the recipe"
+- id: register.scene_translate
+  translation: "Translate your recipe into another language and make it open to the whole world"
+- id: register.scene_watch_stats
+  translation: "You can view detailed statistics of your recipes in the statistics page"
+- id: settings.saved
+  translation: "Settings are saved"
+- id: settings.pwd_wrong
+  translation: "Invalid password"
+- id: settings.photo_deleted
+  translation: "Photo deleted successfully"
+- id: settings.saved_now_verify_email
+  translation: "Email address saved. To confirm this email address, we have sent a message to your email address with confirmation code "
+- id: settings.email_is_empty
+  translation: "Email field has been cleared"
+- id: settings.email_verified
+  translation: "Email address successfully verified"
+- id: settings.general
+  translation: "General"
+- id: settings.general_desc
+  translation: "Change name, password or status"
+- id: settings.photo
+  translation: "Photo"
+- id: settings.photo_desc
+  translation: "Change your account photo"
+- id: settings.settings
+  translation: "Settings"
+- id: settings.status
+  translation: "Status"
+- id: settings.settings_photo
+  translation: "Photo Settings"
+- id: settings.choose_photo
+  translation: "Here you can choose a photo that will be displayed on your page and in all your recipes. To choose a new photo hover over the photo and press the &quot;{{ .btn }}&quot; button to select a file."
+- id: settings.reciper_name
+  translation: "Reciper name"
+- id: settings.there_are_no_file
+  translation: "First, you need to select a file"
+- id: settings.delete_account
+  translation: "Delete account"
+- id: settings.delete_account_desc
+  translation: "To confirm deletion of the account, enter your current password and click delete. Your page will be deactivated without data loss. You can restore access within 30 days after the removal. After the time expiration, your account will be permanently deleted. "
+- id: settings.are_you_sure_to_deactivate
+  translation: "We will miss you 😢 Do you really want to deactivate the account?"
+- id: settings.email_change_once_per_week
+  translation: "The email address can only be changed once a week"
+- id: settings.verified
+  translation: "&lt;i class=&quot;fas fa-check&quot;&gt;&lt;/i&gt; Email confirmed!"
+- id: settings.not_verified
+  translation: "&lt;i class=&quot;fas fa-times&quot;&gt;&lt;/i&gt; Email the address is not confirmed!"
+- id: settings.token_required
+  translation: "The verification token not detected"
+- id: settings.photo_image
+  translation: "The file is not an image"
+- id: settings.photo_max
+  translation: "Image should not exceed {{ .max }} KB"
+- id: settings.photo_uploaded
+  translation: "Downloading has failed, perhaps this is due to the large file size, the image should not exceed 1999 Kbytes"
+- id: settings.photo_mimes
+  translation: "The image should only be in the following formats {{ .values }}"
+- id: settings.name_min
+  translation: "The name must be at least {{ .min }} characters"
+- id: settings.name_max
+  translation: "The name may not be greater than {{ .max }} characters"
+- id: settings.about_me_max
+  translation: "The about me field may not be greater than {{ .max }} characters"
+- id: settings.old_pwd_required
+  translation: "Old password is required"
+- id: settings.old_pwd_string
+  translation: "Old password must be a string"
+- id: settings.pwd_required
+  translation: "Password is required"
+- id: settings.pwd_string
+  translation: "Password must be a string"
+- id: settings.pwd_min
+  translation: "The password must be at least {{ .min }} characters"
+- id: settings.pwd_max
+  translation: "The password may not be greater than {{ .max }} characters"
+- id: settings.pwd_confirmed
+  translation: "Passwords do not match"
+- id: settings.email_max
+  translation: "The email may not be greater than {{ .max }} characters"
+- id: settings.email_email
+  translation: "The email address must be in the correct email format"
+- id: settings.email_unique
+  translation: "User with this email already exists"
+- id: tips.view
+  translation: "View"
+- id: tips.publish
+  translation: "Publish"
+- id: tips.add_to_drafts
+  translation: "To drafts"
+- id: tips.likes_tip
+  translation: "Likes: {{ .value }}"
+- id: tips.rating_tip
+  translation: "Popularity: {{ .value }}"
+- id: tips.views_tip
+  translation: "Views: {{ .value }}"
+- id: tips.remember_info
+  translation: "Check the checkbox if you do not want to fill out this form every time you are signing into your account"
+- id: tips.email_settings_tip
+  translation: "Your email is needed only for the case if you forget your password. Then you will have the opportunity to restore access to your account."
+- id: tips.your_translation
+  translation: "Your translation"
+- id: tips.recipes_text
+  translation: "Describe the process of cooking dishes by steps, using the Enter button to separate items from each other. Example:&lt;br&gt;After the carrot is cleaned, rub it on the grater (Enter) &lt;br&gt; Add 1 teaspoon of salt, a half teaspoon of sugar and 3 drops of vinegar to the grated carrot."
+- id: tips.recipes_ingredients
+  translation: " Specify all the ingredients of the dish. After each ingredient, press the Enter button to divide them into lines. Example:&lt;br&gt;1 kg of carrots (Enter) &lt;br&gt;1 small onion (Enter) &lt;br&gt;1 clove of garlic"
+- id: tips.recipes_intro
+  translation: "In this field, provide a brief description of the recipe. Example:&lt;br&gt;The easiest recipe for semolina in milk, which you can only find. Of course, after the porridge is ready we can add jam or berries to it, thereby decorating and enriching its taste."
+- id: tips.recipes_meal
+  translation: "The best time to take your meal. Breakfast is a charge of energy. For breakfast, usually people eat cereals and dairy products, eggs, fruits, drinks. Lunch should be nourishing and low-fat. Usually, porridge, meat or fish, soup, vegetables are eaten at lunch. Dinner is an evening meal. For dinner will be fine dishes like meat, fish or vegetables."
+- id: tips.recipes_time
+  translation: "Cooking time includes only cooking."
+- id: validation.accepted
+  translation: "The {{ .attribute }} must be accepted."
+- id: validation.active_url
+  translation: "The {{ .attribute }} is not a valid URL."
+- id: validation.after
+  translation: "The {{ .attribute }} must be a date after {{ .date }}."
+- id: validation.after_or_equal
+  translation: "The {{ .attribute }} must be a date after or equal to {{ .date }}."
+- id: validation.alpha
+  translation: "The {{ .attribute }} may only contain letters."
+- id: validation.alpha_dash
+  translation: "The {{ .attribute }} may only contain letters, numbers, and dashes."
+- id: validation.alpha_num
+  translation: "The {{ .attribute }} may only contain letters and numbers."
+- id: validation.array
+  translation: "The {{ .attribute }} must be an array."
+- id: validation.before
+  translation: "The {{ .attribute }} must be a date before {{ .date }}."
+- id: validation.before_or_equal
+  translation: "The {{ .attribute }} must be a date before or equal to {{ .date }}."
+- id: validation.between
+  translation: "The {{ .attribute }} must be between {{ .min }} and {{ .max }} digits."
+- id: validation.boolean
+  translation: "The {{ .attribute }} field must be true or false."
+- id: validation.confirmed
+  translation: "The {{ .attribute }} confirmation does not match."
+- id: validation.date
+  translation: "The {{ .attribute }} is not a valid date."
+- id: validation.date_format
+  translation: "The {{ .attribute }} does not match the format {{ .format }}."
+- id: validation.different
+  translation: "The {{ .attribute }} and {{ .other }} must be different."
+- id: validation.digits
+  translation: "The {{ .attribute }} must be {{ .digits }} digits."
+- id: validation.dimensions
+  translation: "The {{ .attribute }} has invalid image dimensions."
+- id: validation.distinct
+  translation: "The {{ .attribute }} field has a duplicate value."
+- id: validation.email
+  translation: "The {{ .attribute }} must be a valid email address."
+- id: validation.exists
+  translation: "The selected {{ .attribute }} is invalid."
+- id: validation.file
+  translation: "The {{ .attribute }} must be a file."
+- id: validation.filled
+  translation: "The {{ .attribute }} field must have a value."
+- id: validation.image
+  translation: "The {{ .attribute }} must be an image."
+- id: validation.in
+  translation: "The selected {{ .attribute }} is invalid."
+- id: validation.in_array
+  translation: "The {{ .attribute }} field does not exist in {{ .other }}."
+- id: validation.integer
+  translation: "The {{ .attribute }} must be an integer."
+- id: validation.ip
+  translation: "The {{ .attribute }} must be a valid IP address."
+- id: validation.ipv4
+  translation: "The {{ .attribute }} must be a valid IPv4 address."
+- id: validation.ipv6
+  translation: "The {{ .attribute }} must be a valid IPv6 address."
+- id: validation.json
+  translation: "The {{ .attribute }} must be a valid JSON string."
+- id: validation.max.numeric
+  translation: "The {{ .attribute }} may not be greater than {{ .max }}."
+- id: validation.max.file
+  translation: "The {{ .attribute }} may not be greater than {{ .max }} kilobytes."
+- id: validation.max.string
+  translation: "The {{ .attribute }} may not be greater than {{ .max }} characters."
+- id: validation.max.array
+  translation: "The {{ .attribute }} may not have more than {{ .max }} items."
+- id: validation.mimes
+  translation: "The {{ .attribute }} must be a file of type: {{ .values }}."
+- id: validation.mimetypes
+  translation: "The {{ .attribute }} must be a file of type: {{ .values }}."
+- id: validation.min.numeric
+  translation: "The {{ .attribute }} must be at least {{ .min }}."
+- id: validation.min.file
+  translation: "The {{ .attribute }} must be at least {{ .min }} kilobytes."
+- id: validation.min.string
+  translation: "The {{ .attribute }} must be at least {{ .min }} characters."
+- id: validation.min.array
+  translation: "The {{ .attribute }} must have at least {{ .min }} items."
+- id: validation.not_in
+  translation: "The selected {{ .attribute }} is invalid."
+- id: validation.not_regex
+  translation: "The {{ .attribute }} format is invalid."
+- id: validation.numeric
+  translation: "The {{ .attribute }} must be a number."
+- id: validation.present
+  translation: "The {{ .attribute }} field must be present."
+- id: validation.regex
+  translation: "The {{ .attribute }} format is invalid."
+- id: validation.required
+  translation: "The {{ .attribute }} field is required."
+- id: validation.required_if
+  translation: "The {{ .attribute }} field is required when {{ .other }} is {{ .value }}."
+- id: validation.required_unless
+  translation: "The {{ .attribute }} field is required unless {{ .other }} is in {{ .values }}."
+- id: validation.required_with
+  translation: "The {{ .attribute }} field is required when {{ .values }} is present."
+- id: validation.required_with_all
+  translation: "The {{ .attribute }} field is required when {{ .values }} is present."
+- id: validation.required_without
+  translation: "The {{ .attribute }} field is required when {{ .values }} is not present."
+- id: validation.required_without_all
+  translation: "The {{ .attribute }} field is required when none of {{ .values }} are present."
+- id: validation.same
+  translation: "The {{ .attribute }} and {{ .other }} must match."
+- id: validation.size.numeric
+  translation: "The {{ .attribute }} must be {{ .size }}."
+- id: validation.size.file
+  translation: "The {{ .attribute }} must be {{ .size }} kilobytes."
+- id: validation.size.string
+  translation: "The {{ .attribute }} must be {{ .size }} characters."
+- id: validation.size.array
+  translation: "The {{ .attribute }} must contain {{ .size }} items."
+- id: validation.string
+  translation: "The {{ .attribute }} must be a string."
+- id: validation.timezone
+  translation: "The {{ .attribute }} must be a valid zone."
+- id: validation.unique
+  translation: "The {{ .attribute }} has already been taken."
+- id: validation.uploaded
+  translation: "The {{ .attribute }} failed to upload."
+- id: validation.url
+  translation: "The {{ .attribute }} format is invalid."
+- id: visitors.visitors
+  translation: "Visitors"
+- id: visitors.visitor
+  translation: "Visitor"
+- id: visitors.recipes_viewed
+  translation: "Recipes viewed"
+- id: visitors.first_visit
+  translation: "The first visit"
+- id: visitors.days_with_us
+  translation: "Days from the fist visit"
+- id: visitors.last_activity
+  translation: "Last activity"
