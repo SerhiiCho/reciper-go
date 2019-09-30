@@ -1,0 +1,16 @@
+{{ template "header" }}
+
+    <h1>{{ .title }}</h1>
+    <ul>
+        {{ range $value := .array }}
+            <li>{{ $value }}</li>
+        {{ end }}
+    </ul>
+
+    {{ if .isPretty }}
+        <h3>Is pretty girl</h3>
+    {{ else }}
+        <h3>Is not pretty girl at all</h3>
+    {{ end }}
+
+{{ template "footer" }}
