@@ -6,7 +6,7 @@
             </div>
             <div class="home-section home-section--after-scene">
                 <div class="home-section__inner">
-                    <!-- <random-recipes visitor-id="{{ visitor_id() }}" limit="8"></random-recipes> -->
+                    <RandomRecipes visitor-id="1" limit="8"></RandomRecipes>
                 </div>
             </div>
         </div>
@@ -15,11 +15,12 @@
 
 <script>
 import Scenes from '@/includes/home/Scenes.vue'
+import RandomRecipes from '@/components/RandomRecipes.vue'
 
 export default {
-    name: 'home',
     components: {
-        Scenes
+        Scenes,
+        RandomRecipes,
     }
 }
 </script>
