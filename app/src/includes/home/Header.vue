@@ -57,7 +57,7 @@
 export default {
     data() {
         return {
-            bgImageURL: require('@/assets/img/other/header/by-daria-yakovleva-3.jpg'),
+            bgImageURL: require(`@/assets/img/other/header/by-daria-yakovleva-${Math.floor((Math.random() * 3) + 1)}.jpg`),
         }
     }
 }
