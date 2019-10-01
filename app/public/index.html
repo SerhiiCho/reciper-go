@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
+    <meta name="author" content="Serhii Cho">
+    <meta name="description" content="Пошаговые кулинарные рецепты вкусных блюд, с удобным и понятным интерфейсом. Опубликуйте свои рецепты и наблюдайте за ростом их популярности. Зарабатывайте очки опыта и популярности. Опережайте других Ресипёров.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>reciper</title>
-  </head>
-  <body>
+    <title>Reciper</title>
+</head>
+<body>
     <noscript>
-      <strong>We're sorry but reciper doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    <strong>We're sorry but Reciper doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+</body>
 </html>
