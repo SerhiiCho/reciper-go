@@ -11,7 +11,11 @@ import Navbar from '@/includes/Navbar'
 export default {
     components: {
         Navbar,
-    }
+    },
+
+    created() {
+        this.$i18n.locale = 'ru'
+    },
 }
 </script>
 
