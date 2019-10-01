@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home">
+        <div class="home-section home-section--contrast">
+            <div class="home-section__inner">
+                <Scenes />
+            </div>
+            <div class="home-section home-section--after-scene">
+                <div class="home-section__inner">
+                    <!-- <random-recipes visitor-id="{{ visitor_id() }}" limit="8"></random-recipes> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Scenes from '@/includes/home/Scenes.vue'
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+    name: 'home',
+    components: {
+        Scenes
+    }
 }
 </script>
