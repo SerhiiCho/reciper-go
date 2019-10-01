@@ -3,66 +3,66 @@
     <div>
         <ul id="user-menu-dropdown" class="dropdown bottom-borders">
                 <!-- home -->
-                <li class="">
-                    <a href="/users/master" title="@lang('recipers.my_account')">
+                <li>
+                    <a href="/users/master" :title="$t('recipers.my_account')">
                         <i class="fas fa-user-circle fa-15x left with-red-hover"></i>
-                        @lang('recipers.my_account')
+                        {{ $t('recipers.my_account') }}
                     </a>
                 </li>
 
                 <!-- add recipe -->
-                <li class="">
-                    <a href="#add-recipe-modal" title="@lang('recipes.new_recipe')" class="modal-trigger">
+                <li>
+                    <a href="#add-recipe-modal" :title="$t('recipes.new_recipe')" class="modal-trigger">
                         <i class="fas fa-plus-circle fa-15x left with-red-hover"></i>
-                        @lang('recipes.new_recipe')
+                        {{ $t('recipes.new_recipe') }}
                     </a>
                 </li>
 
                 <!-- my recipes -->
-                <li class="">
-                    <a href="/users/other/my-recipes" title="@lang('recipes.my_recipes')">
+                <li>
+                    <a href="/users/other/my-recipes" :title="$t('recipes.my_recipes')">
                         <i class="fas fa-book-open fa-15x left with-red-hover"></i>
-                        @lang('recipes.my_recipes')
+                        {{ $t('recipes.my_recipes') }}
                     </a>
                 </li>
 
                 <!-- users -->
-                <li class="">
-                    <a href="/users" title="@lang('recipers.recipers')">
+                <li>
+                    <a href="/users" :title="$t('recipers.recipers')">
                         <i class="fas fa-user-friends fa-15x left with-red-hover"></i>
-                        @lang('recipers.recipers')
+                        {{ $t('recipers.recipers') }}
                     </a>
                 </li>
 
                 <!-- favorites -->
-                <li class="">
-                    <a href="/favs" title="@lang('messages.favorites')">
+                <li>
+                    <a href="/favs" :title="$t('messages.favorites')">
                         <i class="fas fa-star fa-15x left with-red-hover"></i>
-                        @lang('messages.favorites')
+                        {{ $t('messages.favorites') }}
                     </a>
                 </li>
 
                     <ul class="collapsible" id="adminka-collapsible">
-                        <li title="@lang('messages.adminka')" class="position-relative">
+                        <li :title="$t('messages.adminka')" class="position-relative">
                             <div class="collapsible-header">
                                 <i class="fas fa-shield-alt fa-15x mr-2"></i>
-                                @lang('messages.adminka')
+                                {{ $t('messages.adminka') }}
                             </div>
                             <div class="collapsible-body p-0">
                                 <ul>
                                     <!-- approves -->
                                     <li class="position-relative">
-                                        <a href="/admin/approves" title="@lang('approves.verifications')">
+                                        <a href="/admin/approves" :title="$t('approves.verifications')">
                                             <i class="fas fa-search fa-15x left with-red-hover"></i>
-                                            @lang('approves.verifications')
+                                            {{ $t('approves.verifications') }}
                                         </a>
                                     </li>
 
                                     <!-- feedback -->
                                     <li class="position-relative">
-                                        <a href="/admin/feedback" title="@lang('feedback.contact_us')">
+                                        <a href="/admin/feedback" :title="$t('feedback.contact_us')">
                                             <i class="fas fa-comment-dots fa-15x left with-red-hover"></i>
-                                            @lang('feedback.contact_us')
+                                            {{ $t('feedback.contact_us') }}
                                         </a>
                                     </li>
 
@@ -71,17 +71,17 @@
 
                                         <!-- manage-users -->
                                         <li class="position-relative">
-                                            <a href="/master/manage-users" title="@lang('manage-users.manage-users')">
+                                            <a href="/master/manage-users" :title="$t('manage-users.manage-users')">
                                                 <i class="fas fa-user-cog fa-15x left with-red-hover"></i>
-                                                @lang('manage-users.management')
+                                                {{ $t('manage-users.management') }}
                                             </a>
                                         </li>
 
                                         <!-- visitors -->
                                         <li class="position-relative">
-                                            <a href="/master/visitors" title="@lang('visitors.visitors')">
+                                            <a href="/master/visitors" :title="$t('visitors.visitors')">
                                                 <i class="fas fa-users fa-15x left with-red-hover"></i>
-                                                @lang('visitors.visitors')
+                                                {{ $t('visitors.visitors') }}
                                             </a>
                                         </li>
 
@@ -108,43 +108,43 @@
 
                 <!-- statistics -->
                 <li>
-                    <a href="/statistics" title="@lang('pages.statistics')">
+                    <a href="/statistics" :title="$t('pages.statistics')">
                         <i class="fas fa-chart-bar fa-15x left with-red-hover"></i>
-                        @lang('pages.statistics')
+                        {{ $t('pages.statistics') }}
                     </a>
                 </li>
 
                 <!-- settings -->
                 <li>
-                    <a href="/settings" title="@lang('settings.settings')">
+                    <a href="/settings" :title="$t('settings.settings')">
                         <i class="fas fa-cog fa-15x left with-red-hover"></i>
-                        @lang('settings.settings')
+                        {{ $t('settings.settings') }}
                     </a>
                 </li>
 
                 <!-- <logout-btn
-                    _auth-logout="@lang('auth.logout')"
-                    _messages-sure-to-logout="@lang('messages.sure_to_logout')"
+                    _auth-logout="{{ $t('auth.logout') }}"
+                    _messages-sure-to-logout="{{ $t('messages.sure_to_logout') }}"
                 ></logout-btn> -->
                 <!-- Login -->
                 <li>
-                    <a href="/login" title="@lang('auth.login')">
+                    <a href="/login" :title="$t('auth.login')">
                         <i class="fas fa-sign-in-alt fa-15x left with-red-hover"></i>
-                        @lang('auth.login')
+                        {{ $t('auth.login') }}
                     </a>
                 </li>
                 <!-- Register -->
                 <li>
-                    <a href="/register" title="@lang('auth.register')">
+                    <a href="/register" :title="$t('auth.register')">
                         <i class="fas fa-pen-alt fa-15x left with-red-hover"></i>
-                        @lang('auth.register')
+                        {{ $t('auth.register') }}
                     </a>
                 </li>
 
             <!-- <theme-switcher
-                _messages-on="@lang('messages.on')"
-                _messages-off="@lang('messages.off')"
-                _messages-dark-mode="@lang('messages.dark_mode')"
+                _messages-on="{{ $t('messages.on') }}"
+                _messages-off="{{ $t('messages.off') }}"
+                _messages-dark-mode="{{ $t('messages.dark_mode') }}"
                 dark-theme-is-on-prop="dark"
             ></theme-switcher> -->
 
@@ -155,10 +155,11 @@
             <div class="nav-wrapper main-navbar">
                 <div class="px-3 position-relative">
                     <!-- Logo -->
-                    <a href="/" title="@lang('home.home')" class="brand-logo no-select">
-                        <img src="@/assets/img/other/logo.png" alt="" height="30" style="min-width:25px; height:1px">
-                        <span class="left pl-2">Reciper</span>
-                    </a>
+
+                    <router-link to="/" class="brand-logo no-select">
+                        <img src="@/assets/img/other/logo.png" alt="" height="30" style="min-width:25px">
+                        <span class="left pl-2 pr-2">Reciper</span>
+                    </router-link>
 
                     <!-- Hamburger menu -->
                     <a href="javascript:" data-target="mobile-sidenav" class="sidenav-trigger no-select">
@@ -188,9 +189,10 @@
                         </a> -->
 
                         <!-- Search button -->
-                        <a href="javascript:" data-target="mobile-demo"
+                        <a href="javascript:"
+                            data-target="mobile-demo"
                             class="hide-on-small-only right mr-4 align-to-the-middle"
-                            title="@lang('pages.search')"
+                            :title="$t('pages.search')"
                             id="nav-btn-for-search"
                         >
                             <i class="fas fa-search fa-15x"></i>
@@ -200,7 +202,7 @@
                         <a href="javascript:"
                             id="mark-notifs-as-read"
                             class="right ml-1 mr-4 dropdown-trigger position-relative align-to-the-middle"
-                            title="@lang('notifications.notifications')"
+                            :title="$t('notifications.notifications')"
                             data-target="notifications-dropdown"
                         >
                             <span style="height:53px">
@@ -211,33 +213,16 @@
 
                     <!-- Regular menu -->
                     <ul class="right hide-on-med-and-down right-borders">
-                        <li>
-                            <a href="/" title="@lang('home.home')">
-                                @lang('home.home')
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="/recipes#new" title="@lang('recipes.recipes')">
-                                @lang('recipes.recipes')
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="help"
-                                title="@lang('messages.help')"
-                                target="_blank"
-                            >
-                            @lang('messages.help')
-                            </a>
-                        </li>
+                        <router-link to="/" tag="li"><a>{{ $t("home.home") }}</a></router-link>
+                        <router-link to="/recipes" tag="li"><a>{{ $t("recipes.recipes") }}</a></router-link>
+                        <router-link to="/help" tag="li"><a>{{ $t("messages.help") }}</a></router-link>
 
                         <li> <!-- Categories Dropdown Trigger Categories -->
                             <a href="javascript:"
                                 class="dropdown-trigger"
                                 data-target="categories-dropdown"
                             >
-                                @lang('recipes.categories')
+                                {{ $t("recipes.categories") }}
                                 <i class="fas fa-caret-down fa-15x right"></i>
                             </a>
                         </li>
@@ -253,7 +238,7 @@
                     <div class="input-field">
                         <input id="search-input" type="search"
                             name="for"
-                            placeholder="@lang('pages.search_details')"
+                            :placeholder="$t('pages.search_details')"
                             required
                         >
                         <label class="label-icon" for="search-input">
@@ -266,7 +251,7 @@
 
         <!-- Categories Dropdown trigger menu -->
         <ul id="categories-dropdown" class="dropdown bottom-borders">
-            @include('includes.nav.categories')
+            <!-- @include('includes.nav.categories') -->
         </ul>
     </div>
 </template>
