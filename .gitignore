@@ -4,7 +4,8 @@ vendor/
 .idea/
 bin/
 tmp/
-node_modules/
+node_modules
+/app/node_modules/
 .sass-cache/
 *-packr.go
 public/assets/
@@ -24,4 +25,3 @@ jhw.*
 dist/
 generated/
 .vendor/
-
