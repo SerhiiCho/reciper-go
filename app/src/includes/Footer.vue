@@ -94,12 +94,12 @@
                     </li>
 
                     <!-- Register -->
-                    <li>
-                        <a href="/register">
+                    <router-link to="/register" tag="li">
+                        <a :title="$t('auth.register')">
                             <i class="fas fa-angle-right red-text" style="width:7.5px"></i>
                             {{ $t('auth.register') }}
                         </a>
-                    </li>
+                    </router-link>
                 </ul>
 
                 <!-- Documents -->

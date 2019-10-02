@@ -136,12 +136,12 @@
                 </li>
 
                 <!-- Register -->
-                <li>
-                    <a href="/register" :title="$t('auth.register')">
+                <router-link to="/register" tag="li">
+                    <a :title="$t('auth.register')">
                         <i class="fas fa-pen-alt fa-15x left with-red-hover"></i>
                         {{ $t('auth.register') }}
                     </a>
-                </li>
+                </router-link>
 
             <!-- <theme-switcher
                 _messages-on="{{ $t('messages.on') }}"
