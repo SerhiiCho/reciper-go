@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Recipes from './views/Recipes.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login.vue'
+import Contact from './views/Contact.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,10 @@ const router = new Router({
         {
             path: '/login',
             component: Login,
+        },
+        {
+            path: '/contact',
+            component: Contact,
         },
         // {
         //   path: '/about',

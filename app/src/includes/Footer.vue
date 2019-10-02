@@ -70,12 +70,12 @@
                     </li>
 
                     <!-- Contact -->
-                    <li>
-                        <a href="/contact">
+                    <router-link to="/contact" tag="li">
+                        <a>
                             <i class="fas fa-angle-right red-text" style="width:7.5px"></i>
                             {{ $t('feedback.contact_us') }}
                         </a>
-                    </li>
+                    </router-link>
 
                     <!-- Documents -->
                     <li>
@@ -123,10 +123,10 @@
         <!-- Help & Contact us buttons -->
         <div class="center pt-2">
             <div>
-                <a href="/contact" class="mr-3">
+                <router-link to="/contact" class="mr-3">
                     <i class="fas fa-envelope mr-1" style="width:15px"></i>
                     {{ $t('feedback.contact_us') }}
-                </a>
+                </router-link>
 
                 
                 <a href="/docs/help" target="_blank">
