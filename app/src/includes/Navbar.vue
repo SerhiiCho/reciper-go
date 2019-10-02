@@ -216,7 +216,7 @@
                     <!-- Regular menu -->
                     <ul class="right hide-on-med-and-down right-borders">
                         <router-link to="/" tag="li"><a>{{ $t("home.home") }}</a></router-link>
-                        <router-link to="/recipes" tag="li"><a>{{ $t("recipes.recipes") }}</a></router-link>
+                        <router-link to="/recipes#new" tag="li"><a>{{ $t("recipes.recipes") }}</a></router-link>
                         <router-link to="/help" tag="li"><a>{{ $t("messages.help") }}</a></router-link>
 
                         <li> <!-- Categories Dropdown Trigger Categories -->

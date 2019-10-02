@@ -45,13 +45,13 @@
                         </a>
                     </router-link>
 
-                    <!-- Add recipe -->
-                    <li>
-                        <a href="/recipes#new">
+                    <!-- Recipe -->
+                    <router-link to="/recipes#new" tag="li">
+                        <a>
                             <i class="fas fa-angle-right red-text" style="width:7.5px"></i> 
-                            {{ $t('recipes.recipes') }}
+                            {{ $t("recipes.recipes") }}
                         </a>
-                    </li>
+                    </router-link>
 
                     <!-- Search -->
                     <li>
