@@ -3,12 +3,14 @@
         <div class="home-header__overlay"></div>
         <div class="home-header__content">
             <h1 class="home-header__content__title">{{ $t('messages.app_name') }}</h1>
+
             <div class="home-header__content__meal">
                 <div>
                     <a href="/recipes#simple" class="home-header__content__meal__word">
                         {{ $t('home.show_simple_recipes') }}
                     </a>
                 </div>
+
                 <div>
                     <a href="/recipes#breakfast" class="home-header__content__meal__word">
                         {{ $t('home.breakfast') }}
@@ -21,6 +23,7 @@
                         {{ $t('home.dinner') }}
                     </a>
                 </div>
+
                 <a class="modal-trigger main-dark px-3 home-header__content__meal__word"
                     href="#add-recipe-modal"
                 >

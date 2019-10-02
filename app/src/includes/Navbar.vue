@@ -44,6 +44,7 @@
 
                     <ul class="collapsible" id="adminka-collapsible">
                         <li :title="$t('messages.adminka')" class="position-relative">
+
                             <div class="collapsible-header">
                                 <i class="fas fa-shield-alt fa-15x mr-2"></i>
                                 {{ $t('messages.adminka') }}
@@ -155,11 +156,11 @@
         <nav class="no-select z-depth-1">
             <div class="nav-wrapper main-navbar">
                 <div class="px-3 position-relative">
-                    <!-- Logo -->
 
+                    <!-- Logo -->
                     <router-link to="/" class="brand-logo no-select">
                         <img src="@/assets/img/other/logo.png" alt="" height="30" style="min-width:25px">
-                        <span class="left pl-2 pr-2">Reciper</span>
+                        <span class="left pl-2 pr-2">{{ $t('messages.app_name') }}</span>
                     </router-link>
 
                     <!-- Hamburger menu -->
