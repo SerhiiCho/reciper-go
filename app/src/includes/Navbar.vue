@@ -199,7 +199,7 @@
                         </a>
 
                         <!-- Notifications bell -->
-                        <a href="javascript:"
+                        <!-- <a href="javascript:"
                             id="mark-notifs-as-read"
                             class="right ml-1 mr-4 dropdown-trigger position-relative align-to-the-middle"
                             :title="$t('notifications.notifications')"
@@ -208,7 +208,7 @@
                             <span style="height:53px">
                                 <i class="fas fa-bell fa-15x"></i>
                             </span>
-                        </a>
+                        </a> -->
                     </div>
 
                     <!-- Regular menu -->
@@ -218,13 +218,13 @@
                         <router-link to="/help" tag="li"><a>{{ $t("messages.help") }}</a></router-link>
 
                         <li> <!-- Categories Dropdown Trigger Categories -->
-                            <a href="javascript:"
+                            <!-- <a href="javascript:"
                                 class="dropdown-trigger"
                                 data-target="categories-dropdown"
                             >
                                 {{ $t("recipes.categories") }}
                                 <i class="fas fa-caret-down fa-15x right"></i>
-                            </a>
+                            </a> -->
                         </li>
                     </ul>
                 </div>
