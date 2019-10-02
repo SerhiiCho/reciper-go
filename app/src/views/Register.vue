@@ -47,8 +47,8 @@
 import Visibility from '@/components/Visibility.vue'
 
 export default {
-   components: {
-       Visibility,
-   },
+    components: {
+        Visibility,
+    },
 }
 </script>

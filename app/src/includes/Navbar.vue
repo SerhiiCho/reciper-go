@@ -128,12 +128,12 @@
                 <LogoutBtn />
 
                 <!-- Login -->
-                <li>
-                    <a href="/login" :title="$t('auth.login')">
+                <router-link to="/login" tag="li">
+                    <a :title="$t('auth.login')">
                         <i class="fas fa-sign-in-alt fa-15x left with-red-hover"></i>
                         {{ $t('auth.login') }}
                     </a>
-                </li>
+                </router-link>
 
                 <!-- Register -->
                 <router-link to="/register" tag="li">
