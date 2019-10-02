@@ -143,13 +143,7 @@
                     </a>
                 </router-link>
 
-            <!-- <theme-switcher
-                _messages-on="{{ $t('messages.on') }}"
-                _messages-off="{{ $t('messages.off') }}"
-                _messages-dark-mode="{{ $t('messages.dark_mode') }}"
-                dark-theme-is-on-prop="dark"
-            ></theme-switcher> -->
-
+            <ThemeSwitcher />
             <LanguageSwitcher lang="ru"></LanguageSwitcher>
         </ul>
 
@@ -286,12 +280,14 @@
 import Categories from '@/includes/nav/Categories.vue'
 import LogoutBtn from '@/components/LogoutBtn.vue'
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+import ThemeSwitcher from '@/components/ThemeSwitcher.vue'
 
 export default {
     components: {
         Categories,
         LogoutBtn,
         LanguageSwitcher,
+        ThemeSwitcher,
     }
 }
 </script>
