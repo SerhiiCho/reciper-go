@@ -1,6 +1,10 @@
 <template>
-    <div class="page pt-3">
-        <div class="row">
+    <div class="page" id="recipes-page">
+        <div class="center"><h1 class="header">{{ $t('recipes.recipes') }}</h1></div>
+
+        <div class="my-3" v-cloak><SortButtons /></div>
+
+        <div class="row pt-3">
             <div class="col s12 m6 l3" v-for="recipe in recipes" :key="recipe.id">
                 <div class="card">
                     <div class="card__image waves-effect waves-block waves-light">
@@ -48,6 +52,7 @@
 <script>
 import BtnFavs from '@/components/BtnFavs.vue'
 import Preloader from '@/components/Preloader.vue'
+import SortButtons from '@/components/SortButtons.vue'
 
 export default {
     data() {
@@ -159,6 +164,7 @@ export default {
     components: {
         Preloader,
         BtnFavs,
+        SortButtons,
     }
 }
 </script>
