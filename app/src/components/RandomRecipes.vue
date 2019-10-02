@@ -40,6 +40,7 @@ export default {
                 image: "https://www.vegrecipesofindia.com/wp-content/uploads/2015/05/oats-porridge-recipe-2.jpg",
                 titles: "Some title is here",
                 excerpt: "Some text",
+                time: 40,
             }]
             // this.$axios.get(`/api/random-recipes/${this.visitorId}/${this.limit}`)
             //     .then(res => this.recipes = res.data.data)
