@@ -2,7 +2,11 @@
     <div id="app">
         <Sidenav />
         <Navbar />
-        <router-view/>
+
+        <transition name="animate-pages" mode="out-in">
+            <router-view/>
+        </transition>
+
         <Footer />
     </div>
 </template>
