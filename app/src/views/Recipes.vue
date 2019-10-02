@@ -23,12 +23,11 @@
                         <div class="card__content__favs">
                             <!-- Add to Favorites button -->
                             <div class="d-inline-block">
-                                <!-- <btn-favs
+                                <BtnFavs
                                     :recipe-id="recipe.id"
                                     :recipe-slug="recipe.slug"
                                     :items="returnFavs(recipe.id)"
-                                    :user-id="userId"
-                                ></btn-favs> -->
+                                ></BtnFavs>
                             </div>
 
                             <!-- Preparation time -->
@@ -47,6 +46,7 @@
 </template>
 
 <script>
+import BtnFavs from '@/components/BtnFavs.vue'
 import Preloader from '@/components/Preloader.vue'
 
 export default {
@@ -56,12 +56,8 @@ export default {
             loading: false,
             url: null,
             theEnd: false,
+            favs: [],
         }
-    },
-
-    props: {
-        favs: { required: false, },
-        userId: { required: false, },
     },
 
     created() {
@@ -162,6 +158,7 @@ export default {
 
     components: {
         Preloader,
+        BtnFavs,
     }
 }
 </script>
