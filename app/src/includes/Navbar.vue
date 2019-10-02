@@ -122,10 +122,8 @@
                     </a>
                 </li>
 
-                <!-- <logout-btn
-                    _auth-logout="{{ $t('auth.logout') }}"
-                    _messages-sure-to-logout="{{ $t('messages.sure_to_logout') }}"
-                ></logout-btn> -->
+                <LogoutBtn />
+
                 <!-- Login -->
                 <li>
                     <a href="/login" :title="$t('auth.login')">
