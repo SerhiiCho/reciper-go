@@ -22,7 +22,7 @@
                     >
                         {{ $t('auth.register') }}
                     </a>
-                @else
+                <!-- @else -->
                     <a href="/users/master">
                         <img class="circle z-depth-1 hoverable"
                             src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png"
@@ -39,7 +39,7 @@
                             9999999
                         </span>
                     </a>
-                @endguest
+                <!-- @endguest -->
             </div>
         </li>
 
@@ -76,16 +76,16 @@
             <a class="subheader grey-text">{{ $t('recipes.categories') }}</a>
         </li>
 
-        @include('includes.nav.categories')
+        <Categories />
     </ul>
 </template>
 
 <script>
+import Categories from '@/includes/nav/Categories.vue'
+
 export default {
-    data() {
-        return {
-            //
-        }
+    components: {
+        Categories,
     },
 }
 </script>

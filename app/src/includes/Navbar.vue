@@ -48,6 +48,7 @@
                                 <i class="fas fa-shield-alt fa-15x mr-2"></i>
                                 {{ $t('messages.adminka') }}
                             </div>
+
                             <div class="collapsible-body p-0">
                                 <ul>
                                     <!-- approves -->
@@ -66,7 +67,7 @@
                                         </a>
                                     </li>
 
-                                    @hasRole('master')
+                                    <!-- @hasRole('master') -->
                                         <li class="divider"></li>
 
                                         <!-- manage-users -->
@@ -101,6 +102,7 @@
                                             </a>
                                         </li>
                                         <li class="divider"></li>
+                                    <!-- @endhasRole -->
                                 </ul>
                             </div>
                         </li>
@@ -131,6 +133,7 @@
                         {{ $t('auth.login') }}
                     </a>
                 </li>
+
                 <!-- Register -->
                 <li>
                     <a href="/register" :title="$t('auth.register')">
@@ -216,13 +219,13 @@
                         <router-link to="/help" tag="li"><a>{{ $t("messages.help") }}</a></router-link>
 
                         <li> <!-- Categories Dropdown Trigger Categories -->
-                            <!-- <a href="javascript:"
+                            <a href="javascript:"
                                 class="dropdown-trigger"
                                 data-target="categories-dropdown"
                             >
                                 {{ $t("recipes.categories") }}
                                 <i class="fas fa-caret-down fa-15x right"></i>
-                            </a> -->
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -249,17 +252,19 @@
 
         <!-- Categories Dropdown trigger menu -->
         <ul id="categories-dropdown" class="dropdown bottom-borders">
-            <!-- @include('includes.nav.categories') -->
+            <Categories />
         </ul>
     </div>
 </template>
 
 <script>
+import Categories from '@/includes/nav/Categories.vue'
+import LogoutBtn from '@/components/LogoutBtn.vue'
+
 export default {
-    data() {
-        return {
-            //
-        }
-    },
+    components: {
+        Categories,
+        LogoutBtn,
+    }
 }
 </script>
