@@ -3,12 +3,12 @@
         <div class="row">
             <!-- Add account -->
             <div class="col s12 m6 l3">
-                <a href="/register" :title="$t('auth.register')">
-                    <div class="home-scenes__item z-depth-1">
+                <router-link to="/register" :title="$t('auth.register')">
+                    <div class="home-scenes__item z-depth0">
                         <img src="@/assets/img/other/scenes/add-account.svg" alt="" height="120">
                         <h2 class="home-scenes__item__text">{{ $t('register.scene_add_account') }}</h2>
                     </div>
-                </a>
+                </router-link>
             </div>
 
             <!-- Add recipe -->
@@ -23,12 +23,12 @@
 
             <!-- Translate -->
             <div class="col s12 m6 l3">
-                <a href="/recipes">
+                <router-link to="/recipes">
                     <div class="home-scenes__item z-depth-1">
                         <img src="@/assets/img/other/scenes/translate.svg" alt="" height="120">
                         <h2 class="home-scenes__item__text">{{ $t('register.scene_translate') }}</h2>
                     </div>
-                </a>
+                </router-link>
             </div>
 
             <!-- Stats -->
