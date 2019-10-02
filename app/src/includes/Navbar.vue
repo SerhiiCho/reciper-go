@@ -150,7 +150,7 @@
                 dark-theme-is-on-prop="dark"
             ></theme-switcher> -->
 
-            <!-- <language-switcher lang="ru"></language-switcher> -->
+            <LanguageSwitcher lang="ru"></LanguageSwitcher>
         </ul>
 
         <nav class="no-select z-depth-1">
@@ -285,11 +285,13 @@
 <script>
 import Categories from '@/includes/nav/Categories.vue'
 import LogoutBtn from '@/components/LogoutBtn.vue'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 
 export default {
     components: {
         Categories,
         LogoutBtn,
+        LanguageSwitcher,
     }
 }
 </script>
