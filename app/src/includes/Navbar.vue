@@ -200,7 +200,7 @@
                         </a>
 
                         <!-- Notifications bell -->
-                        <!-- <a href="javascript:"
+                        <a href="javascript:"
                             id="mark-notifs-as-read"
                             class="right ml-1 mr-4 dropdown-trigger position-relative align-to-the-middle"
                             :title="$t('notifications.notifications')"
@@ -209,7 +209,7 @@
                             <span style="height:53px">
                                 <i class="fas fa-bell fa-15x"></i>
                             </span>
-                        </a> -->
+                        </a>
                     </div>
 
                     <!-- Regular menu -->
@@ -254,6 +254,30 @@
         <ul id="categories-dropdown" class="dropdown bottom-borders">
             <Categories />
         </ul>
+
+        <!-- @auth -->
+            <ul id="notifications-dropdown" class="dropdown bottom-borders">
+                <!-- @forelse ($notifications as $notif) -->
+                    <li class="active">
+                        <a href="javascript:">
+                            <span>
+                                <div>
+                                    <span class="red-text">Title here</span>
+                                </div>
+                                <span>Message is here</span>
+                                <div>
+                                    <small class="grey-text">Date is here</small>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                <!-- @empty -->
+                    <div class="center">
+                        <span class="mx-3">{{ $t('notifications.no_notifs') }}</span>
+                    </div>
+                <!-- @endforelse -->
+            </ul>
+        <!-- @endauth -->
     </div>
 </template>
 
