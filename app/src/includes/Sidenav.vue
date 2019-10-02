@@ -7,10 +7,7 @@
                 </div>
 
                 <!-- guest -->
-                    <a href="/login"
-                        class="btn waves-effect waves-light min-w mb-2"
-                        :title="$t('auth.login')"
-                    >
+                    <a href="/login" class="btn waves-effect waves-light min-w mb-2" :title="$t('auth.login')">
                         {{ $t('auth.login') }}
                     </a>
 
@@ -29,9 +26,11 @@
                             alt="master"
                         >
                     </a>
+
                     <a href="/users/master">
                         <span class="white-text name">Master</span>
                     </a>
+
                     <a href="#email">
                         <span class="white-text email">
                             {{ $t('recipers.popularity') }} 
@@ -49,23 +48,23 @@
                 {{ $t('home.home') }}
             </a>
         </li>
+
         <li>
             <a href="/recipes#new" :title="$t('recipes.recipes')">
                 <i class="fas fa-book-open fa-15x grey-text left"></i>
                 {{ $t('recipes.recipes') }}
             </a>
         </li>
+
         <li>
             <a href="/search" :title="$t('pages.search')">
                 <i class="fas fa-search fa-15x grey-text left"></i>
                 {{ $t('pages.search') }}
             </a>
         </li>
+
         <li>
-            <a href="/docs/help/"
-                :title="$t('messages.help')"
-                target="_blank"
-            >
+            <a href="/docs/help/" :title="$t('messages.help')" target="_blank">
                 <i class="fas fa-question-circle fa-15x grey-text left"></i>
                 {{ $t('messages.help') }}
             </a>
