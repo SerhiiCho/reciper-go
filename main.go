@@ -1,6 +1,6 @@
 package main
 
-import "bootstrap"
+import "github.com/SerhiiCho/reciper/src/bootstrap"
 
 func main() {
 	bootstrap.IndexPage()
