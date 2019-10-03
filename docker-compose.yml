@@ -13,3 +13,7 @@ services:
             - 1000:3306
         volumes: 
             - ./services/db/storage:/var/lib/mysql
+
+    reciper_go:
+        build: ./services/go
+        container_name: reciper_go
