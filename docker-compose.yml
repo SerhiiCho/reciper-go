@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    reciper_db:
+        image: mysql:8.0
+        container_name: reciper_db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 111111
+            MYSQL_DATABASE: reciper
+        ports:
+            - 1000:3306
+        volumes: 
+            - ./services/db/storage:/var/lib/mysql
