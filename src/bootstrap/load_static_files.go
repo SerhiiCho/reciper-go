@@ -9,7 +9,6 @@ import (
 
 // IndexPage loads first page
 func IndexPage() {
-	loadEnv()
 	http.HandleFunc("/", loadStaticFiles)
 	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
 
