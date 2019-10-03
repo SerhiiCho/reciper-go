@@ -1,9 +1,8 @@
 package routes
 
 import (
+	"github.com/SerhiiCho/reciper/src/handlers"
 	"net/http"
-
-	"handlers"
 )
 
 func handle(path string, controller func(http.ResponseWriter, http.Request)) {

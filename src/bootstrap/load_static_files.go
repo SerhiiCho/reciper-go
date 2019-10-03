@@ -11,7 +11,11 @@ import (
 func IndexPage() {
 	loadEnv()
 	http.HandleFunc("/", loadStaticFiles)
-	http.ListenAndServe(os.Getenv("APP_PORT"), nil)
+	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
+
+	if err != nil {
+		panic(err)
+	}
 }
 
 func loadStaticFiles(w http.ResponseWriter, r *http.Request) {
@@ -29,12 +33,20 @@ func loadStaticFiles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Add("Content-Type", setHeader(path))
-	w.Write(data)
+	_, err = w.Write(data)
+
+	if err != nil {
+		panic(err)
+	}
 }
 
 func setNotFoundPage(w http.ResponseWriter) {
 	w.WriteHeader(404)
-	w.Write([]byte("<h1>404 Page not found</h1>"))
+	_, err := w.Write([]byte("<h1>404 Page not found</h1>"))
+
+	if err != nil {
+		panic(err)
+	}
 }
 
 func setHeader(path string) string {
