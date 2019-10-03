@@ -9,9 +9,8 @@ import (
 func init() {
 	err := godotenv.Load()
 	utils.HandleError("Error loading .env file", err)
-	routes.LoadRoutes()
 }
 
 func main() {
-	//
+	routes.LoadRoutes()
 }
