@@ -1,10 +1,13 @@
-FROM golang:1.13-alpine
+FROM golang:1.13-stretch
 
-RUN mkdir -p /go/src/app
-WORKDIR /go/src/app
+RUN mkdir -p /app
 
-CMD ["go-wrapper", "run"]
+WORKDIR /app
 
-ONBUILD COPY ./src /go/src/app
-ONBUILD RUN go-wrapper download
-ONBUILD RUN go-wrapper install
+COPY . /app
+
+RUN apt-get update \
+    && apt-get install gb -y \
+    && gb build
+
+CMD ["/app/bin/main"]

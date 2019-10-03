@@ -1,19 +1,39 @@
 version: '3'
 
 services:
-    reciper_db:
-        image: mysql:8.0
-        container_name: reciper_db
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: 111111
-            MYSQL_DATABASE: reciper
-        ports:
-            - 1000:3306
-        volumes: 
-            - ./services/db/storage:/var/lib/mysql
+    # reciper_db:
+    #     image: mysql:8.0
+    #     container_name: reciper_db
+    #     command: --default-authentication-plugin=mysql_native_password
+    #     restart: always
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: 111111
+    #         MYSQL_DATABASE: reciper
+    #     ports:
+    #         - 1000:3306
+    #     volumes: 
+    #         - ./db/storage:/var/lib/mysql
+    #     networks: 
+    #         - reciper_net
 
     reciper_go:
-        build: ./services/go
         container_name: reciper_go
+        build:
+            context: .
+            dockerfile: Dockerfile
+        # environment:
+        #     GET_HOSTS_FROM: dns
+        # networks: 
+        #     - reciper_net
+        volumes:
+            - .:/go/src/reciper
+        ports:
+            - 8080:8080
+        # depends_on: 
+        #     - reciper_db
+        # links:
+        #     - reciper_db
+
+# networks:
+#     reciper_net:
+#         driver: bridge

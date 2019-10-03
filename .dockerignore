@@ -1,0 +1,6 @@
+.git
+app/node_modules
+node_modules
+db
+pkg
+bin
