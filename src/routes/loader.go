@@ -1,6 +1,7 @@
-package bootstrap
+package routes
 
 import (
+	"github.com/SerhiiCho/reciper/src/handlers"
 	"github.com/SerhiiCho/reciper/src/utils"
 	"io/ioutil"
 	"net/http"
@@ -8,14 +9,10 @@ import (
 	"strings"
 )
 
-// IndexPage loads first page
-func IndexPage() {
-	http.HandleFunc("/", loadStaticFiles)
-	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
-	utils.HandleError("Listen and Serve error", err)
+type MyHandler struct {
 }
 
-func loadStaticFiles(w http.ResponseWriter, r *http.Request) {
+func (this *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	path := "app/dist/" + r.URL.Path[1:]
 
 	if path == "app/dist/" {
@@ -33,6 +30,15 @@ func loadStaticFiles(w http.ResponseWriter, r *http.Request) {
 	_, writeErr := w.Write(data)
 
 	utils.HandleError("Error writing to response", writeErr)
+}
+
+// LoadRoutes loads all available routes and serves the app
+func LoadRoutes() {
+	http.Handle("/", new(MyHandler))
+	http.HandleFunc("/api/recipes", handlers.RecipesIndexHandler)
+
+	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
+	utils.HandleError("Listen and Serve error", err)
 }
 
 func setNotFoundPage(w http.ResponseWriter) {
