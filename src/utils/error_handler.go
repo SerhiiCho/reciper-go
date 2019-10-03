@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"log"
 	"os"
 	"runtime"
 	"strconv"
@@ -17,25 +18,24 @@ func HandleError(text string, err error) bool {
 	_, fileName, lineNum, _ := runtime.Caller(1)
 	date := time.Now()
 
-	msgError := "[" + date.Format("02-01-2006 15:04:05") + "] " +
-		fileName + ":" + strconv.Itoa(lineNum) + ": " +
-		text + ". " + err.Error() + "\n"
+	dateInfo := "[" + date.Format("02-01-2006 15:04:05") + "] "
+	msgError := fileName + ":" + strconv.Itoa(lineNum) + ": " + text + ". " + err.Error() + "\n"
 
-	f, err := os.OpenFile("logs.log", os.O_APPEND|os.O_WRONLY, 0600)
+	logFile, err := os.OpenFile("logs.log", os.O_APPEND|os.O_WRONLY, 0600)
+	printIfExist(err)
 
-	if err != nil {
-		panic(err)
-	}
+	log.Print(msgError)
 
-	if _, err = f.WriteString(msgError); err != nil {
-		panic(err)
-	}
+	_, writeErr := logFile.WriteString(dateInfo + msgError)
+	printIfExist(writeErr)
 
-	closeErr := f.Close()
-
-	if closeErr != nil {
-		panic(err)
-	}
+	printIfExist(logFile.Close())
 
 	return true
+}
+
+func printIfExist(err error) {
+	if err != nil {
+		log.Print(err)
+	}
 }
