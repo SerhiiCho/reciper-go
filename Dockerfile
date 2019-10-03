@@ -1,4 +1,4 @@
-FROM golang:1.13-stretch
+FROM golang:1.13-alpine
 
 RUN mkdir -p /app
 
