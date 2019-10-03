@@ -1,6 +1,7 @@
 package bootstrap
 
 import (
+	"github.com/SerhiiCho/reciper/src/utils"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -11,41 +12,33 @@ import (
 func IndexPage() {
 	http.HandleFunc("/", loadStaticFiles)
 	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
-
-	if err != nil {
-		panic(err)
-	}
+	utils.HandleError("Listen and Serve error", err)
 }
 
 func loadStaticFiles(w http.ResponseWriter, r *http.Request) {
-	path := "app/dist/" + string(r.URL.Path[1:])
+	path := "app/dist/" + r.URL.Path[1:]
 
 	if path == "app/dist/" {
 		path = "app/dist/index.html"
 	}
 
-	data, err := ioutil.ReadFile(path)
+	data, readErr := ioutil.ReadFile(path)
 
-	if err != nil {
+	if utils.HandleError("Error reading "+path, readErr) {
 		setNotFoundPage(w)
 		return
 	}
 
 	w.Header().Add("Content-Type", setHeader(path))
-	_, err = w.Write(data)
+	_, writeErr := w.Write(data)
 
-	if err != nil {
-		panic(err)
-	}
+	utils.HandleError("Error writing to response", writeErr)
 }
 
 func setNotFoundPage(w http.ResponseWriter) {
 	w.WriteHeader(404)
 	_, err := w.Write([]byte("<h1>404 Page not found</h1>"))
-
-	if err != nil {
-		panic(err)
-	}
+	utils.HandleError("Error writing 404 page", err)
 }
 
 func setHeader(path string) string {
