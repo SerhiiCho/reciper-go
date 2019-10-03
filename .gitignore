@@ -1,1 +1,5 @@
-services/db/storage
+.env
+db/storage
+pkg
+bin
+vendor/src
