@@ -5,10 +5,10 @@ import (
 	"net/http"
 )
 
-func handle(path string, controller func(http.ResponseWriter, http.Request)) {
-	//
+func init() {
+	handle("recipes", handlers.RecipesIndexHandler)
 }
 
-func loadRoutes() {
-	handle("/recipes", handlers.RecipeIndexHandler)
+func handle(path string, handler func(http.ResponseWriter, *http.Request)) {
+	http.HandleFunc("/api/"+path, handler)
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/SerhiiCho/reciper/src/utils"
 
 	"github.com/SerhiiCho/reciper/src/bootstrap"
+	_ "github.com/SerhiiCho/reciper/src/routes"
 	"github.com/joho/godotenv"
 )
 
