@@ -6,8 +6,6 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apt-get update \
-    && apt-get install gb -y \
-    && gb build
+RUN go build
 
-CMD ["/app/bin/main"]
+CMD ["/app/reciper"]

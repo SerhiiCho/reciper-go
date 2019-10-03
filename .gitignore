@@ -1,5 +1,3 @@
 .env
 db/storage
-pkg
-bin
-vendor/src
+reciper
