@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"github.com/SerhiiCho/reciper_go/src/handlers"
+	"handlers"
 )
 
 func handle(path string, controller func(http.ResponseWriter, http.Request)) {
