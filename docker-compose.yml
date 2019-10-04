@@ -30,20 +30,8 @@ services:
             - 8080:8080
         depends_on:
             - reciper_node
-        # depends_on:
-        #     - reciper_db
         # links:
         #     - reciper_db
-
-    reciper_node:
-        image: node:8-alpine
-        container_name: reciper_node
-        working_dir: /app/app
-        networks:
-            - reciper_net
-        volumes:
-            - ./app:/app/app
-        command: sh -c "npm i && npm audit fix && npm rebuild node-sass && yarn build"
 
 networks:
     reciper_net:
