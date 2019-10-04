@@ -13,6 +13,8 @@ func RecipesIndex(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Add("Access-Control-Allow-Origin", "http://localhost:8000")
+
 	var recipes []models.Recipe
 
 	recipes = append(recipes, models.Recipe{

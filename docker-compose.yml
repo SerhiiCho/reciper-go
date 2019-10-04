@@ -24,6 +24,8 @@ services:
             dockerfile: Dockerfile
         networks:
             - reciper_net
+        volumes:
+            - ./app/dist:/usr/share/nginx/html
         ports:
             - 8000:80
         depends_on:
