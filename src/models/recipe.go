@@ -2,8 +2,18 @@ package models
 
 // Recipes model
 type Recipe struct {
-	ID    uint   `json:"id,omitempty"`
-	Title string `json:"title,omitempty"`
-	Intro string `json:"intro,omitempty"`
-	Text  string `json:"text,omitempty"`
+	User
+	ID          uint   `json:"id"`
+	Title       string `json:"title"`
+	Intro       string `json:"intro"`
+	Text        string `json:"text"`
+	Ingredients string `json:"ingredients"`
+	Slug        string `json:"slug"`
+	Time        uint   `json:"time"`
+	Image       string `json:"image"`
+	Ready       bool   `json:"ready"`
+	Approved    bool   `json:"approved"`
+	Published   bool   `json:"published"`
+	Simple      bool   `json:"simple"`
+	CreatedAt   string `json:"created_at"`
 }
