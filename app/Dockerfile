@@ -1,14 +1,12 @@
 FROM nginx:1.17-alpine
 
-WORKDIR /usr/share/nginx/html
-
 COPY . /app
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 RUN apk add --update nodejs nodejs-npm \
     && cd /app \
     && npm i \
-    && npm run build \
-    && mv dist/* /usr/share/nginx/html
+    && npm run build
 
 EXPOSE 80
 
