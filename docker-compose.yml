@@ -28,8 +28,6 @@ services:
             - reciper_net
         ports:
             - 8080:8080
-        depends_on:
-            - reciper_node
         # links:
         #     - reciper_db
 
