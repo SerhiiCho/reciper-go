@@ -25,7 +25,7 @@ services:
         networks:
             - reciper_net
         volumes:
-            - ./app/dist:/usr/share/nginx/html
+            - ./app/dist:/app/dist
         ports:
             - 8000:80
         depends_on:

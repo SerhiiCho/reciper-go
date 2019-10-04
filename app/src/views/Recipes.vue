@@ -96,7 +96,7 @@
                 this.loading = true
 
                 const hash = window.location.hash.substring(1)
-                const url = this.url === null ? `http://reciper_go:8080/api/recipes/${hash}` : this.url
+                const url = this.url === null ? `http://localhost:8080/api/recipes/${hash}` : this.url
 
                 Event.$emit('hash-changed', hash)
 
