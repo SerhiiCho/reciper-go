@@ -16,6 +16,19 @@ services:
     #     networks:
     #         - reciper_net
 
+    reciper_nginx:
+        container_name: reciper_nginx
+        image: serhiicho/reciper:nginx
+        build:
+            context: app/
+            dockerfile: Dockerfile
+        networks:
+            - reciper_net
+        ports:
+            - 8000:80
+        depends_on:
+            - reciper_go
+
     reciper_go:
         container_name: reciper_go
         image: serhiicho/reciper:go
