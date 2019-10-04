@@ -7,7 +7,12 @@ import (
 	"net/http"
 )
 
-func RecipesIndexHandler(w http.ResponseWriter, _ *http.Request) {
+// RecipesIndex handles GET request on /api/recipes
+func RecipesIndex(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		return
+	}
+
 	var recipes []models.Recipe
 
 	recipes = append(recipes, models.Recipe{
