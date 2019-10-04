@@ -1,8 +1,9 @@
-package routes
+package httputils
 
 import "strings"
 
-func setHeader(path string) string {
+// SetHeader sets header depending on given path suffix
+func SetHeader(path string) string {
 	switch {
 	case strings.HasSuffix(path, ".css"):
 		return "text/css"
