@@ -9,7 +9,6 @@ import (
 
 // LoadRoutes loads all available routes and serves the app
 func LoadRoutes() {
-	http.HandleFunc("/", handlers.PagesHome)
 	http.HandleFunc("/api/recipes", handlers.RecipesIndex)
 
 	err := http.ListenAndServe(os.Getenv("APP_PORT"), nil)
