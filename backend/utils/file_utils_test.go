@@ -5,7 +5,7 @@ import "testing"
 func TestFileExists(t *testing.T) {
 	t.Parallel()
 
-	if !FileExists("file_exists_test.go") {
+	if !FileExists("file_utils.go") {
 		t.Error("FileExists must return true because file_exists_test.go file exists")
 	}
 
