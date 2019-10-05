@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/SerhiiCho/reciper/backend/httpd/handler"
+	"github.com/SerhiiCho/reciper/backend/handler"
 	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
