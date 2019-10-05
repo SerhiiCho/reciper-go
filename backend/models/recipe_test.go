@@ -14,10 +14,12 @@ func TestCreateRecipe(t *testing.T) {
 
 func TestIndexRecipe(t *testing.T) {
 	t.Parallel()
+
 	recipe := NewRecipe()
 	recipe.CreateRecipe(Recipe{})
+	result := len(recipe.IndexRecipe())
 
-	if len(recipe.IndexRecipe()) != 1 {
-		t.Error("Results must be equal to 1")
+	if result != 1 {
+		t.Errorf("Results must be equal to 1 but got %v", result)
 	}
 }

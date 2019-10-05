@@ -22,7 +22,7 @@ func TestStrLimit(t *testing.T) {
 		result := StrLimit(c.InputString, c.Limit)
 
 		if result != c.Result {
-			t.Errorf("Result must be %s but got %s", c.Result, result)
+			t.Errorf("Result must be `%s` but got `%s` instead", c.Result, result)
 		}
 	}
 }
