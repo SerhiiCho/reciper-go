@@ -17,6 +17,4 @@ type User struct {
 	ContactCheck string  `json:"contact_check"`
 	CreatedAt    string  `json:"created_at"`
 	Photo        string  `json:"photo"`
-	password     string  `json:"password"`
-	token        string  `json:"token"`
 }

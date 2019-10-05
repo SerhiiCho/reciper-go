@@ -1,9 +1,10 @@
 package handler
 
 import (
+	"net/http"
+
 	"github.com/SerhiiCho/reciper/backend/models"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 // RecipesGET handles GET request on /api/recipes
