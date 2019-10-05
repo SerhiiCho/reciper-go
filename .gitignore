@@ -2,3 +2,4 @@
 db/storage
 reciper
 logs.log
+vendor/
