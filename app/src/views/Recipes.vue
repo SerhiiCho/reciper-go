@@ -71,9 +71,9 @@
             this.fetchRecipes(true)
 
             // Call onScroll method if the there are more recipes
-            window.addEventListener('scroll', () => {
-                if (!this.theEnd) this.onScroll()
-            })
+            // window.addEventListener('scroll', () => {
+            //     if (!this.theEnd) this.onScroll()
+            // })
 
             // Fetch recipes when the hash has changed
             window.onhashchange = () => {
@@ -96,7 +96,8 @@
                 this.loading = true
 
                 const hash = window.location.hash.substring(1)
-                const url = this.url === null ? `http://localhost:8080/api/recipes/${hash}` : this.url
+                // const url = this.url === null ? `http://localhost:8080/api/recipes/${hash}` : this.url
+                const url = this.url === null ? `http://localhost:8080/api/recipes` : this.url
 
                 Event.$emit('hash-changed', hash)
 
@@ -106,17 +107,18 @@
                          * If pagination has the 'next' value not null, set url variable
                          * to that 'next' value. Otherwise set theEnd to true.
                          */
-                        if (res.data.links.next !== null) {
-                            this.url = res.data.links.next
-                        } else {
-                            this.theEnd = true
-                        }
+                        // if (res.data.links.next !== null) {
+                        //     this.url = res.data.links.next
+                        // } else {
+                        //     this.theEnd = true
+                        // }
 
                         /**
                          * Set recipes variable to received response data, but if 'reload' variable
                          * is true concatenate recipes with received response data
                          */
-                        this.recipes = reload ? res.data.data : this.recipes.concat(res.data.data)
+                        // this.recipes = reload ? res.data.data : this.recipes.concat(res.data.data)
+                        this.recipes = reload ? res.data : this.recipes.concat(res.data)
                         this.loading = false
                         console.log(this.recipes)
                     })
