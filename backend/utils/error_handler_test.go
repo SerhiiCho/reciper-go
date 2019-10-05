@@ -5,12 +5,28 @@ import (
 	"errors"
 	"log"
 	"os"
+	"strings"
 	"testing"
 	"time"
 )
 
 func TestHandleError(t *testing.T) {
 	t.Parallel()
+
+	t.Run("creates file if it doesnt exist", func(t *testing.T) {
+		RemoveFileIfExist("../logs.log")
+
+		customError := errors.New("my error message")
+		HandleError("Some message", customError)
+
+		logContent := FileGetContent("../logs.log")
+
+		if !strings.Contains(logContent, "my error message") {
+			t.Error("Log file myst contain message: `my error message` but it doesn't")
+		}
+
+		RemoveFileIfExist("../logs.log")
+	})
 }
 
 func TestPrintIfExist(t *testing.T) {
