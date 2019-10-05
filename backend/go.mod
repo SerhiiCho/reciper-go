@@ -1,4 +1,4 @@
-module github.com/SerhiiCho/reciper
+module github.com/SerhiiCho/reciper/backend
 
 go 1.13
 

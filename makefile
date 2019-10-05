@@ -3,8 +3,8 @@ dev:
 
 build:
 	docker-compose build
-	docker-compose push serhiicho/reciper:go
-	docker-compose push serhiicho/reciper:nginx
+	docker push serhiicho/reciper:go
+	docker push serhiicho/reciper:nginx
 
 prod:
 	docker-compose up -d

@@ -1,3 +1,4 @@
-db/storage
-reciper
-logs.log
+/db/storage
+/reciper
+/logs.log
+/.env

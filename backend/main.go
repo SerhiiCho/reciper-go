@@ -1,4 +1,4 @@
-package src
+package main
 
 import (
 	"github.com/SerhiiCho/reciper/backend/httpd/handler"
@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	err := godotenv.Load(".env", ".env.example")
+	err := godotenv.Load()
 	utils.HandleError("Error loading .env file", err)
 }
 
