@@ -17,12 +17,10 @@ func TestStrLimit(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		t.Run("short string", func(t *testing.T) {
-			result := StrLimit(c.InputString, c.Limit)
+		result := StrLimit(c.InputString, c.Limit)
 
-			if result != c.Result {
-				t.Errorf("Result must be %s but got %s", c.Result, result)
-			}
-		})
+		if result != c.Result {
+			t.Errorf("Result must be %s but got %s", c.Result, result)
+		}
 	}
 }
