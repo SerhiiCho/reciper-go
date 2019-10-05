@@ -1,7 +1,7 @@
-package user
+package models
 
 // User model
-type Model struct {
+type User struct {
 	ID           uint    `json:"id"`
 	Name         string  `json:"name"`
 	Status       string  `json:"status"`
