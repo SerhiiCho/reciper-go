@@ -22,23 +22,23 @@ func TestFileGetContents(t *testing.T) {
 	t.Parallel()
 
 	t.Run("returns file content", func(t *testing.T) {
-		FilePutContent("test-file", "Hello world")
-		result := FileGetContent("test-file")
+		FilePutContent("nice-file", "Hello world")
+		result := FileGetContent("nice-file")
 
 		if result != "Hello world" {
 			t.Errorf("The result must be `Hello world`%v", result)
 		}
-		RemoveFileIfExist("test-file")
+		RemoveFileIfExist("nice-file")
 	})
 
 	t.Run("returns empty string if file is empty", func(t *testing.T) {
-		FilePutContent("test-file", "")
-		result := FileGetContent("")
+		FilePutContent("testing-file", "")
 
-		if result != "" {
+		if FileGetContent("") != "" {
 			t.Error("The value of result variable must be empty string")
 		}
-		RemoveFileIfExist("test-file")
+
+		RemoveFileIfExist("testing-file")
 	})
 
 	t.Run("returns empty string if does not exist", func(t *testing.T) {
