@@ -27,6 +27,31 @@ func TestHandleError(t *testing.T) {
 
 		RemoveFileIfExist("../logs.log")
 	})
+
+	t.Run("appends to an existing log file", func(t *testing.T) {
+		FilePutContent("../logs.log", "old error message")
+
+		customError := errors.New("error message")
+		HandleError("new error has occurred", customError)
+
+		logContent := FileGetContent("../logs.log")
+
+		if !strings.Contains(logContent, "old error message") {
+			t.Error("Log file must contain old log message with text: `old error message` but it doesn't")
+		}
+
+		if !strings.Contains(logContent, "new error has occurred") {
+			t.Error("Log file must contain newly added message: `new error has occurred` but it doesn't")
+		}
+
+		RemoveFileIfExist("../logs.log")
+	})
+
+	t.Run("returns false if error is nil", func(t *testing.T) {
+		if HandleError("text", nil) {
+			t.Error("HandleError must return false because passed error is nil")
+		}
+	})
 }
 
 func TestPrintIfExist(t *testing.T) {
