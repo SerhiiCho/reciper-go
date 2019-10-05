@@ -21,12 +21,12 @@ func HandleError(text string, err error) bool {
 	dateInfo := "[" + date.Format("02-01-2006 15:04:05") + "] "
 	msgError := fileName + ":" + strconv.Itoa(lineNum) + ": " + text + ". " + err.Error() + "\n"
 
-	if !FileExists("logs.log") {
-		FilePutContent("logs.log", dateInfo+msgError)
+	if !FileExists("../logs.log") {
+		FilePutContent("../logs.log", dateInfo+msgError)
 		return true
 	}
 
-	logFile, err := os.OpenFile("logs.log", os.O_APPEND|os.O_WRONLY, 0600)
+	logFile, err := os.OpenFile("../logs.log", os.O_APPEND|os.O_WRONLY, 0600)
 	printIfExist(err)
 
 	log.Print(msgError)
