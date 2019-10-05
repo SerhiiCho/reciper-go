@@ -1,13 +1,13 @@
-package handlers
+package handler
 
 import (
-	"github.com/SerhiiCho/reciper/src/models"
+	"github.com/SerhiiCho/reciper/backend/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
-// RecipesIndex handles GET request on /api/recipes
-func RecipesIndex() gin.HandlerFunc {
+// RecipesGET handles GET request on /api/recipes
+func RecipesGET() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var recipes []models.Recipe
 

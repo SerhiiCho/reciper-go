@@ -1,5 +1,5 @@
 dev:
-	go run main.go
+	go run backend/main.go
 
 build:
 	docker-compose build

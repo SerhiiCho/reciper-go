@@ -1,6 +1,5 @@
 .git
 app/node_modules
 node_modules
+vendor
 db
-pkg
-bin

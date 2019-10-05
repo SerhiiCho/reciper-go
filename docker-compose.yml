@@ -20,12 +20,12 @@ services:
         container_name: reciper_nginx
         image: serhiicho/reciper:nginx
         build:
-            context: app/
+            context: frontend/
             dockerfile: Dockerfile
         networks:
             - reciper_net
         volumes:
-            - ./app/dist:/app/dist
+            - ./frontend/dist:/app/dist
         ports:
             - 8000:80
         depends_on:
@@ -35,7 +35,7 @@ services:
         container_name: reciper_go
         image: serhiicho/reciper:go
         build:
-            context: .
+            context: ./backend
             dockerfile: Dockerfile
         env_file:
             - .env
