@@ -9,8 +9,8 @@ func TestFileExists(t *testing.T) {
 		t.Error("FileExists must return true because file_exists_test.go file exists")
 	}
 
-	if FileExists("sadlfsdl") {
-		t.Error("FileExists must return false because sadlfsdl file doen't exist")
+	if FileExists("nostradamus") {
+		t.Error("FileExists must return false because nostradamus file doesn't exist")
 	}
 
 	if FileExists("") {
