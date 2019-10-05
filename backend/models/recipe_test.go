@@ -3,6 +3,7 @@ package models
 import "testing"
 
 func TestCreateRecipe(t *testing.T) {
+	t.Parallel()
 	recipe := NewRecipe()
 	recipe.CreateRecipe(Recipe{})
 
@@ -12,6 +13,7 @@ func TestCreateRecipe(t *testing.T) {
 }
 
 func TestIndexRecipe(t *testing.T) {
+	t.Parallel()
 	recipe := NewRecipe()
 	recipe.CreateRecipe(Recipe{})
 

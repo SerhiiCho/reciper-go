@@ -3,6 +3,8 @@ package utils
 import "testing"
 
 func TestStrLimit(t *testing.T) {
+	t.Parallel()
+
 	cases := []struct {
 		InputString string
 		Limit       int

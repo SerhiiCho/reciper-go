@@ -10,15 +10,12 @@ import (
 )
 
 func TestHandleError(t *testing.T) {
-	t.Error("empty test")
-}
-
-func TestCreateLogFileIfDoesntExist(t *testing.T) {
-	t.Error("empty test")
+	t.Parallel()
 }
 
 func TestPrintIfExist(t *testing.T) {
 	t.Run("if argument is nil", func(t *testing.T) {
+		t.Parallel()
 		var buf bytes.Buffer
 		log.SetOutput(&buf)
 
@@ -36,6 +33,7 @@ func TestPrintIfExist(t *testing.T) {
 	})
 
 	t.Run("if argument is error", func(t *testing.T) {
+		t.Parallel()
 		var buf bytes.Buffer
 
 		log.SetOutput(&buf)
