@@ -19,6 +19,7 @@ func RecipesCreate(recipeRepo *models.RecipeRepo) gin.HandlerFunc {
 
 		recipeRepo.CreateRecipe(models.Recipe{
 			Title:       c.PostForm("title"),
+			Excerpt:     utils.StrLimit(c.PostForm("title"), 42),
 			Intro:       c.PostForm("intro"),
 			Text:        c.PostForm("text"),
 			Ingredients: c.PostForm("ingredients"),

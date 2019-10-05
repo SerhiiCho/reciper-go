@@ -2,7 +2,7 @@ package models
 
 // Recipe model
 type Recipe struct {
-	User        User   `json:"user"`
+	User        *User  `json:"user"`
 	ID          uint   `json:"id"`
 	Title       string `json:"title"`
 	Excerpt     string `json:"excerpt"`
