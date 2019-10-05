@@ -1,10 +1,11 @@
 package models
 
-// Recipes model
+// Recipe model
 type Recipe struct {
 	User        User   `json:"user"`
 	ID          uint   `json:"id"`
 	Title       string `json:"title"`
+	Excerpt     string `json:"excerpt"`
 	Intro       string `json:"intro"`
 	Text        string `json:"text"`
 	Ingredients string `json:"ingredients"`
