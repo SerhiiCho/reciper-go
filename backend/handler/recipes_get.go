@@ -12,7 +12,7 @@ func RecipesGET() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var recipes []models.Recipe
 
-		c.Header("Access-Control-Allow-Origin", "http://localhost:8000")
+		c.Header("Access-Control-Allow-Origin", "*")
 		c.Header("Access-Control-Allow-Credentials", "true")
 		c.Header("Access-Control-Max-Age", "604800")
 		c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Access-Control-Request-Method")
