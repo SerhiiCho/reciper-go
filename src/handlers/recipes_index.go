@@ -32,22 +32,6 @@ func RecipesIndex() gin.HandlerFunc {
 			Published:   true,
 			Simple:      true,
 			CreatedAt:   "10-10-2018 10:15:08",
-			//User: models.User{
-			//	ID:           1,
-			//	Name:         "Mikel",
-			//	Status:       "admin",
-			//	Email:        "some@email.com",
-			//	Username:     "master",
-			//	XP:           2343,
-			//	StreakDays:   3,
-			//	Popularity:   244,
-			//	Active:       true,
-			//	StreakCheck:  "10-10-2018 10:15:08",
-			//	NotifCheck:   "10-10-2018 10:15:08",
-			//	ContactCheck: "10-10-2018 10:15:08",
-			//	CreatedAt:    "10-10-2018 10:15:08",
-			//	Photo:        "https://avatars3.githubusercontent.com/u/35465417?s=460&v=4",
-			//},
 		})
 
 		c.JSON(http.StatusOK, recipes)
