@@ -9,13 +9,15 @@ import en from './locales/en.json'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+Vue.config.devtools = true
+
 window.Event = new Vue()
 
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
     fallbackLocale: 'en',
-    messages: { en, ru },
+    messages: {en, ru},
 })
 
 new Vue({
