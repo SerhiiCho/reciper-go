@@ -18,3 +18,23 @@ type Recipe struct {
 	Simple      bool   `json:"simple"`
 	CreatedAt   string `json:"created_at"`
 }
+
+// Repo method holds slice of recipes
+type Repo struct {
+	Recipes []Recipe
+}
+
+// New method returns pointer to Repo
+func New() *Repo {
+	return &Repo{}
+}
+
+// Add method
+func (r *Repo) Add(recipe Recipe) {
+	r.Recipes = append(r.Recipes, recipe)
+}
+
+// GetAll method returns slice of all recipes
+func (r *Repo) GetAll() []Recipe {
+	return r.Recipes
+}
