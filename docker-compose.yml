@@ -19,9 +19,9 @@ services:
     reciper_nginx:
         container_name: reciper_nginx
         image: serhiicho/reciper:nginx
-        build:
-            context: frontend/
-            dockerfile: Dockerfile
+#        build:
+#            context: frontend/
+#            dockerfile: Dockerfile
         networks:
             - reciper_net
         volumes:
@@ -34,9 +34,9 @@ services:
     reciper_go:
         container_name: reciper_go
         image: serhiicho/reciper:go
-        build:
-            context: ./backend
-            dockerfile: Dockerfile
+#        build:
+#            context: ./backend
+#            dockerfile: Dockerfile
         env_file:
             - .env
         networks:
