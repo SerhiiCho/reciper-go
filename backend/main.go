@@ -19,16 +19,16 @@ func init() {
 }
 
 func main() {
-	r := gin.Default()
+	router := gin.Default()
 	recipeRepo := models.NewRecipe()
 	db := getDB()
 
-	r.Use(middleware.App())
+	router.Use(middleware.App())
 
-	r.GET("/api/recipes", handler.RecipesIndex(recipeRepo, db))
-	r.POST("/api/recipes", handler.RecipesCreate(recipeRepo, db))
+	router.GET("/api/recipes", handler.RecipesIndex(recipeRepo, db))
+	router.POST("/api/recipes", handler.RecipesCreate(recipeRepo, db))
 
-	utils.HandleError("Can't serve the app", r.Run())
+	utils.HandleError("Can't serve the app", router.Run())
 }
 
 func getDB() *sql.DB {
