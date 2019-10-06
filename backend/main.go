@@ -20,13 +20,13 @@ func init() {
 
 func main() {
 	router := gin.Default()
-	recipeRepo := models.NewRecipe()
-	db := getDB()
+	DB := getDB()
+	recipeRepo := models.NewRecipeRepo(DB)
 
 	router.Use(middleware.App())
 
-	router.GET("/api/recipes", handler.RecipesIndex(recipeRepo, db))
-	router.POST("/api/recipes", handler.RecipesCreate(recipeRepo, db))
+	router.GET("/api/recipes", handler.RecipesIndex(recipeRepo))
+	router.POST("/api/recipes", handler.RecipesCreate(recipeRepo))
 
 	utils.HandleError("Can't serve the app", router.Run())
 }
@@ -40,8 +40,8 @@ func getDB() *sql.DB {
 
 	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
 
-	db, err := sql.Open("mysql", dataSource)
+	DB, err := sql.Open("mysql", dataSource)
 	utils.HandleError("Database connection error", err)
 
-	return db
+	return DB
 }

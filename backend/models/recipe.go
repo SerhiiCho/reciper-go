@@ -26,14 +26,21 @@ type Recipe struct {
 
 // RecipeRepo method holds slice of recipes
 type RecipeRepo struct {
+	DB      *sql.DB
 	Recipes []Recipe
 }
 
-// NewRecipe method returns pointer to RecipeRepo
-func NewRecipe() *RecipeRepo {
+// NewRecipeRepo method returns pointer to RecipeRepo
+func NewRecipeRepo(DB *sql.DB) *RecipeRepo {
 	return &RecipeRepo{
+		DB:      DB,
 		Recipes: []Recipe{},
 	}
+}
+
+// Length returns the amount of recipe items
+func (repo *RecipeRepo) Length() int {
+	return len(repo.Recipes)
 }
 
 // AddRecipe adds method new recipe
@@ -42,8 +49,12 @@ func (repo *RecipeRepo) AddRecipe(recipe Recipe) {
 }
 
 // IndexRecipe method returns slice of all recipes
-func (repo *RecipeRepo) IndexRecipe(db *sql.DB) []Recipe {
-	rows, err := db.Query(`
+func (repo *RecipeRepo) IndexRecipe() []Recipe {
+	if repo.Length() > 0 {
+		return repo.Recipes
+	}
+
+	rows, err := repo.DB.Query(`
 		SELECT id, title_ru, intro_ru, ingredients_ru, text_ru, slug, time, image, ready_ru, approved_ru, published_ru, simple, created_at
 		FROM recipes
 	`)
