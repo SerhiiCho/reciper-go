@@ -28,12 +28,6 @@ func RecipesCreate(recipeRepo *models.RecipeRepo) gin.HandlerFunc {
 			Image:       c.PostForm("image"),
 		})
 
-		c.Header("Access-Control-Allow-Origin", "*")
-		c.Header("Access-Control-Allow-Credentials", "true")
-		c.Header("Access-Control-Max-Age", "604800")
-		c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Access-Control-Request-Method")
-		c.Header("Access-Control-Allow-Methods", "GET, POST")
-
 		c.Status(http.StatusNoContent)
 	}
 }

@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/SerhiiCho/reciper/backend/handler"
+	"github.com/SerhiiCho/reciper/backend/http/handler"
+	"github.com/SerhiiCho/reciper/backend/http/middleware"
 	"github.com/SerhiiCho/reciper/backend/models"
 	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/gin-gonic/gin"
@@ -16,6 +17,8 @@ func init() {
 func main() {
 	r := gin.Default()
 	recipeRepo := models.NewRecipe()
+
+	r.Use(middleware.App())
 
 	r.GET("/api/recipes", handler.RecipesIndex(recipeRepo))
 	r.POST("/api/recipes", handler.RecipesCreate(recipeRepo))
