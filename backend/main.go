@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"github.com/SerhiiCho/reciper/backend/http/handler"
 	"github.com/SerhiiCho/reciper/backend/http/middleware"
 	"github.com/SerhiiCho/reciper/backend/models"
@@ -17,11 +18,13 @@ func init() {
 func main() {
 	r := gin.Default()
 	recipeRepo := models.NewRecipe()
+	db, err := sql.Open("mysql", "root@tcp(reciper_db:1001)/reciper?charset=utf8")
+	utils.HandleError("Database connection error", err)
 
 	r.Use(middleware.App())
 
-	r.GET("/api/recipes", handler.RecipesIndex(recipeRepo))
-	r.POST("/api/recipes", handler.RecipesCreate(recipeRepo))
+	r.GET("/api/recipes", handler.RecipesIndex(recipeRepo, db))
+	r.POST("/api/recipes", handler.RecipesCreate(recipeRepo, db))
 
 	utils.HandleError("Can't serve the app", r.Run())
 }
