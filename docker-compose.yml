@@ -4,9 +4,6 @@ services:
     reciper_nginx:
         container_name: reciper_nginx
         image: serhiicho/reciper:nginx
-        #        build:
-        #            context: frontend/
-        #            dockerfile: Dockerfile
         networks:
             - reciper_net
         volumes:
@@ -19,17 +16,14 @@ services:
     reciper_go:
         container_name: reciper_go
         image: serhiicho/reciper:go
-        #        build:
-        #            context: ./backend
-        #            dockerfile: Dockerfile
         env_file:
             - .env
         networks:
             - reciper_net
         ports:
             - 8080:8080
-        # links:
-        #     - reciper_db
+        links:
+            - reciper_db
 
     reciper_db:
         image: mysql:8.0
@@ -37,8 +31,8 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         restart: always
         environment:
-            -   MYSQL_ROOT_PASSWORD: 111111
-            -   MYSQL_DATABASE: reciper
+            MYSQL_ROOT_PASSWORD: 111111
+            MYSQL_DATABASE: reciper
         ports:
             - 1001:3306
         volumes:
