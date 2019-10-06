@@ -5,7 +5,7 @@ import "testing"
 func TestRecipeRepo_AddRecipe(t *testing.T) {
 	t.Parallel()
 
-	recipe := NewRecipeRepo()
+	recipe := RecipeRepo{}
 	recipe.AddRecipe(Recipe{})
 
 	if len(recipe.Recipes) != 1 {
@@ -16,7 +16,7 @@ func TestRecipeRepo_AddRecipe(t *testing.T) {
 func TestRecipeRepo_IndexRecipe(t *testing.T) {
 	t.Parallel()
 
-	recipe := NewRecipeRepo()
+	recipe := RecipeRepo{}
 	recipe.AddRecipe(Recipe{})
 	result := len(recipe.IndexRecipe())
 
@@ -28,7 +28,7 @@ func TestRecipeRepo_IndexRecipe(t *testing.T) {
 func TestRecipeRepo_Length(t *testing.T) {
 	t.Parallel()
 
-	recipe := NewRecipeRepo()
+	recipe := RecipeRepo{}
 	recipe.AddRecipe(Recipe{})
 	recipe.AddRecipe(Recipe{})
 	recipe.AddRecipe(Recipe{})
