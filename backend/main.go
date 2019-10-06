@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/SerhiiCho/reciper/backend/http/handler"
 	"github.com/SerhiiCho/reciper/backend/http/middleware"
-	"github.com/SerhiiCho/reciper/backend/models"
+	"github.com/SerhiiCho/reciper/backend/repos"
 	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -21,7 +21,7 @@ func init() {
 func main() {
 	router := gin.Default()
 	DB := getDB()
-	recipeRepo := models.NewRecipeRepo(DB)
+	recipeRepo := repos.NewRecipeRepo(DB)
 
 	router.Use(middleware.App())
 

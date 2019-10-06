@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/SerhiiCho/reciper/backend/models"
+	"github.com/SerhiiCho/reciper/backend/repos"
 	"net/http"
 	"strconv"
 
@@ -11,7 +12,7 @@ import (
 )
 
 // RecipesCreate handles POST request on creating a new recipe item
-func RecipesCreate(recipeRepo *models.RecipeRepo) gin.HandlerFunc {
+func RecipesCreate(recipeRepo *repos.RecipeRepo) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 		time, parseErr := strconv.ParseUint(c.PostForm("time"), 10, 32)
