@@ -10,6 +10,6 @@ import (
 // RecipesIndex handles GET request on showing the list of all recipes
 func RecipesIndex(recipeRepo *models.RecipeRepo, db *sql.DB) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.JSON(http.StatusOK, recipeRepo.IndexRecipe())
+		c.JSON(http.StatusOK, recipeRepo.IndexRecipe(db))
 	}
 }
