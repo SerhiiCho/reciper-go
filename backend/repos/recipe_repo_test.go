@@ -3,7 +3,6 @@ package repos
 import (
 	"github.com/SerhiiCho/reciper/backend/models"
 	"github.com/SerhiiCho/reciper/backend/storage"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"testing"
 )
 
@@ -20,7 +19,7 @@ func TestRecipeRepo_Add(t *testing.T) {
 
 func TestRecipeRepo_All(t *testing.T) {
 	t.Parallel()
-	utils.TestSetup()
+	storage.TestSetup()
 
 	recipe := NewRecipeRepo(storage.GetDB())
 	recipe.Add(models.Recipe{})
