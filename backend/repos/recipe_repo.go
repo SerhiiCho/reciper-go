@@ -33,11 +33,11 @@ func (repo *RecipeRepo) AddRecipe(recipe models.Recipe) {
 // IndexRecipe method returns slice of all recipes
 func (repo *RecipeRepo) IndexRecipe() []models.Recipe {
 	if repo.Length() > 0 {
-		return repo.Recipes
+		repo.Recipes = nil
 	}
 
 	rows, err := repo.DB.Query(`
-		SELECT id, title_ru, intro_ru, ingredients_ru, text_ru, slug, time, image, ready_ru, approved_ru, published_ru, simple, created_at
+		SELECT id, title_ru, intro_ru, ingredients_ru, text_ru, slug, time, image, ready_ru, approved_ru, published_ru, simple, updated_at, created_at
 		FROM recipes
 	`)
 	utils.HandleError("Error while getting recipes from database", err)
@@ -45,7 +45,9 @@ func (repo *RecipeRepo) IndexRecipe() []models.Recipe {
 	for rows.Next() {
 		var r models.Recipe
 
-		scanErr := rows.Scan(&r.ID, &r.Title, &r.Intro, &r.Ingredients, &r.Text, &r.Slug, &r.Time, &r.Image, &r.Ready, &r.Approved, &r.Published, &r.Simple, &r.CreatedAt)
+		scanErr := rows.Scan(&r.ID, &r.Title, &r.Intro, &r.Ingredients, &r.Text, &r.Slug, &r.Time, &r.Image, &r.Ready, &r.Approved, &r.Published, &r.Simple, &r.UpdatedAt, &r.CreatedAt)
+		r.Excerpt = r.GetExcerpt()
+
 		utils.HandleError("Rows scan error", scanErr)
 
 		repo.AddRecipe(r)

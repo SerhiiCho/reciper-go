@@ -1,5 +1,7 @@
 package models
 
+import "github.com/SerhiiCho/reciper/backend/utils"
+
 // Recipe model
 type Recipe struct {
 	User        *User  `json:"user"`
@@ -16,5 +18,11 @@ type Recipe struct {
 	Approved    byte   `json:"approved"`
 	Published   byte   `json:"published"`
 	Simple      byte   `json:"simple"`
+	UpdatedAt   string `json:"updated_at"`
 	CreatedAt   string `json:"created_at"`
+}
+
+// GetExcerpt returns the short version of the title
+func (recipe *Recipe) GetExcerpt() string {
+	return utils.StrLimit(recipe.Title, 40)
 }
