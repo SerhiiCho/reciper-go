@@ -23,7 +23,7 @@ func main() {
 	DB := getDB()
 	recipeRepo := repos.NewRecipeRepo(DB)
 
-	router.Use(middleware.App())
+	router.Use(middleware.AppMiddle())
 
 	router.GET("/api/recipes", handler.RecipesIndex(recipeRepo))
 	router.POST("/api/recipes", handler.RecipesCreate(recipeRepo))
