@@ -2,13 +2,15 @@ package repos
 
 import (
 	"github.com/SerhiiCho/reciper/backend/models"
+	"github.com/SerhiiCho/reciper/backend/storage"
+	"github.com/SerhiiCho/reciper/backend/utils"
 	"testing"
 )
 
 func TestRecipeRepo_Add(t *testing.T) {
 	t.Parallel()
 
-	recipe := RecipeRepo{}
+	recipe := NewRecipeRepo(storage.GetDB())
 	recipe.Add(models.Recipe{})
 
 	if len(recipe.Recipes) != 1 {
@@ -18,8 +20,9 @@ func TestRecipeRepo_Add(t *testing.T) {
 
 func TestRecipeRepo_All(t *testing.T) {
 	t.Parallel()
+	utils.TestSetup()
 
-	recipe := RecipeRepo{}
+	recipe := NewRecipeRepo(storage.GetDB())
 	recipe.Add(models.Recipe{})
 	result := len(recipe.All())
 

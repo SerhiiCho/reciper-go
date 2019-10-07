@@ -46,9 +46,9 @@ func (repo *RecipeRepo) All() []models.Recipe {
 		var r models.Recipe
 
 		scanErr := rows.Scan(&r.ID, &r.Title, &r.Intro, &r.Ingredients, &r.Text, &r.Slug, &r.Time, &r.Image, &r.Ready, &r.Approved, &r.Published, &r.Simple, &r.UpdatedAt, &r.CreatedAt)
-		r.Excerpt = r.GetExcerpt()
-
 		utils.HandleError("Rows scan error", scanErr, "")
+
+		r.Excerpt = r.GetExcerpt()
 
 		repo.Add(r)
 	}
