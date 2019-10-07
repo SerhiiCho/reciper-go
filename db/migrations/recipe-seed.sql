@@ -1,5 +1,3 @@
-TRUNCATE TABLE recipes;
-
 INSERT INTO recipes
 VALUES ('1',
         '1',
