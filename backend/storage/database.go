@@ -3,9 +3,9 @@ package storage
 import (
 	"database/sql"
 	"fmt"
+	"github.com/SerhiiCho/reciper/backend/utils"
 	"os"
 
-	"github.com/SerhiiCho/reciper/backend/utils"
 	_ "github.com/go-sql-driver/mysql"
 )
 
