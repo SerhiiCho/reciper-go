@@ -19,14 +19,14 @@ func FileExists(name string) bool {
 func RemoveFileIfExist(fileName string) {
 	if FileExists(fileName) {
 		err := os.Remove(fileName)
-		HandleError("Error while trying to delete file", err)
+		HandleError("Error while trying to delete file", err, "")
 	}
 }
 
 // FilePutContent creates file and inserts text into it
 func FilePutContent(filePath string, text string) {
 	err := ioutil.WriteFile(filePath, []byte(text), 0600)
-	HandleError("Can't create file in path "+filePath, err)
+	HandleError("Can't create file in path "+filePath, err, "")
 }
 
 // FileGetContent returns the content of the given file
@@ -36,7 +36,7 @@ func FileGetContent(filePath string) string {
 	}
 
 	fileText, err := ioutil.ReadFile(filePath)
-	HandleError("File reading error", err)
+	HandleError("File reading error", err, "")
 
 	return string(fileText)
 }

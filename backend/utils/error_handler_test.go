@@ -14,27 +14,27 @@ func TestHandleError(t *testing.T) {
 	t.Parallel()
 
 	t.Run("creates file if it doesnt exist", func(t *testing.T) {
-		RemoveFileIfExist("../logs.log")
+		filePath := "testdata/log-file.log"
+		RemoveFileIfExist(filePath)
 
 		customError := errors.New("my error message")
-		HandleError("Some message", customError)
+		HandleError("Some message", customError, filePath)
 
-		logContent := FileGetContent("../logs.log")
+		logContent := FileGetContent(filePath)
 
 		if !strings.Contains(logContent, "my error message") {
 			t.Error("Log file myst contain message: `my error message` but it doesn't")
 		}
-
-		RemoveFileIfExist("../logs.log")
 	})
 
 	t.Run("appends to an existing log file", func(t *testing.T) {
-		FilePutContent("../logs.log", "old error message")
+		filePath := "testdata/logs_existing.log"
+		FilePutContent(filePath, "old error message")
 
 		customError := errors.New("error message")
-		HandleError("new error has occurred", customError)
+		HandleError("new error has occurred", customError, filePath)
 
-		logContent := FileGetContent("../logs.log")
+		logContent := FileGetContent(filePath)
 
 		if !strings.Contains(logContent, "old error message") {
 			t.Error("Log file must contain old log message with text: `old error message` but it doesn't")
@@ -43,12 +43,10 @@ func TestHandleError(t *testing.T) {
 		if !strings.Contains(logContent, "new error has occurred") {
 			t.Error("Log file must contain newly added message: `new error has occurred` but it doesn't")
 		}
-
-		RemoveFileIfExist("../logs.log")
 	})
 
 	t.Run("returns false if error is nil", func(t *testing.T) {
-		if HandleError("text", nil) {
+		if HandleError("text", nil, "") {
 			t.Error("HandleError must return false because passed error is nil")
 		}
 	})
