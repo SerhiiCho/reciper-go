@@ -16,7 +16,7 @@ func RecipesCreate(recipeRepo *repos.RecipeRepo) gin.HandlerFunc {
 
 	return func(c *gin.Context) {
 		time, parseErr := strconv.ParseUint(c.PostForm("time"), 10, 32)
-		utils.HandleError("Error parsing time from request", parseErr)
+		utils.HandleError("Error parsing time from request", parseErr, "")
 
 		recipeRepo.Add(models.Recipe{
 			Title:       c.PostForm("title"),

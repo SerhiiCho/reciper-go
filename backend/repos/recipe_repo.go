@@ -40,7 +40,7 @@ func (repo *RecipeRepo) All() []models.Recipe {
 		SELECT id, title_ru, intro_ru, ingredients_ru, text_ru, slug, time, image, ready_ru, approved_ru, published_ru, simple, updated_at, created_at
 		FROM recipes
 	`)
-	utils.HandleError("Error while getting recipes from database", err)
+	utils.HandleError("Error while getting recipes from database", err, "")
 
 	for rows.Next() {
 		var r models.Recipe
@@ -48,13 +48,13 @@ func (repo *RecipeRepo) All() []models.Recipe {
 		scanErr := rows.Scan(&r.ID, &r.Title, &r.Intro, &r.Ingredients, &r.Text, &r.Slug, &r.Time, &r.Image, &r.Ready, &r.Approved, &r.Published, &r.Simple, &r.UpdatedAt, &r.CreatedAt)
 		r.Excerpt = r.GetExcerpt()
 
-		utils.HandleError("Rows scan error", scanErr)
+		utils.HandleError("Rows scan error", scanErr, "")
 
 		repo.Add(r)
 	}
 
 	closeErr := rows.Close()
-	utils.HandleError("Closing DB connection error", closeErr)
+	utils.HandleError("Closing DB connection error", closeErr, "")
 
 	return repo.Recipes
 }

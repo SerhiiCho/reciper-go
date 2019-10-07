@@ -15,7 +15,7 @@ import (
 
 func init() {
 	err := godotenv.Load()
-	utils.HandleError("Error loading .env file", err)
+	utils.HandleError("Error loading .env file", err, "")
 }
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 	router.GET("/api/recipes", handler.RecipesIndex(recipeRepo))
 	router.POST("/api/recipes", handler.RecipesCreate(recipeRepo))
 
-	utils.HandleError("Can't serve the app", router.Run())
+	utils.HandleError("Can't serve the app", router.Run(), "")
 }
 
 func getDB() *sql.DB {
@@ -41,7 +41,7 @@ func getDB() *sql.DB {
 	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
 
 	DB, err := sql.Open("mysql", dataSource)
-	utils.HandleError("Database connection error", err)
+	utils.HandleError("Database connection error", err, "")
 
 	return DB
 }
