@@ -6,5 +6,5 @@ func StrLimit(str string, limit int) string {
 		return str
 	}
 
-	return string([]byte(str)[:limit]) + "..."
+	return str[:limit] + "..."
 }
