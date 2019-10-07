@@ -5,23 +5,23 @@ import (
 	"testing"
 )
 
-func TestRecipeRepo_AddRecipe(t *testing.T) {
+func TestRecipeRepo_Add(t *testing.T) {
 	t.Parallel()
 
 	recipe := RecipeRepo{}
-	recipe.AddRecipe(models.Recipe{})
+	recipe.Add(models.Recipe{})
 
 	if len(recipe.Recipes) != 1 {
-		t.Error("Recipe item was not created via AddRecipe method")
+		t.Error("Recipe item was not created via Add method")
 	}
 }
 
-func TestRecipeRepo_IndexRecipe(t *testing.T) {
+func TestRecipeRepo_All(t *testing.T) {
 	t.Parallel()
 
 	recipe := RecipeRepo{}
-	recipe.AddRecipe(models.Recipe{})
-	result := len(recipe.IndexRecipe())
+	recipe.Add(models.Recipe{})
+	result := len(recipe.All())
 
 	if result != 1 {
 		t.Errorf("Results must be equal to 1 but got %v", result)
@@ -32,9 +32,9 @@ func TestRecipeRepo_Length(t *testing.T) {
 	t.Parallel()
 
 	recipe := RecipeRepo{}
-	recipe.AddRecipe(models.Recipe{})
-	recipe.AddRecipe(models.Recipe{})
-	recipe.AddRecipe(models.Recipe{})
+	recipe.Add(models.Recipe{})
+	recipe.Add(models.Recipe{})
+	recipe.Add(models.Recipe{})
 
 	result := recipe.Length()
 

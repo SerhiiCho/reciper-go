@@ -25,13 +25,13 @@ func (repo *RecipeRepo) Length() int {
 	return len(repo.Recipes)
 }
 
-// AddRecipe adds method new recipe
-func (repo *RecipeRepo) AddRecipe(recipe models.Recipe) {
+// Add adds method new recipe
+func (repo *RecipeRepo) Add(recipe models.Recipe) {
 	repo.Recipes = append(repo.Recipes, recipe)
 }
 
-// IndexRecipe method returns slice of all recipes
-func (repo *RecipeRepo) IndexRecipe() []models.Recipe {
+// All method returns slice of all recipes
+func (repo *RecipeRepo) All() []models.Recipe {
 	if repo.Length() > 0 {
 		repo.Recipes = nil
 	}
@@ -50,7 +50,7 @@ func (repo *RecipeRepo) IndexRecipe() []models.Recipe {
 
 		utils.HandleError("Rows scan error", scanErr)
 
-		repo.AddRecipe(r)
+		repo.Add(r)
 	}
 
 	closeErr := rows.Close()
