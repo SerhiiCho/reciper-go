@@ -6,17 +6,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// API struct
 type API struct {
 	App *app.App
 }
 
+// NewAPI creates app struct
 func NewAPI(app *app.App) *API {
 	return &API{App: app}
 }
 
-func (a *API) Init(router *gin.Engine) {
-	router.GET("/recipes", RecipeIndex())
-	router.POST("/recipes", RecipeCreate())
+// Init initializes the api routes
+func (api *API) Init(router *gin.Engine) {
+	router.GET("/recipes", api.RecipeIndex())
+	router.POST("/recipes", api.RecipeCreate())
 
 	utils.HandleError("Can't serve the app", router.Run(), "")
 }

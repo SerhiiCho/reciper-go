@@ -4,8 +4,9 @@ import "github.com/SerhiiCho/reciper/backend/utils"
 
 // Recipe model
 type Recipe struct {
-	User        *User  `json:"user"`
-	ID          uint   `json:"id"`
+	Model
+	User        User   `json:"-"`
+	UserID      uint   `json:"-"`
 	Title       string `json:"title"`
 	Excerpt     string `json:"excerpt"`
 	Intro       string `json:"intro"`
@@ -18,8 +19,6 @@ type Recipe struct {
 	Approved    byte   `json:"approved"`
 	Published   byte   `json:"published"`
 	Simple      byte   `json:"simple"`
-	UpdatedAt   string `json:"updated_at"`
-	CreatedAt   string `json:"created_at"`
 }
 
 // GetExcerpt returns the short version of the title

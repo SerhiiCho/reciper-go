@@ -11,23 +11,22 @@ import (
 )
 
 // RecipeCreate handles POST request on creating a new recipe item
-func RecipeCreate() gin.HandlerFunc {
-
-	return func(c *gin.Context) {
-		time, parseErr := strconv.ParseUint(c.PostForm("time"), 10, 32)
+func (api *API) RecipeCreate() gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		time, parseErr := strconv.ParseUint(ctx.PostForm("time"), 10, 32)
 		utils.HandleError("Error parsing time from request", parseErr, "")
 
-		recipeRepo.Add(model.Recipe{
-			Title:       c.PostForm("title"),
-			Excerpt:     utils.StrLimit(c.PostForm("title"), 42),
-			Intro:       c.PostForm("intro"),
-			Text:        c.PostForm("text"),
-			Ingredients: c.PostForm("ingredients"),
-			Slug:        c.PostForm("slug"),
+		api.App.Database.NewRecord(model.Recipe{
+			Title:       ctx.PostForm("title"),
+			Excerpt:     utils.StrLimit(ctx.PostForm("title"), 42),
+			Intro:       ctx.PostForm("intro"),
+			Text:        ctx.PostForm("text"),
+			Ingredients: ctx.PostForm("ingredients"),
+			Slug:        ctx.PostForm("slug"),
 			Time:        time,
-			Image:       c.PostForm("image"),
+			Image:       ctx.PostForm("image"),
 		})
 
-		c.Status(http.StatusNoContent)
+		ctx.Status(http.StatusNoContent)
 	}
 }

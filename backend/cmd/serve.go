@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"github.com/SerhiiCho/reciper/backend/api"
-	"github.com/SerhiiCho/reciper/backend/api/middleware"
 	"github.com/SerhiiCho/reciper/backend/app"
+	"github.com/SerhiiCho/reciper/backend/app/middleware"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
 )
