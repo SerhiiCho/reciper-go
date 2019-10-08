@@ -2,21 +2,21 @@ package repos
 
 import (
 	"database/sql"
-	"github.com/SerhiiCho/reciper/backend/models"
+	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/utils"
 )
 
 // RecipeRepo method holds slice of recipes
 type RecipeRepo struct {
 	DB      *sql.DB
-	Recipes []models.Recipe
+	Recipes []model.Recipe
 }
 
 // NewRecipeRepo method returns pointer to RecipeRepo
 func NewRecipeRepo(DB *sql.DB) *RecipeRepo {
 	return &RecipeRepo{
 		DB:      DB,
-		Recipes: []models.Recipe{},
+		Recipes: []model.Recipe{},
 	}
 }
 
@@ -26,12 +26,12 @@ func (repo *RecipeRepo) Length() int {
 }
 
 // Add adds method new recipe
-func (repo *RecipeRepo) Add(recipe models.Recipe) {
+func (repo *RecipeRepo) Add(recipe model.Recipe) {
 	repo.Recipes = append(repo.Recipes, recipe)
 }
 
 // All method returns slice of all recipes
-func (repo *RecipeRepo) All() []models.Recipe {
+func (repo *RecipeRepo) All() []model.Recipe {
 	if repo.Length() > 0 {
 		repo.Recipes = nil
 	}
@@ -43,7 +43,7 @@ func (repo *RecipeRepo) All() []models.Recipe {
 	utils.HandleError("Error while getting recipes from database", err, "")
 
 	for rows.Next() {
-		var r models.Recipe
+		var r model.Recipe
 
 		scanErr := rows.Scan(&r.ID, &r.Title, &r.Intro, &r.Ingredients, &r.Text, &r.Slug, &r.Time, &r.Image, &r.Ready, &r.Approved, &r.Published, &r.Simple, &r.UpdatedAt, &r.CreatedAt)
 		utils.HandleError("Rows scan error", scanErr, "")

@@ -1,7 +1,7 @@
 package repos
 
 import (
-	"github.com/SerhiiCho/reciper/backend/models"
+	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/storage"
 	"testing"
 )
@@ -10,7 +10,7 @@ func TestRecipeRepo_Add(t *testing.T) {
 	t.Parallel()
 
 	recipe := NewRecipeRepo(storage.GetDB())
-	recipe.Add(models.Recipe{})
+	recipe.Add(model.Recipe{})
 
 	if len(recipe.Recipes) != 1 {
 		t.Error("Recipe item was not created via Add method")
@@ -22,7 +22,7 @@ func TestRecipeRepo_All(t *testing.T) {
 	storage.TestSetup()
 
 	recipe := NewRecipeRepo(storage.GetDB())
-	recipe.Add(models.Recipe{})
+	recipe.Add(model.Recipe{})
 	result := len(recipe.All())
 
 	if result != 1 {
@@ -34,9 +34,9 @@ func TestRecipeRepo_Length(t *testing.T) {
 	t.Parallel()
 
 	recipe := RecipeRepo{}
-	recipe.Add(models.Recipe{})
-	recipe.Add(models.Recipe{})
-	recipe.Add(models.Recipe{})
+	recipe.Add(model.Recipe{})
+	recipe.Add(model.Recipe{})
+	recipe.Add(model.Recipe{})
 
 	result := recipe.Length()
 

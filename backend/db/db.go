@@ -1,15 +1,18 @@
-package storage
+package db
 
 import (
-	"database/sql"
 	"fmt"
 	"github.com/SerhiiCho/reciper/backend/utils"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"os"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
-func GetDB() *sql.DB {
+type Database struct {
+	*gorm.DB
+}
+
+func NewDatabase() *Database {
 	user := os.Getenv("DB_USER")
 	pwd := os.Getenv("DB_PASSWORD")
 	host := os.Getenv("DB_HOST")
@@ -18,8 +21,8 @@ func GetDB() *sql.DB {
 
 	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
 
-	DB, err := sql.Open("mysql", dataSource)
+	db, err := gorm.Open("mysql", dataSource)
 	utils.HandleError("Database connection error", err, "")
 
-	return DB
+	return &Database{db}
 }
