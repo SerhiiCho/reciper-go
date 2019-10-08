@@ -1,6 +1,9 @@
 package model
 
-import "golang.org/x/crypto/bcrypt"
+import (
+	"github.com/SerhiiCho/reciper/backend/utils"
+	"golang.org/x/crypto/bcrypt"
+)
 
 // User model
 type User struct {
@@ -21,24 +24,27 @@ type User struct {
 	Photo          string `json:"photo"`
 }
 
-func GeneratePasswordHash(password []byte) ([]byte, error) {
-	return bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
+// GeneratePasswordHash function
+func GeneratePasswordHash(password []byte) []byte {
+	password, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
+	utils.HandleError("Error after generating from password using bcrypt package", err, "")
+
+	return password
 }
 
+// ComparePasswordHash function
 func ComparePasswordHash(hashedPassword, givenPassword []byte) bool {
 	err := bcrypt.CompareHashAndPassword(hashedPassword, givenPassword)
 	return err == nil
 }
 
-func (user *User) SetPassword(password string) error {
-	hashed, err := GeneratePasswordHash([]byte(password))
-	if err != nil {
-		return err
-	}
+// SetPassword sets password
+func (user *User) SetPassword(password string) {
+	hashed := GeneratePasswordHash([]byte(password))
 	user.HashedPassword = hashed
-	return nil
 }
 
+// CheckPassword checks password and returns true if password match
 func (user *User) CheckPassword(password string) bool {
 	return ComparePasswordHash(user.HashedPassword, []byte(password))
 }
