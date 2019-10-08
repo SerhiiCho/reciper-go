@@ -18,8 +18,8 @@ func NewAPI(app *app.App) *API {
 
 // Init initializes the api routes
 func (api *API) Init(router *gin.Engine) {
-	router.GET("/recipes", api.RecipeIndex())
-	router.POST("/recipes", api.RecipeCreate())
+	router.GET("/api/recipes", api.RecipeIndex())
+	router.POST("/api/recipes", api.RecipeCreate())
 
 	utils.HandleError("Can't serve the app", router.Run(), "")
 }

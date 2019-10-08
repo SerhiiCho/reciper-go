@@ -19,7 +19,7 @@ func init() {
 
 			defer app.Close()
 
-			router := gin.Default().SecureJsonPrefix("/api")
+			router := gin.Default()
 			router.Use(getMiddlewares()...)
 
 			api.Init(router)
