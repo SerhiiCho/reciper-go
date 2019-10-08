@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	err := godotenv.Load()
+	err := godotenv.Load("../.env")
 	utils.HandleError("Error loading .env file", err, "")
 }
 

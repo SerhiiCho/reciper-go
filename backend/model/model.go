@@ -1,11 +1,8 @@
 package model
 
-import (
-	"time"
-)
-
 type Model struct {
-	ID        uint      `gorm:"primary_key" json:"id"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	ID        uint   `json:"id" gorm:"type:int(10);unsigned;not null;AUTO_INCREMENT;primary_key" `
+	CreatedAt string `json:"created_at" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
+	UpdatedAt string `json:"updated_at" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
+	DeletedAt string `json:"updated_at" gorm:"type:datetime;default:null"`
 }

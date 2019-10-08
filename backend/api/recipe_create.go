@@ -17,14 +17,17 @@ func (api *API) RecipeCreate() gin.HandlerFunc {
 		utils.HandleError("Error parsing time from request", parseErr, "")
 
 		api.App.Database.NewRecord(model.Recipe{
-			Title:       ctx.PostForm("title"),
-			Excerpt:     utils.StrLimit(ctx.PostForm("title"), 42),
-			Intro:       ctx.PostForm("intro"),
-			Text:        ctx.PostForm("text"),
-			Ingredients: ctx.PostForm("ingredients"),
-			Slug:        ctx.PostForm("slug"),
-			Time:        time,
-			Image:       ctx.PostForm("image"),
+			TitleRu:       ctx.PostForm("title"),
+			TitleEn:       ctx.PostForm("title"),
+			IntroRu:       ctx.PostForm("intro"),
+			IntroEn:       ctx.PostForm("intro"),
+			TextRu:        ctx.PostForm("text"),
+			TextEn:        ctx.PostForm("text"),
+			IngredientsRu: ctx.PostForm("ingredients"),
+			IngredientsEn: ctx.PostForm("ingredients"),
+			Slug:          ctx.PostForm("slug"),
+			Time:          time,
+			Image:         ctx.PostForm("image"),
 		})
 
 		ctx.Status(http.StatusNoContent)
