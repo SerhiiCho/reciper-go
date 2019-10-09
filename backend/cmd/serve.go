@@ -16,6 +16,8 @@ func init() {
 			app := appPackage.NewApp()
 			api := apiPackage.NewAPI(app)
 
+			defer app.Close()
+
 			router := gin.Default()
 			router.Use(getMiddlewares()...)
 
