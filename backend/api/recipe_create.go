@@ -42,7 +42,6 @@ func (api *API) RecipeCreate() gin.HandlerFunc {
 }
 
 func uploadImage(ctx *gin.Context) string {
-
 	imageFile, imageFileErr := ctx.FormFile("image")
 	utils.HandleError("Form file error", imageFileErr, "")
 
@@ -56,8 +55,14 @@ func uploadImage(ctx *gin.Context) string {
 	lgImage := resize.Resize(900, 600, decodedImage, resize.Lanczos3)
 
 	filePath, dirPath := generateFileNameAndFilePath()
-	createNeededDirectories(dirPath)
 
+	createNeededDirectories(dirPath)
+	createFiles(filePath, smImage, lgImage)
+
+	return filePath
+}
+
+func createFiles(filePath string, smImage image.Image, lgImage image.Image) {
 	filePathSm := fmt.Sprintf("storage/small/recipes/%s", filePath)
 	filePathLg := fmt.Sprintf("storage/large/recipes/%s", filePath)
 
@@ -72,8 +77,6 @@ func uploadImage(ctx *gin.Context) string {
 
 	utils.HandleError("Error encoding small recipe image", smImageErr, "")
 	utils.HandleError("Error encoding large recipe image", lgImageErr, "")
-
-	return filePath
 }
 
 // createNeededDirectories creates directories.
