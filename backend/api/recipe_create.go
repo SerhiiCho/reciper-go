@@ -16,7 +16,7 @@ func (api *API) RecipeCreate() gin.HandlerFunc {
 		time, parseErr := strconv.ParseUint(ctx.PostForm("time"), 10, 32)
 		utils.HandleError("Error parsing time from request", parseErr, "")
 
-		api.App.Database.NewRecord(model.Recipe{
+		api.App.Database.CreateRecipe(&model.Recipe{
 			TitleRu:       ctx.PostForm("title"),
 			TitleEn:       ctx.PostForm("title"),
 			IntroRu:       ctx.PostForm("intro"),
