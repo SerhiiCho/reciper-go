@@ -2,37 +2,38 @@ package store
 
 import (
 	"database/sql"
-	"fmt"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	_ "github.com/go-sql-driver/mysql"
 )
 
 // Store struct
 type Store struct {
 	config *Config
-	conn   *sql.DB
+	db     *sql.DB
 }
 
 // NewStore opens database
 func NewStore(conf *Config) *Store {
-	user := conf.DBUser
-	pwd := conf.DBPwd
-	host := conf.DBHost
-	port := conf.DBPort
-	name := conf.DBName
-
-	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
-	db, err := sql.Open("mysql", dataSource)
-
-	utils.FatalIfError(err)
-
-	return &Store{conf, db}
+	return &Store{
+		config: conf,
+	}
 }
 
-func (store *Store) Open() {
-	//
+func (store *Store) Open() error {
+	db, err := sql.Open("mysql", store.config.DatabaseURL)
+
+	if err != nil {
+		return err
+	}
+
+	store.db = db
+
+	return nil
 }
 
-func (store *Store) Close() {
-	//
+func (store *Store) Close() error {
+	if err := store.db.Close(); err != nil {
+		return err
+	}
+
+	return nil
 }
