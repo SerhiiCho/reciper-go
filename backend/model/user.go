@@ -11,7 +11,6 @@ type User struct {
 	Name           string  `json:"name"`
 	Status         string  `json:"status"`
 	Email          string  `json:"email"`
-	Username       string  `json:"username"`
 	XP             uint    `json:"xp"`
 	StreakDays     uint    `json:"streak_days"`
 	Popularity     float64 `json:"popularity"`
@@ -20,6 +19,7 @@ type User struct {
 	NotifCheck     string  `json:"notif_check"`
 	OnlineCheck    string  `json:"online_check"`
 	ContactCheck   string  `json:"contact_check"`
+	Password       string  `json:"-"`
 	HashedPassword []byte
 	Photo          string `json:"photo"`
 }

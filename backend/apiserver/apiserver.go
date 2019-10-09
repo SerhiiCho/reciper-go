@@ -16,7 +16,7 @@ type APIServer struct {
 	store  *store.Store
 }
 
-// NewAPIServer creates app struct
+// NewAPIServer returns pointer on APIServer
 func NewAPIServer(config *Config) *APIServer {
 	return &APIServer{
 		config: config,
@@ -41,6 +41,7 @@ func (api *APIServer) configureRouter() {
 	api.router.HandleFunc("/recipes", api.recipeCreate()).Methods("POST")
 }
 
+// configureStore configures database
 func (api *APIServer) configureStore() {
 	st := store.NewStore(api.config.Store)
 
