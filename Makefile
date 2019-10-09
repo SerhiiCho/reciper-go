@@ -1,8 +1,5 @@
-dev-front:
-	cd frontend && yarn serve
-
-dev-back:
-	go run backend/main.go
+dev:
+	cd backend && go run main.go serve
 
 build:
 	docker build -t serhiicho/reciper:nginx ./frontend
