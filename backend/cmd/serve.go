@@ -13,8 +13,8 @@ func init() {
 		Use:   "serve",
 		Short: "serves the api",
 		Run: func(cmd *cobra.Command, args []string) {
-			app := appPackage.New()
-			api := apiPackage.New(app)
+			app := appPackage.NewApp()
+			api := apiPackage.NewAPI(app)
 
 			defer app.Close()
 

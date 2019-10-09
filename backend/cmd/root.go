@@ -1,9 +1,8 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
-	"os"
+	"log"
 )
 
 var rootCmd = &cobra.Command{
@@ -11,13 +10,16 @@ var rootCmd = &cobra.Command{
 	Short: "Recipe web application CLI",
 	Run: func(cmd *cobra.Command, args []string) {
 		err := cmd.Usage()
-		fmt.Println(err)
+
+		if err != nil {
+			log.Print(err)
+		}
 	},
 }
 
+// Execute cobra smd command
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
 }
