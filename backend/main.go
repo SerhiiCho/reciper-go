@@ -9,21 +9,12 @@ import (
 	"log"
 )
 
-func init() {
-	err := godotenv.Load("../.env")
-	utils.HandleError("Error loading .env file", err, "")
-}
-
 func main() {
-	config := apiserver.NewConfig()
-	_, configErr := toml.DecodeFile("config/server.toml", config)
+	apiConf, dbConf := getConfigs()
 
-	if configErr != nil {
-		log.Fatal(configErr)
-	}
-
-	app := appPackage.NewApp()
-	api := apiserver.NewAPIServer(app, config)
+	database := db.NewDatabase(dbConf)
+	app := appPackage.NewApp(database)
+	api := apiserver.NewAPIServer(app, apiConf)
 	apiErr := api.Start()
 
 	defer app.Close()
@@ -31,4 +22,28 @@ func main() {
 	if apiErr != nil {
 		log.Fatal(apiErr)
 	}
+}
+
+func getConfigs() (*apiserver.Config, *db.Config) {
+	apiConf := apiserver.NewConfig()
+	dbConf := db.NewConfig()
+
+	config, readFileErr := ioutil.ReadFile("config/server.toml")
+
+	if readFileErr != nil {
+		log.Fatal(readFileErr)
+	}
+
+	_, apiDecodeErr := toml.Decode(string(config), apiConf)
+	_, dbDecodeErr := toml.Decode(string(config), dbConf)
+
+	if apiDecodeErr != nil {
+		log.Fatal(apiDecodeErr)
+	}
+
+	if dbDecodeErr != nil {
+		log.Fatal(dbDecodeErr)
+	}
+
+	return apiConf, dbConf
 }
