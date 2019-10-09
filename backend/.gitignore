@@ -2,3 +2,4 @@
 !/vendor/modules.txt
 /logs.log
 /reciper
+/storage/*

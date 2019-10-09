@@ -8,6 +8,7 @@ services:
             - reciper_net
         volumes:
             - ./frontend/dist:/app/dist
+            - ./backend/storage:/app/dist/storage
         ports:
             - 8000:80
         depends_on:
