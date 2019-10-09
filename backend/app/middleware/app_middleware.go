@@ -12,7 +12,7 @@ func AppMiddleware(next http.Handler) http.Handler {
 		w.Header().Add("Access-Control-Max-Age", "604800")
 		w.Header().Add("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Access-Control-Request-Method")
 		w.Header().Add("Access-Control-Allow-Methods", "GET, POST")
-		w.Header().Set("Content-Type", "application/json")
+		w.Header().Add("Content-Type", "application/json")
 
 		next.ServeHTTP(w, r)
 	})
