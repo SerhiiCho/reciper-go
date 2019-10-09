@@ -52,8 +52,8 @@ func uploadImage(ctx *gin.Context) string {
 	decodedImage, _, decodeErr := image.Decode(file)
 	utils.HandleError("File decode error", decodeErr, "")
 
-	smImage := resize.Resize(900, 600, decodedImage, resize.Lanczos3)
-	lgImage := resize.Resize(225, 150, decodedImage, resize.Lanczos3)
+	smImage := resize.Resize(225, 150, decodedImage, resize.Lanczos3)
+	lgImage := resize.Resize(900, 600, decodedImage, resize.Lanczos3)
 
 	filePath, dirPath := generateFileNameAndFilePath()
 	createNeededDirectories(dirPath)
