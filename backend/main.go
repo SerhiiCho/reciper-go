@@ -5,8 +5,8 @@ import (
 	"github.com/SerhiiCho/reciper/backend/apiserver"
 	appPackage "github.com/SerhiiCho/reciper/backend/app"
 	"github.com/SerhiiCho/reciper/backend/db"
+	"github.com/SerhiiCho/reciper/backend/utils"
 	"io/ioutil"
-	"log"
 )
 
 func main() {
@@ -19,9 +19,7 @@ func main() {
 
 	defer app.Close()
 
-	if apiErr != nil {
-		log.Fatal(apiErr)
-	}
+	utils.FatalIfError(apiErr)
 }
 
 func getConfigs() (*apiserver.Config, *db.Config) {
@@ -30,20 +28,13 @@ func getConfigs() (*apiserver.Config, *db.Config) {
 
 	config, readFileErr := ioutil.ReadFile("config/server.toml")
 
-	if readFileErr != nil {
-		log.Fatal(readFileErr)
-	}
+	utils.FatalIfError(readFileErr)
 
 	_, apiDecodeErr := toml.Decode(string(config), apiConf)
 	_, dbDecodeErr := toml.Decode(string(config), dbConf)
 
-	if apiDecodeErr != nil {
-		log.Fatal(apiDecodeErr)
-	}
-
-	if dbDecodeErr != nil {
-		log.Fatal(dbDecodeErr)
-	}
+	utils.FatalIfError(apiDecodeErr)
+	utils.FatalIfError(dbDecodeErr)
 
 	return apiConf, dbConf
 }
