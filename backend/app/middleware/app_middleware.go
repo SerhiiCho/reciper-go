@@ -2,8 +2,8 @@ package middleware
 
 import "github.com/gin-gonic/gin"
 
-// AppMiddle middleware sets http headers
-func AppMiddle() gin.HandlerFunc {
+// appMiddleware sets http headers
+func appMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Header("Access-Control-Allow-Origin", "*")
 		c.Header("Access-Control-Allow-Credentials", "true")
