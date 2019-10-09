@@ -3,9 +3,9 @@ package db
 import (
 	"fmt"
 	"github.com/SerhiiCho/reciper/backend/model"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"log"
 	"os"
 )
 
@@ -25,7 +25,10 @@ func New() *Database {
 	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
 
 	db, err := gorm.Open("mysql", dataSource)
-	utils.HandleError("Database connection error", err, "")
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	db.AutoMigrate(model.User{}, model.Recipe{})
 

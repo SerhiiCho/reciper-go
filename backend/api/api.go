@@ -2,8 +2,8 @@ package api
 
 import (
 	"github.com/SerhiiCho/reciper/backend/app"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 // API struct
@@ -21,5 +21,7 @@ func (api *API) Init(router *gin.Engine) {
 	router.GET("/api/recipes", api.RecipeIndex())
 	router.POST("/api/recipes", api.RecipeCreate())
 
-	utils.HandleError("Can't serve the app", router.Run(), "")
+	if err := router.Run(); err != nil {
+		log.Fatal("Can't serve the app")
+	}
 }
