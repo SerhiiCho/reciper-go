@@ -8,20 +8,20 @@ import (
 // User model
 type User struct {
 	Model
-	Name           string  `json:"name" gorm:"type:varchar(50);default:null"`
-	Status         string  `json:"status" gorm:"type:varchar(250);default:null"`
-	Email          string  `json:"email" gorm:"type:varchar(250);default:null"`
-	Username       string  `json:"username" gorm:"type:varchar(40);unique;not null"`
-	XP             uint    `json:"xp" gorm:"type:smallint;default:'0'"`
-	StreakDays     uint    `json:"streak_days" gorm:"type:int(8);default:'0'"`
-	Popularity     float64 `json:"popularity" gorm:"type:decimal(8,1);default:'0'"`
-	Active         bool    `json:"active" gorm:"type:tinyint(1);default:'1'"`
-	StreakCheck    string  `json:"streak_check" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
-	NotifCheck     string  `json:"notif_check" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
-	OnlineCheck    string  `json:"online_check" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
-	ContactCheck   string  `json:"contact_check" gorm:"type:datetime;default:CURRENT_TIMESTAMP"`
+	Name           string  `json:"name"`
+	Status         string  `json:"status"`
+	Email          string  `json:"email"`
+	Username       string  `json:"username"`
+	XP             uint    `json:"xp"`
+	StreakDays     uint    `json:"streak_days"`
+	Popularity     float64 `json:"popularity"`
+	Active         bool    `json:"active"`
+	StreakCheck    string  `json:"streak_check"`
+	NotifCheck     string  `json:"notif_check"`
+	OnlineCheck    string  `json:"online_check"`
+	ContactCheck   string  `json:"contact_check"`
 	HashedPassword []byte
-	Photo          string `json:"photo" gorm:"type:varchar(200);unsigned;default:'default.jpg'"`
+	Photo          string `json:"photo"`
 }
 
 // GeneratePasswordHash function

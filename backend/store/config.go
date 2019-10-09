@@ -1,4 +1,4 @@
-package db
+package store
 
 type Config struct {
 	DBPwd  string `toml:"db_pwd"`

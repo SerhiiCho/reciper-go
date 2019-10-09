@@ -2,7 +2,6 @@ package apiserver
 
 import (
 	"fmt"
-	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
@@ -20,23 +19,23 @@ import (
 func (api *APIServer) recipeCreate() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
-		api.App.Database.CreateRecipe(&model.Recipe{
-			TitleRu:       r.FormValue("title-ru"),
-			TitleEn:       r.FormValue("title-en"),
-			IntroRu:       r.FormValue("intro-ru"),
-			IntroEn:       r.FormValue("intro-en"),
-			TextRu:        r.FormValue("text-ru"),
-			TextEn:        r.FormValue("text-en"),
-			IngredientsRu: r.FormValue("ingredients-ru"),
-			IngredientsEn: r.FormValue("ingredients-en"),
-			Slug:          r.FormValue("slug"),
-			Time:          setTimeField(r.FormValue("time")),
-			ReadyRu:       setReadyField(r.FormValue("ready-ru")),
-			ReadyEn:       setReadyField(r.FormValue("ready-en")),
-			Image:         uploadImage(r),
-		})
-
-		w.WriteHeader(http.StatusNoContent)
+		//api.App.Database.CreateRecipe(&model.Recipe{
+		//	TitleRu:       r.FormValue("title-ru"),
+		//	TitleEn:       r.FormValue("title-en"),
+		//	IntroRu:       r.FormValue("intro-ru"),
+		//	IntroEn:       r.FormValue("intro-en"),
+		//	TextRu:        r.FormValue("text-ru"),
+		//	TextEn:        r.FormValue("text-en"),
+		//	IngredientsRu: r.FormValue("ingredients-ru"),
+		//	IngredientsEn: r.FormValue("ingredients-en"),
+		//	Slug:          r.FormValue("slug"),
+		//	Time:          setTimeField(r.FormValue("time")),
+		//	ReadyRu:       setReadyField(r.FormValue("ready-ru")),
+		//	ReadyEn:       setReadyField(r.FormValue("ready-en")),
+		//	Image:         uploadImage(r),
+		//})
+		//
+		//w.WriteHeader(http.StatusNoContent)
 	}
 }
 
