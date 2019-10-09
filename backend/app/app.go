@@ -10,8 +10,9 @@ type App struct {
 }
 
 func NewApp() (app *App) {
-	app = &App{}
-	app.Database = db.NewDatabase()
+	app = &App{
+		Database: db.NewDatabase(),
+	}
 
 	return app
 }
