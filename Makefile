@@ -1,5 +1,8 @@
+.PHONY: build
 dev:
 	cd backend && go run main.go serve
+
+.DEFAULT_GOAL := dev
 
 build:
 	docker build -t serhiicho/reciper:nginx ./frontend
