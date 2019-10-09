@@ -1,1 +1,6 @@
 bind_addr = ":8080"
+db_pwd = "111111"
+db_user = "root"
+db_host = "localhost"
+db_port = "1001"
+db_name = "reciper"

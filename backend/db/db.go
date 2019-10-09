@@ -6,24 +6,17 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
-	"os"
 )
 
 // Database struct
 type Database struct {
 	*gorm.DB
+	config *Config
 }
 
 // NewDatabase opens database
-func NewDatabase() *Database {
-	user := os.Getenv("DB_USER")
-	pwd := os.Getenv("DB_PASSWORD")
-	host := os.Getenv("DB_HOST")
-	port := os.Getenv("DB_PORT")
-	name := os.Getenv("DB_NAME")
-
-	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", user, pwd, host, port, name)
-
+func NewDatabase(c *Config) *Database {
+	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", c.DBUser, c.DBPwd, c.DBHost, c.DBPort, c.DBName)
 	db, err := gorm.Open("mysql", dataSource)
 
 	if err != nil {
@@ -32,5 +25,5 @@ func NewDatabase() *Database {
 
 	db.AutoMigrate(model.User{}, model.Recipe{})
 
-	return &Database{db}
+	return &Database{db, c}
 }

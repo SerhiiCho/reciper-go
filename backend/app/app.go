@@ -9,9 +9,9 @@ type App struct {
 	Database *db.Database
 }
 
-func NewApp() (app *App) {
+func NewApp(database *db.Database) (app *App) {
 	app = &App{
-		Database: db.NewDatabase(),
+		Database: database,
 	}
 
 	return app
