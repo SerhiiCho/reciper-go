@@ -2,8 +2,8 @@
 !/vendor/modules.txt
 /logs.log
 /reciper
-/storage/*
-!/storage/large/recipes/default.jpg
-!/storage/small/recipes/default.jpg
-!/storage/large/users/default.jpg
-!/storage/small/users/default.jpg
+
+# Storage ignores
+/storage/*/*/*
+!/storage/other/*/*
+!/storage/*/*/*.jpg
