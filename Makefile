@@ -1,6 +1,6 @@
 .PHONY: build
 dev:
-	cd backend && go run main.go serve
+	cd backend && go run main.go
 
 .DEFAULT_GOAL := dev
 
