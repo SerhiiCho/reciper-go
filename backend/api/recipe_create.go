@@ -2,21 +2,22 @@ package api
 
 import (
 	"github.com/SerhiiCho/reciper/backend/model"
-	"mime/multipart"
+	"github.com/nfnt/resize"
+	"image"
+	"image/jpeg"
+	_ "image/jpeg"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 
 	"github.com/SerhiiCho/reciper/backend/utils"
-
 	"github.com/gin-gonic/gin"
 )
 
 // RecipeCreate handles POST request on creating a new recipe item
 func (api *API) RecipeCreate() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		file, fileErr := ctx.FormFile("image")
-		utils.HandleError("Form file error", fileErr, "")
 
 		api.App.Database.CreateRecipe(&model.Recipe{
 			TitleRu:       ctx.PostForm("title-ru"),
@@ -31,18 +32,39 @@ func (api *API) RecipeCreate() gin.HandlerFunc {
 			Time:          setTimeField(ctx.PostForm("time")),
 			ReadyRu:       setReadyField(ctx.PostForm("ready-ru")),
 			ReadyEn:       setReadyField(ctx.PostForm("ready-en")),
-			Image:         uploadImage(file, ctx),
+			Image:         uploadImage(ctx),
 		})
 
 		ctx.Status(http.StatusNoContent)
 	}
 }
 
-func uploadImage(file *multipart.FileHeader, ctx *gin.Context) string {
+func uploadImage(ctx *gin.Context) string {
 	fileName := strconv.Itoa(int(time.Now().Unix())) + ".jpg"
 
-	uploadErr := ctx.SaveUploadedFile(file, "storage/"+fileName)
-	utils.HandleError("File uploading error", uploadErr, "")
+	imageFile, imageFileErr := ctx.FormFile("image")
+	utils.HandleError("Form file error", imageFileErr, "")
+
+	file, fileOpenErr := imageFile.Open()
+	utils.HandleError("File open error", fileOpenErr, "")
+
+	decodedImage, _, decodeErr := image.Decode(file)
+	utils.HandleError("File decode error", decodeErr, "")
+
+	smImage := resize.Resize(900, 600, decodedImage, resize.Lanczos3)
+	lgImage := resize.Resize(225, 150, decodedImage, resize.Lanczos3)
+
+	smImageOut, smErr := os.Create("storage/recipes/small/" + fileName)
+	lgImageOut, lgErr := os.Create("storage/recipes/large/" + fileName)
+
+	utils.HandleError("Error creating small recipe image", smErr, "")
+	utils.HandleError("Error creating large recipe image", lgErr, "")
+
+	smImageErr := jpeg.Encode(smImageOut, smImage, nil)
+	lgImageErr := jpeg.Encode(lgImageOut, lgImage, nil)
+
+	utils.HandleError("Error encoding small recipe image", smImageErr, "")
+	utils.HandleError("Error encoding large recipe image", lgImageErr, "")
 
 	return fileName
 }
