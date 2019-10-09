@@ -1,14 +1,19 @@
 package middleware
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+)
 
-// appMiddleware sets http headers
-func appMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.Header("Access-Control-Allow-Origin", "*")
-		c.Header("Access-Control-Allow-Credentials", "true")
-		c.Header("Access-Control-Max-Age", "604800")
-		c.Header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Access-Control-Request-Method")
-		c.Header("Access-Control-Allow-Methods", "GET, POST")
-	}
+// AppMiddleware sets http headers
+func AppMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Add("Access-Control-Allow-Origin", "*")
+		w.Header().Add("Access-Control-Allow-Credentials", "true")
+		w.Header().Add("Access-Control-Max-Age", "604800")
+		w.Header().Add("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Access-Control-Request-Method")
+		w.Header().Add("Access-Control-Allow-Methods", "GET, POST")
+		w.Header().Set("Content-Type", "application/json")
+
+		next.ServeHTTP(w, r)
+	})
 }

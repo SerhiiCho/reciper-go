@@ -1,4 +1,4 @@
-package api
+package apiserver
 
 import (
 	"fmt"
@@ -14,36 +14,35 @@ import (
 	"time"
 
 	"github.com/SerhiiCho/reciper/backend/utils"
-	"github.com/gin-gonic/gin"
 )
 
-// RecipeCreate handles POST request on creating a new recipe item
-func (api *API) RecipeCreate() gin.HandlerFunc {
-	return func(ctx *gin.Context) {
+// recipeCreate handles POST request on creating a new recipe item
+func (api *APIServer) recipeCreate() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
 
 		api.App.Database.CreateRecipe(&model.Recipe{
-			TitleRu:       ctx.PostForm("title-ru"),
-			TitleEn:       ctx.PostForm("title-en"),
-			IntroRu:       ctx.PostForm("intro-ru"),
-			IntroEn:       ctx.PostForm("intro-en"),
-			TextRu:        ctx.PostForm("text-ru"),
-			TextEn:        ctx.PostForm("text-en"),
-			IngredientsRu: ctx.PostForm("ingredients-ru"),
-			IngredientsEn: ctx.PostForm("ingredients-en"),
-			Slug:          ctx.PostForm("slug"),
-			Time:          setTimeField(ctx.PostForm("time")),
-			ReadyRu:       setReadyField(ctx.PostForm("ready-ru")),
-			ReadyEn:       setReadyField(ctx.PostForm("ready-en")),
-			Image:         uploadImage(ctx),
+			TitleRu:       r.FormValue("title-ru"),
+			TitleEn:       r.FormValue("title-en"),
+			IntroRu:       r.FormValue("intro-ru"),
+			IntroEn:       r.FormValue("intro-en"),
+			TextRu:        r.FormValue("text-ru"),
+			TextEn:        r.FormValue("text-en"),
+			IngredientsRu: r.FormValue("ingredients-ru"),
+			IngredientsEn: r.FormValue("ingredients-en"),
+			Slug:          r.FormValue("slug"),
+			Time:          setTimeField(r.FormValue("time")),
+			ReadyRu:       setReadyField(r.FormValue("ready-ru")),
+			ReadyEn:       setReadyField(r.FormValue("ready-en")),
+			Image:         uploadImage(r),
 		})
 
-		ctx.Status(http.StatusNoContent)
+		w.WriteHeader(http.StatusNoContent)
 	}
 }
 
 // uploadImage uploads images to storage
-func uploadImage(ctx *gin.Context) string {
-	imageFile, imageFileErr := ctx.FormFile("image")
+func uploadImage(r *http.Request) string {
+	_, imageFile, imageFileErr := r.FormFile("image")
 	utils.HandleError("Form file error", imageFileErr, "")
 
 	file, fileOpenErr := imageFile.Open()
