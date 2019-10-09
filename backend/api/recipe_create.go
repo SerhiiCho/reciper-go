@@ -1,11 +1,13 @@
 package api
 
 import (
+	"fmt"
 	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
 	_ "image/jpeg"
+	"math/rand"
 	"net/http"
 	"os"
 	"strconv"
@@ -40,7 +42,6 @@ func (api *API) RecipeCreate() gin.HandlerFunc {
 }
 
 func uploadImage(ctx *gin.Context) string {
-	fileName := strconv.Itoa(int(time.Now().Unix())) + ".jpg"
 
 	imageFile, imageFileErr := ctx.FormFile("image")
 	utils.HandleError("Form file error", imageFileErr, "")
@@ -54,8 +55,14 @@ func uploadImage(ctx *gin.Context) string {
 	smImage := resize.Resize(900, 600, decodedImage, resize.Lanczos3)
 	lgImage := resize.Resize(225, 150, decodedImage, resize.Lanczos3)
 
-	smImageOut, smErr := os.Create("storage/recipes/small/" + fileName)
-	lgImageOut, lgErr := os.Create("storage/recipes/large/" + fileName)
+	filePath, dirPath := generateFileNameAndFilePath()
+	createNeededDirectories(dirPath)
+
+	filePathSm := fmt.Sprintf("storage/small/recipes/%s", filePath)
+	filePathLg := fmt.Sprintf("storage/large/recipes/%s", filePath)
+
+	smImageOut, smErr := os.Create(filePathSm)
+	lgImageOut, lgErr := os.Create(filePathLg)
 
 	utils.HandleError("Error creating small recipe image", smErr, "")
 	utils.HandleError("Error creating large recipe image", lgErr, "")
@@ -66,7 +73,29 @@ func uploadImage(ctx *gin.Context) string {
 	utils.HandleError("Error encoding small recipe image", smImageErr, "")
 	utils.HandleError("Error encoding large recipe image", lgImageErr, "")
 
-	return fileName
+	return filePath
+}
+
+// createNeededDirectories creates directories.
+// If directories exist it will do nothing.
+func createNeededDirectories(dirPath string) {
+	mkdirErr1 := os.MkdirAll("storage/small/recipes/"+dirPath, os.ModePerm)
+	mkdirErr2 := os.MkdirAll("storage/large/recipes/"+dirPath, os.ModePerm)
+
+	utils.HandleError("Mkdir error", mkdirErr1, "")
+	utils.HandleError("Mkdir error", mkdirErr2, "")
+}
+
+func generateFileNameAndFilePath() (string, string) {
+	name := strconv.Itoa(int(time.Now().Unix()))
+	year := time.Now().Format("2006")
+	month := time.Now().Format("01")
+	randNum := strconv.Itoa(rand.Intn(9999))
+
+	dirPath := year + "/" + month + "/"
+	filePath := dirPath + name + "-" + randNum + ".jpg"
+
+	return filePath, dirPath
 }
 
 func setTimeField(value string) uint64 {
