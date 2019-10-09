@@ -1,14 +1,16 @@
-.PHONY: build
+.PHONY: dev
 dev:
 	cd backend && go run main.go
 
-.DEFAULT_GOAL := dev
-
+.PHONY: build
 build:
 	docker build -t serhiicho/reciper:nginx ./frontend
 	docker build -t serhiicho/reciper:go ./backend
 	docker push serhiicho/reciper:go
 	docker push serhiicho/reciper:nginx
 
+.PHONY: test
 test:
-	go test -cover ./...
+	go test -cover -race -timeout 30s ./...
+
+.DEFAULT_GOAL := dev
