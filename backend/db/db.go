@@ -14,8 +14,8 @@ type Database struct {
 	*gorm.DB
 }
 
-// NewDatabase opens database
-func NewDatabase() *Database {
+// New opens database
+func New() *Database {
 	user := os.Getenv("DB_USER")
 	pwd := os.Getenv("DB_PASSWORD")
 	host := os.Getenv("DB_HOST")

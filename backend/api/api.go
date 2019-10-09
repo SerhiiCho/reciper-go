@@ -11,8 +11,8 @@ type API struct {
 	App *app.App
 }
 
-// NewAPI creates app struct
-func NewAPI(app *app.App) *API {
+// New creates app struct
+func New(app *app.App) *API {
 	return &API{App: app}
 }
 
