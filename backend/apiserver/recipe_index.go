@@ -1,7 +1,6 @@
 package apiserver
 
 import (
-	"io"
 	"net/http"
 )
 
@@ -9,6 +8,6 @@ import (
 func (api *APIServer) recipeIndex() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		//ctx.JSON(http.StatusOK, api.App.Database.GetRecipes())
-		io.WriteString(w, "Hello")
+		w.Write([]byte("Hello"))
 	}
 }
