@@ -11,22 +11,17 @@ type UserRepo struct {
 
 // Create creates new user in database
 func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
-	stmt, stmtErr := repo.store.db.Prepare("INSERT INTO users (email, password) VALUES (?, ?)")
+	result, err := repo.store.db.Exec(`INSERT INTO users (email, password) 
+		VALUES (?, ?)`, user.Email, user.Password)
 
-	if stmtErr != nil {
-		return nil, stmtErr
+	if err != nil {
+		return nil, err
 	}
 
-	res, execErr := stmt.Exec(user.Email, user.Password)
+	userID, lastIdErr := result.LastInsertId()
 
-	if execErr != nil {
-		return nil, execErr
-	}
-
-	userID, resErr := res.LastInsertId()
-
-	if resErr != nil {
-		return nil, resErr
+	if lastIdErr != nil {
+		return nil, lastIdErr
 	}
 
 	user.ID = uint(userID)
@@ -36,5 +31,34 @@ func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
 
 // FindByEmail returns user from database with given email
 func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
-	return nil, nil
+	user := &model.User{}
+
+	row := repo.store.db.QueryRow(`
+		SELECT id, 'name', 'status', email, xp, streak_days, streak_check, password, popularity,
+			active, notif_check, online_check, updated_at, created_at
+				FROM users WHERE email = ?
+	`, email)
+
+	scanErr := row.Scan(
+		&user.ID,
+		&user.Name,
+		&user.Status,
+		&user.Email,
+		&user.XP,
+		&user.StreakDays,
+		&user.StreakCheck,
+		&user.Password,
+		&user.Popularity,
+		&user.Active,
+		&user.NotifCheck,
+		&user.OnlineCheck,
+		&user.UpdatedAt,
+		&user.CreatedAt,
+	)
+
+	if scanErr != nil {
+		return nil, scanErr
+	}
+
+	return user, nil
 }
