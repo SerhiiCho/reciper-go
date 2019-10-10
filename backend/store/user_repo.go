@@ -30,7 +30,7 @@ func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
 }
 
 // FindByEmail returns user from database with given email
-func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
+func (repo *UserRepo) FindByEmail(email string) error {
 	user := &model.User{}
 
 	row := repo.store.db.QueryRow(`
@@ -57,8 +57,8 @@ func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 	)
 
 	if scanErr != nil {
-		return nil, scanErr
+		return scanErr
 	}
 
-	return user, nil
+	return nil
 }

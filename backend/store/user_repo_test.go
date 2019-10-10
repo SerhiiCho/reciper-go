@@ -30,7 +30,7 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	email := "user@example.com"
 
 	t.Run("user doesn't exist in db", func(t *testing.T) {
-		_, err1 := st.User().FindByEmail(email)
+		err1 := st.User().FindByEmail(email)
 
 		if err1 == nil {
 			t.Error("FindByEmail must return error because user doesn't exist")
@@ -38,20 +38,21 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	})
 
 	t.Run("user exist in db", func(t *testing.T) {
-		_, errUserCreate := st.User().Create(&model.User{Email: email})
+		user := &model.User{Email: email}
+		_, errUserCreate := st.User().Create(user)
 
 		if errUserCreate != nil {
 			t.Fatal("Can't create user in database", errUserCreate)
 		}
 
-		user, err2 := st.User().FindByEmail(email)
+		err2 := st.User().FindByEmail(email)
 
 		if err2 != nil {
 			t.Error("FindByEmail should not return error because user exist in db")
 		}
 
-		if user == nil || user.Email != email {
-			t.Errorf("FindByEmail must return user with email %s", email)
+		if user.Email != email {
+			t.Errorf("user email must be %s", email)
 		}
 	})
 }
