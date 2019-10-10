@@ -11,6 +11,6 @@ build:
 
 .PHONY: test
 test:
-	go test -cover -race ./...
+	go test -cover ./...
 
 .DEFAULT_GOAL := dev
