@@ -9,10 +9,10 @@ import (
 func main() {
 	config := apiserver.NewConfig()
 	_, configErr := toml.DecodeFile("config/server.toml", config)
-	utils.FatalIfError(configErr)
+	utils.FatalIfError("toml decode error in main@main", configErr)
 
 	api := apiserver.NewAPIServer(config)
 	apiErr := api.Start()
 
-	utils.FatalIfError(apiErr)
+	utils.FatalIfError("error string api server in main@main", apiErr)
 }

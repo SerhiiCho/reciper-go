@@ -46,7 +46,7 @@ func (api *APIServer) configureStore() {
 	st := store.NewStore(api.config.Store)
 
 	if err := st.Open(); err != nil {
-		utils.FatalIfError(err)
+		utils.FatalIfError("Store.Open() error in apiserver@configureStore", err)
 	}
 
 	api.store = st

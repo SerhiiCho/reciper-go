@@ -44,9 +44,9 @@ func HandleError(text string, err error, filePath string) bool {
 
 // FatalIfError logs the error end exists the program
 // if error is not nil
-func FatalIfError(err error) {
+func FatalIfError(msg string, err error) {
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(msg, err)
 	}
 }
 
