@@ -7,6 +7,8 @@ import (
 )
 
 func TestUserRepo_Create(t *testing.T) {
+	t.Parallel()
+
 	st, teardown := store.TestStore(t, databaseURL)
 	defer teardown("users", "recipes")
 
