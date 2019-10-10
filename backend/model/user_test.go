@@ -5,7 +5,23 @@ import (
 	"testing"
 )
 
+func TestUser_BeforeCreate(t *testing.T) {
+	t.Parallel()
+
+	user := model.TestUser(t)
+
+	if user.BeforeCreate() != nil {
+		t.Error("No errors must be returned")
+	}
+
+	if user.HashedPassword == "" {
+		t.Error("Hashed password must not be empty")
+	}
+}
+
 func TestUser_Validate(t *testing.T) {
+	t.Parallel()
+
 	testCases := []struct {
 		name    string
 		user    func() *model.User
@@ -14,19 +30,64 @@ func TestUser_Validate(t *testing.T) {
 		{"valid", func() *model.User {
 			return model.TestUser(t)
 		}, true},
-		{"empty email", func() *model.User {
+		{"email invalid 1", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "email@mailcom"
+			return user
+		}, false},
+		{"email invalid 2", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "anna.mail.com"
+			return user
+		}, false},
+		{"email empty", func() *model.User {
 			user := model.TestUser(t)
 			user.Email = ""
 			return user
 		}, false},
-		{"name can be empty", func() *model.User {
+		{"name empty", func() *model.User {
 			user := model.TestUser(t)
 			user.Name = ""
 			return user
 		}, true},
-		{"empty password", func() *model.User {
+		{"name too short", func() *model.User {
+			user := model.TestUser(t)
+			user.Name = "na"
+			return user
+		}, false},
+		{"name too long", func() *model.User {
+			user := model.TestUser(t)
+			user.Name = "some very long string with more than 50 charactersX" // 51
+			return user
+		}, false},
+		{"name short okey", func() *model.User {
+			user := model.TestUser(t)
+			user.Name = "nag"
+			return user
+		}, true},
+		{"password empty", func() *model.User {
 			user := model.TestUser(t)
 			user.Password = ""
+			return user
+		}, false},
+		{"password short okey", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = "12345678"
+			return user
+		}, true},
+		{"password long okey", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = "usdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfdusdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddas"
+			return user
+		}, true},
+		{"password too short", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = "1234567"
+			return user
+		}, false},
+		{"password too long", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = "usdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfdusdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddasX"
 			return user
 		}, false},
 	}
@@ -45,19 +106,5 @@ func TestUser_Validate(t *testing.T) {
 				}
 			}
 		})
-	}
-}
-
-func TestUser_BeforeCreate(t *testing.T) {
-	t.Parallel()
-
-	user := model.TestUser(t)
-
-	if user.BeforeCreate() != nil {
-		t.Error("No errors must be returned")
-	}
-
-	if user.HashedPassword == "" {
-		t.Error("Hashed password must not be empty")
 	}
 }
