@@ -1,7 +1,6 @@
 package model
 
 import (
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -19,32 +18,33 @@ type User struct {
 	NotifCheck     string  `json:"notif_check"`
 	OnlineCheck    string  `json:"online_check"`
 	ContactCheck   string  `json:"contact_check"`
+	Photo          string  `json:"photo"`
 	Password       string  `json:"-"`
-	HashedPassword []byte
-	Photo          string `json:"photo"`
+	HashedPassword string  `json:"-"`
 }
 
-// GeneratePasswordHash function
-func GeneratePasswordHash(password []byte) []byte {
-	password, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
-	utils.HandleError("Error after generating from password using bcrypt package", err, "")
+// BeforeCreate executes before new user is created
+func (user *User) BeforeCreate() error {
+	if len(user.Password) > 0 {
+		enc, err := generatePasswordHash(user.Password)
 
-	return password
+		if err != nil {
+			return err
+		}
+
+		user.HashedPassword = enc
+	}
+
+	return nil
 }
 
-// ComparePasswordHash function
-func ComparePasswordHash(hashedPassword, givenPassword []byte) bool {
-	err := bcrypt.CompareHashAndPassword(hashedPassword, givenPassword)
-	return err == nil
-}
+// generatePasswordHash generates encrypted user password
+func generatePasswordHash(pwd string) (string, error) {
+	hashedPwd, err := bcrypt.GenerateFromPassword([]byte(pwd), bcrypt.MinCost)
 
-// SetPassword sets password
-func (user *User) SetPassword(password string) {
-	hashed := GeneratePasswordHash([]byte(password))
-	user.HashedPassword = hashed
-}
+	if err != nil {
+		return "", err
+	}
 
-// CheckPassword checks password and returns true if password match
-func (user *User) CheckPassword(password string) bool {
-	return ComparePasswordHash(user.HashedPassword, []byte(password))
+	return string(hashedPwd), nil
 }
