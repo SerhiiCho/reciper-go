@@ -6,6 +6,8 @@ import (
 )
 
 func TestUser_BeforeCreate(t *testing.T) {
+	t.Parallel()
+
 	user := model.TestUser(t)
 
 	if user.BeforeCreate() != nil {

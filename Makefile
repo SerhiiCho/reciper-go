@@ -11,6 +11,6 @@ build:
 
 .PHONY: test
 test:
-	go test -cover -race -timeout 30s ./...
+	go test -cover -race ./...
 
 .DEFAULT_GOAL := dev
