@@ -11,7 +11,7 @@ func main() {
 	_, configErr := toml.DecodeFile("config/server.toml", config)
 	utils.FatalIfError("toml decode error in main@main", configErr)
 
-	api := apiserver.NewAPIServer(config)
+	api := apiserver.New(config)
 	apiErr := api.Start()
 
 	utils.FatalIfError("error string api server in main@main", apiErr)

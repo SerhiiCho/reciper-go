@@ -16,8 +16,8 @@ type APIServer struct {
 	store  *store.Store
 }
 
-// NewAPIServer returns pointer on APIServer
-func NewAPIServer(config *Config) *APIServer {
+// New returns pointer on APIServer
+func New(config *Config) *APIServer {
 	return &APIServer{
 		config: config,
 		router: mux.NewRouter().PathPrefix("/api").Subrouter(),

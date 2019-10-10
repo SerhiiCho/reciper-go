@@ -7,7 +7,7 @@ import (
 )
 
 func TestAPIServer_RecipeIndex(t *testing.T) {
-	server := NewAPIServer(NewConfig())
+	server := New(NewConfig())
 
 	rec := httptest.NewRecorder()
 	req, _ := http.NewRequest(http.MethodGet, "/api/recipes", nil)
