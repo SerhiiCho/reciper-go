@@ -16,6 +16,6 @@ CREATE TABLE users
     created_at   datetime      DEFAULT CURRENT_TIMESTAMP,
     updated_at   datetime      DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    UNIQUE KEY slug (email)
+    UNIQUE KEY (email)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
