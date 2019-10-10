@@ -1,6 +1,8 @@
 package model
 
 import (
+	valid "github.com/go-ozzo/ozzo-validation"
+	"github.com/go-ozzo/ozzo-validation/is"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -21,6 +23,15 @@ type User struct {
 	Photo          string  `json:"photo"`
 	Password       string  `json:"-"`
 	HashedPassword string  `json:"-"`
+}
+
+func (user *User) Validate() error {
+	return valid.ValidateStruct(
+		user,
+		valid.Field(&user.Name, valid.Length(3, 50)),
+		valid.Field(&user.Email, valid.Required, valid.Length(3, 190), is.Email),
+		valid.Field(&user.Password, valid.Required, valid.Length(8, 250)),
+	)
 }
 
 // BeforeCreate executes before new user is created

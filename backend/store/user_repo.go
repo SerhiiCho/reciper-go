@@ -11,6 +11,10 @@ type UserRepo struct {
 
 // Create creates new user in database
 func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
+	if err := user.BeforeCreate(); err != nil {
+		return nil, err
+	}
+
 	result, err := repo.store.db.Exec(`INSERT INTO users (email, password) 
 		VALUES (?, ?)`, user.Email, user.Password)
 
