@@ -9,6 +9,8 @@ services:
         volumes:
             - ./frontend/dist:/app/dist
             - ./backend/storage:/app/dist/storage
+        environment:
+            GO111MODULE: "on"
         ports:
             - 8000:80
         depends_on:
@@ -17,8 +19,6 @@ services:
     reciper_go:
         container_name: reciper_go
         image: serhiicho/reciper:go
-        env_file:
-            - .env
         networks:
             - reciper_net
         ports:

@@ -9,6 +9,7 @@ CREATE TABLE users
     popularity   decimal(8, 1) DEFAULT '0',
     active       tinyint(1)    DEFAULT '1',
     photo        varchar(200)  DEFAULT 'default.jpg',
+    password     varchar(250)     NOT NULL,
     streak_check datetime      DEFAULT CURRENT_TIMESTAMP,
     notif_check  datetime      DEFAULT CURRENT_TIMESTAMP,
     online_check datetime      DEFAULT CURRENT_TIMESTAMP,
