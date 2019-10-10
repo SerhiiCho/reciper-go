@@ -1,4 +1,4 @@
-package store
+package sqlstore
 
 import (
 	"github.com/SerhiiCho/reciper/backend/model"
@@ -8,14 +8,12 @@ import (
 func (store *Store) GetRecipes() []*model.Recipe {
 	var recipes []*model.Recipe
 
-	//err := store.Find(&recipes).Error
-	//utils.HandleError("Error while getting recipes from database", err, "")
+	//
 
 	return recipes
 }
 
 // CreateRecipe adds given recipe to a database
 func (store *Store) CreateRecipe(recipe *model.Recipe) {
-	//err := store.Create(recipe).Error
-	//utils.HandleError("Error creating recipe in database", err, "")
+	//
 }

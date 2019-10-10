@@ -1,4 +1,4 @@
-package store
+package sqlstore
 
 import (
 	"github.com/SerhiiCho/reciper/backend/model"
@@ -10,35 +10,35 @@ type UserRepo struct {
 }
 
 // Create creates new user in database
-func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
+func (repo *UserRepo) Create(user *model.User) error {
 	if err := user.Validate(); err != nil {
-		return nil, err
+		return err
 	}
 
 	if err := user.BeforeCreate(); err != nil {
-		return nil, err
+		return err
 	}
 
 	result, err := repo.store.db.Exec(`INSERT INTO users (email, password) 
 		VALUES (?, ?)`, user.Email, user.Password)
 
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	userID, lastIdErr := result.LastInsertId()
 
 	if lastIdErr != nil {
-		return nil, lastIdErr
+		return lastIdErr
 	}
 
 	user.ID = uint(userID)
 
-	return user, nil
+	return nil
 }
 
 // FindByEmail returns user from database with given email
-func (repo *UserRepo) FindByEmail(email string) error {
+func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 	user := &model.User{}
 
 	row := repo.store.db.QueryRow(`
@@ -47,7 +47,7 @@ func (repo *UserRepo) FindByEmail(email string) error {
 		FROM users WHERE email = ?
 	`, email)
 
-	scanErr := row.Scan(
+	if scanErr := row.Scan(
 		&user.ID,
 		&user.Name,
 		&user.Status,
@@ -62,11 +62,9 @@ func (repo *UserRepo) FindByEmail(email string) error {
 		&user.OnlineCheck,
 		&user.UpdatedAt,
 		&user.CreatedAt,
-	)
-
-	if scanErr != nil {
-		return scanErr
+	); scanErr != nil {
+		return nil, scanErr
 	}
 
-	return nil
+	return user, nil
 }

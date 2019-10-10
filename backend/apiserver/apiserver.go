@@ -2,7 +2,7 @@ package apiserver
 
 import (
 	"github.com/SerhiiCho/reciper/backend/apiserver/middleware"
-	"github.com/SerhiiCho/reciper/backend/store"
+	"github.com/SerhiiCho/reciper/backend/store/sqlstore"
 	"github.com/SerhiiCho/reciper/backend/utils"
 	"github.com/gorilla/mux"
 	"log"
@@ -13,7 +13,7 @@ import (
 type APIServer struct {
 	config *Config
 	router *mux.Router
-	store  *store.Store
+	store  *sqlstore.Store
 }
 
 // New returns pointer on APIServer
@@ -43,7 +43,7 @@ func (api *APIServer) configureRouter() {
 
 // configureStore configures database
 func (api *APIServer) configureStore() {
-	st := store.NewStore(api.config.Store)
+	st := sqlstore.New(api.config.Store)
 
 	if err := st.Open(); err != nil {
 		utils.FatalIfError("Store.Open() error in apiserver@configureStore", err)
