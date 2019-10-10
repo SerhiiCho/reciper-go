@@ -34,9 +34,9 @@ func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 	user := &model.User{}
 
 	row := repo.store.db.QueryRow(`
-		SELECT id, 'name', 'status', email, xp, streak_days, streak_check, password, popularity,
-			active, notif_check, online_check, updated_at, created_at
-				FROM users WHERE email = ?
+		SELECT id, 'name', 'status', email, xp, streak_days, streak_check, password,
+			popularity, active, notif_check, online_check, updated_at, created_at
+		FROM users WHERE email = ?
 	`, email)
 
 	scanErr := row.Scan(
