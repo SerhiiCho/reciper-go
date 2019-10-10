@@ -30,7 +30,7 @@ func (user *User) Validate() error {
 		user,
 		valid.Field(&user.Name, valid.Length(3, 50)),
 		valid.Field(&user.Email, valid.Required, valid.Length(7, 190), is.Email),
-		valid.Field(&user.Password, valid.Required, valid.Length(8, 250)),
+		valid.Field(&user.Password, valid.By(requiredIf(user.HashedPassword == "")), valid.Length(8, 250)),
 	)
 }
 

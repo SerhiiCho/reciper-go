@@ -110,6 +110,18 @@ func TestUser_Validate(t *testing.T) {
 			user.Password = "usdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfdusdfjdsfljdsflksaj fjdsklfjdslkf jdkfjsdlfk;ajdfkl dklf asd;fdlskflaskdfsdfasdf dsfsadfdsaf dasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddasfasdfddasX"
 			return user
 		}, false},
+		{"with hashed password", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = ""
+			user.HashedPassword = "lsafjdslkfjas"
+			return user
+		}, true},
+		{"with empty hash and password", func() *model.User {
+			user := model.TestUser(t)
+			user.Password = ""
+			user.HashedPassword = ""
+			return user
+		}, false},
 	}
 
 	for _, tc := range testCases {
