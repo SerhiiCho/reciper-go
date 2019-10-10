@@ -45,6 +45,26 @@ func TestUser_Validate(t *testing.T) {
 			user.Email = ""
 			return user
 		}, false},
+		{"email short okey", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "d@ss.ru"
+			return user
+		}, true},
+		{"email long okey", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "usdfjdsfljdsflksajffjdsklfjdslkffjdkfjsdlfkfajdfklfdklffasdffdlskflaskdfsdfasdffdsfsadfdsaffasfasdfdusdfjdsfljdsflksajffjdsklfjdslkffjdkfjsdlffffjdfkffdklffasdffdlskflaskdfsdfasdffd@mail.com"
+			return user
+		}, true},
+		{"email too short", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "d@s.ru"
+			return user
+		}, false},
+		{"email too long", func() *model.User {
+			user := model.TestUser(t)
+			user.Email = "Xusdfjdsfljdsflksajffjdsklfjdslkffjdkfjsdlfkfajdfklfdklffasdffdlskflaskdfsdfasdffdsfsadfdsaffasfasdfdusdfjdsfljdsflksajffjdsklfjdslkffjdkfjsdlffffjdfkffdklffasdffdlskflaskdfsdfasdffd@mail.com"
+			return user
+		}, false},
 		{"name empty", func() *model.User {
 			user := model.TestUser(t)
 			user.Name = ""

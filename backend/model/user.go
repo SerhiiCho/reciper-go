@@ -29,7 +29,7 @@ func (user *User) Validate() error {
 	return valid.ValidateStruct(
 		user,
 		valid.Field(&user.Name, valid.Length(3, 50)),
-		valid.Field(&user.Email, valid.Required, valid.Length(3, 190), is.Email),
+		valid.Field(&user.Email, valid.Required, valid.Length(7, 190), is.Email),
 		valid.Field(&user.Password, valid.Required, valid.Length(8, 250)),
 	)
 }
