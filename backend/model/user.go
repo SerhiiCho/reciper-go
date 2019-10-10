@@ -37,13 +37,13 @@ func (user *User) Validate() error {
 // BeforeCreate executes before new user is created
 func (user *User) BeforeCreate() error {
 	if len(user.Password) > 0 {
-		enc, err := generatePasswordHash(user.Password)
+		newPwd, err := generatePasswordHash(user.Password)
 
 		if err != nil {
 			return err
 		}
 
-		user.HashedPassword = enc
+		user.HashedPassword = newPwd
 	}
 
 	return nil

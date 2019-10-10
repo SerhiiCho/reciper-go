@@ -11,6 +11,10 @@ type UserRepo struct {
 
 // Create creates new user in database
 func (repo *UserRepo) Create(user *model.User) (*model.User, error) {
+	if err := user.Validate(); err != nil {
+		return nil, err
+	}
+
 	if err := user.BeforeCreate(); err != nil {
 		return nil, err
 	}
@@ -51,7 +55,7 @@ func (repo *UserRepo) FindByEmail(email string) error {
 		&user.XP,
 		&user.StreakDays,
 		&user.StreakCheck,
-		&user.Password,
+		&user.HashedPassword,
 		&user.Popularity,
 		&user.Active,
 		&user.NotifCheck,
