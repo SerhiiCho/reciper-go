@@ -10,16 +10,14 @@ func TestUserRepo_Create(t *testing.T) {
 	st, teardown := store.TestStore(t, databaseURL)
 	defer teardown("users", "recipes")
 
-	email := "user@example.com"
-
-	user, err := st.User().Create(&model.User{Email: email})
+	user, err := st.User().Create(model.TestUser(t))
 
 	if err != nil {
 		t.Error(err)
 	}
 
-	if user == nil || user.Email != email {
-		t.Errorf("Method Create must return user with email %s", email)
+	if user == nil || user.Email != "anna@mail.com" {
+		t.Error("Method Create must return user with email anna@mail.com")
 	}
 }
 
@@ -27,7 +25,9 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	st, teardown := store.TestStore(t, databaseURL)
 	defer teardown("users", "recipes")
 
-	email := "user@example.com"
+	email := "anna@mail.com"
+	user := model.TestUser(t)
+	user.Email = email
 
 	t.Run("user doesn't exist in db", func(t *testing.T) {
 		err1 := st.User().FindByEmail(email)
@@ -38,7 +38,6 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	})
 
 	t.Run("user exist in db", func(t *testing.T) {
-		user := &model.User{Email: email}
 		_, errUserCreate := st.User().Create(user)
 
 		if errUserCreate != nil {

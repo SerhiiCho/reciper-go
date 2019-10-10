@@ -6,7 +6,7 @@ import "testing"
 func TestUser(t *testing.T) *User {
 	return &User{
 		Name:     "Anna",
-		Email:    "anna_korotchaeva@mail.com",
+		Email:    "anna@mail.com",
 		Password: "password",
 	}
 }
