@@ -1,12 +1,8 @@
 package apiserver
 
 import (
-	"errors"
 	"net/http"
 )
-
-var errIncorrectEmailOrPassword = errors.New("incorrect email or password")
-var sessionName = "reciper"
 
 func (serv *server) sessionCreate() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
