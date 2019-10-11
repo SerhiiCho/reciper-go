@@ -1,6 +1,7 @@
 package apiserver
 
 import (
+	"github.com/SerhiiCho/reciper/backend/apiserver/middleware"
 	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -28,6 +29,7 @@ func (serv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (serv server) configureRouter() {
+	serv.router.Use(middleware.AppMiddleware)
 	serv.router.HandleFunc("/api/recipes", serv.recipeIndex()).Methods("GET")
 	serv.router.HandleFunc("/api/recipes", serv.recipeCreate()).Methods("POST")
 	serv.router.HandleFunc("/api/users", serv.userCreate()).Methods("POST")
