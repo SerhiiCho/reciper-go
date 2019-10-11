@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/store/teststore"
+	"github.com/gorilla/sessions"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -13,7 +14,7 @@ import (
 func TestServer_userCreate(t *testing.T) {
 	t.Parallel()
 
-	serv := newServer(teststore.New())
+	serv := newServer(teststore.New(), sessions.NewCookieStore([]byte("secret")))
 
 	testCases := []struct {
 		name         string
@@ -72,7 +73,7 @@ func TestServer_sessionCreate(t *testing.T) {
 
 	user := model.TestUser(t)
 	store := teststore.New()
-	serv := newServer(store)
+	serv := newServer(store, sessions.NewCookieStore([]byte("secret")))
 
 	if err := store.User().CreateUser(user); err != nil {
 		t.Fatal("can't create user in test store")

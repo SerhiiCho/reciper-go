@@ -4,19 +4,22 @@ import (
 	"github.com/SerhiiCho/reciper/backend/apiserver/middleware"
 	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
 	"net/http"
 )
 
 type server struct {
-	router *mux.Router
-	store  store.Store
+	router       *mux.Router
+	store        store.Store
+	sessionStore sessions.Store
 }
 
 // newServer configures router and returns pointer to server struct
-func newServer(store store.Store) *server {
+func newServer(store store.Store, sessionStore sessions.Store) *server {
 	serv := &server{
-		router: mux.NewRouter(),
-		store:  store,
+		router:       mux.NewRouter(),
+		store:        store,
+		sessionStore: sessionStore,
 	}
 
 	serv.configureRouter()

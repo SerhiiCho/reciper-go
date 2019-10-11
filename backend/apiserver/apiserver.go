@@ -3,10 +3,11 @@ package apiserver
 import (
 	"database/sql"
 	"github.com/SerhiiCho/reciper/backend/store/sqlstore"
+	"github.com/gorilla/sessions"
 	"net/http"
 )
 
-// Start
+// Start starts the api server
 func Start(config *Config) error {
 	db, dbErr := newDB(config.DatabaseURL)
 
@@ -17,11 +18,13 @@ func Start(config *Config) error {
 	defer db.Close()
 
 	store := sqlstore.New(db)
-	serv := newServer(store)
+	sessionStore := sessions.NewCookieStore([]byte(config.SessionKey))
+	serv := newServer(store, sessionStore)
 
 	return http.ListenAndServe(config.BindAddr, serv)
 }
 
+// newDB configures the database connection
 func newDB(databaseURL string) (*sql.DB, error) {
 	db, dbErr := sql.Open("mysql", databaseURL)
 
