@@ -2,6 +2,7 @@ package teststore_test
 
 import (
 	"github.com/SerhiiCho/reciper/backend/model"
+	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/SerhiiCho/reciper/backend/store/teststore"
 	"testing"
 )
@@ -20,10 +21,10 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	email := "anna@mail.com"
 
 	t.Run("user doesn't exist in db", func(t *testing.T) {
-		user, err1 := st.User().FindByEmail(email)
+		user, findErr := st.User().FindByEmail(email)
 
-		if err1 == nil {
-			t.Error("FindByEmail must return error because user doesn't exist")
+		if findErr != store.ErrRecordNotFound {
+			t.Error("FindByEmail must return ErrRecordNotFound error because user doesn't exist")
 		}
 
 		if user != nil {
@@ -38,14 +39,18 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 			t.Fatal("Can't create user in database", errUserCreate)
 		}
 
-		user, err2 := st.User().FindByEmail(email)
+		user, notFoundErr := st.User().FindByEmail(email)
 
-		if err2 != nil {
-			t.Error("FindByEmail should not return error because user exist in db")
+		if notFoundErr != nil {
+			t.Error("FindByEmail must return nil instead of error because user exist in database")
 		}
 
-		if user == nil || user.Email != email {
-			t.Errorf("user with email %s must be returned", email)
+		if user == nil {
+			t.Errorf("user with email %s must be returned instead of nil", email)
+		}
+
+		if user != nil && user.Email != email {
+			t.Errorf("user email must be equal to %s but instead of %s", email, user.Email)
 		}
 	})
 }

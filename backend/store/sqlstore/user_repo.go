@@ -1,7 +1,9 @@
 package sqlstore
 
 import (
+	"database/sql"
 	"github.com/SerhiiCho/reciper/backend/model"
+	"github.com/SerhiiCho/reciper/backend/store"
 )
 
 // UserRepo database repository
@@ -63,6 +65,10 @@ func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 		&user.UpdatedAt,
 		&user.CreatedAt,
 	); scanErr != nil {
+		if scanErr == sql.ErrNoRows {
+			return nil, store.ErrRecordNotFound
+		}
+
 		return nil, scanErr
 	}
 

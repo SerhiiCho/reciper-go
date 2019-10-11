@@ -1,8 +1,8 @@
 package teststore
 
 import (
-	"errors"
 	"github.com/SerhiiCho/reciper/backend/model"
+	"github.com/SerhiiCho/reciper/backend/store"
 )
 
 // UserRepo struct
@@ -32,7 +32,7 @@ func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 	user, ok := repo.users[email]
 
 	if !ok {
-		return nil, errors.New("user not found")
+		return nil, store.ErrRecordNotFound
 	}
 
 	return user, nil
