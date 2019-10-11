@@ -1,6 +1,8 @@
 package apiserver
 
 import (
+	"fmt"
+	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/store/teststore"
 	"net/http"
 	"net/http/httptest"
@@ -54,6 +56,44 @@ func TestServer_userCreate(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			rec := httptest.NewRecorder()
 			req, _ := http.NewRequest(http.MethodPost, "/api/users", strings.NewReader(tc.data))
+			req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+			serv.ServeHTTP(rec, req)
+
+			if rec.Code != tc.expectedCode {
+				t.Errorf("Expected response code must be %d but %d returned", tc.expectedCode, rec.Code)
+			}
+		})
+	}
+}
+
+func TestServer_sessionCreate(t *testing.T) {
+	t.Parallel()
+
+	user := model.TestUser(t)
+	store := teststore.New()
+	serv := newServer(store)
+
+	if err := store.User().CreateUser(user); err != nil {
+		t.Fatal("can't create user in test store")
+	}
+
+	testCases := []struct {
+		name         string
+		data         string
+		expectedCode int
+	}{
+		{
+			name:         "valid",
+			data:         fmt.Sprintf("email=%s&password=%s", user.Email, user.Password),
+			expectedCode: http.StatusOK,
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			rec := httptest.NewRecorder()
+			req, _ := http.NewRequest(http.MethodPost, "/api/sessions", strings.NewReader(tc.data))
 			req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 			serv.ServeHTTP(rec, req)
