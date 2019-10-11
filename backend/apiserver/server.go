@@ -23,11 +23,11 @@ func newServer(store store.Store) *server {
 	return serv
 }
 
-//
 func (serv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	serv.router.ServeHTTP(w, r)
 }
 
 func (serv server) configureRouter() {
-
+	serv.router.HandleFunc("/api/recipes", serv.recipeIndex()).Methods("GET")
+	serv.router.HandleFunc("/api/recipes", serv.recipeCreate()).Methods("POST")
 }

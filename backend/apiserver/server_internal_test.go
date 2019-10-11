@@ -7,15 +7,13 @@ import (
 	"testing"
 )
 
-func TestAPIServer_RecipeIndex(t *testing.T) {
-	server := newServer(teststore.New())
-
+func TestServer_RecipeIndex(t *testing.T) {
 	rec := httptest.NewRecorder()
 	req, _ := http.NewRequest(http.MethodGet, "/api/recipes", nil)
 
-	server.recipeIndex().ServeHTTP(rec, req)
+	newServer(teststore.New()).recipeIndex().ServeHTTP(rec, req)
 
-	if rec.Body.String() != "Hello" {
+	if rec.Code != http.StatusOK {
 		t.Error("response must be Hello")
 	}
 }
