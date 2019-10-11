@@ -15,7 +15,11 @@ import (
 func TestServer_authenticateUser(t *testing.T) {
 	store := teststore.New()
 	user := model.TestUser(t)
-	store.User().CreateUser(user)
+	err := store.User().CreateUser(user)
+
+	if err != nil {
+		t.Fatal("can't create user")
+	}
 
 	testCases := []struct {
 		name         string
