@@ -1,4 +1,2 @@
 bind_addr = ":8080"
-
-[store]
 database_url = "root:111111@tcp(localhost:1001)/reciper?charset=utf8"
