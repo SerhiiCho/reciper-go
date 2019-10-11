@@ -30,7 +30,12 @@ func (user *User) Validate() error {
 	return valid.ValidateStruct(
 		user,
 		valid.Field(&user.Name, valid.Length(3, 50)),
-		valid.Field(&user.Email, valid.Required, valid.Length(7, 190), is.Email),
+		valid.Field(
+			&user.Email,
+			valid.Required.Error("Эл. адрес обязателен к заполнению"),
+			valid.Length(7, 190).Error("Длина не пойдет"),
+			is.Email.Error("Не валидная почта"),
+		),
 		valid.Field(&user.Password, valid.By(requiredIf(user.HashedPassword == "")), valid.Length(8, 250)),
 	)
 }
