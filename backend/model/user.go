@@ -45,6 +45,11 @@ func (user *User) SanitizeUserFields() {
 	user.Password = ""
 }
 
+// ComparePassword compares user hash and password
+func (user *User) ComparePassword(pwd string) bool {
+	return bcrypt.CompareHashAndPassword([]byte(user.HashedPassword), []byte(pwd)) == nil
+}
+
 // BeforeCreate executes before new user is created
 func (user *User) BeforeCreate() error {
 	if len(user.Password) > 0 {

@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestServer_RecipeIndex(t *testing.T) {
+func TestServer_userCreate(t *testing.T) {
 	t.Parallel()
 
 	serv := newServer(teststore.New())
