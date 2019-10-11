@@ -4,12 +4,63 @@ import (
 	"fmt"
 	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/store/teststore"
+	"github.com/gorilla/securecookie"
 	"github.com/gorilla/sessions"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
 )
+
+func TestServer_authenticateUser(t *testing.T) {
+	store := teststore.New()
+	user := model.TestUser(t)
+	store.User().CreateUser(user)
+
+	testCases := []struct {
+		name         string
+		cookieValue  map[interface{}]interface{}
+		expectedCode int
+	}{
+		{
+			name: "authenticated",
+			cookieValue: map[interface{}]interface{}{
+				"user_id": user.ID,
+			},
+			expectedCode: http.StatusOK,
+		},
+		{
+			name:         "not authenticated",
+			cookieValue:  nil,
+			expectedCode: http.StatusUnauthorized,
+		},
+	}
+
+	secretKey := []byte("secret")
+
+	serv := newServer(store, sessions.NewCookieStore(secretKey))
+	secureCookie := securecookie.New(secretKey, nil)
+	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			rec := httptest.NewRecorder()
+			req, _ := http.NewRequest(http.MethodGet, "/", nil)
+			req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+			cookieStr, _ := secureCookie.Encode(sessionName, tc.cookieValue)
+			req.Header.Set("Cookie", fmt.Sprintf("%s=%s", sessionName, cookieStr))
+
+			serv.authenticateUser(handler).ServeHTTP(rec, req)
+
+			if rec.Code != tc.expectedCode {
+				t.Errorf("Expected response code must be %d but %d returned", tc.expectedCode, rec.Code)
+			}
+		})
+	}
+}
 
 func TestServer_userCreate(t *testing.T) {
 	t.Parallel()
