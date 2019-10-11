@@ -17,9 +17,17 @@ import (
 
 // recipeCreate handles POST request on creating a new recipe item
 func (serv *server) recipeCreate() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+	//type request struct {
+	//	Title       string `json:"title"`
+	//	Intro       string `json:"intro"`
+	//	Text        string `json:"text"`
+	//	Ingredients string `json:"ingredients"`
+	//	Slug        string `json:"slug"`
+	//	Ready       string `json:"ready"`
+	//}
 
-		//api.App.Database.CreateRecipe(&model.Recipe{
+	return func(w http.ResponseWriter, r *http.Request) {
+		//serv.store.CreateRecipe(&model.Recipe{
 		//	TitleRu:       r.FormValue("title-ru"),
 		//	TitleEn:       r.FormValue("title-en"),
 		//	IntroRu:       r.FormValue("intro-ru"),
@@ -34,7 +42,7 @@ func (serv *server) recipeCreate() http.HandlerFunc {
 		//	ReadyEn:       setReadyField(r.FormValue("ready-en")),
 		//	Image:         uploadImage(r),
 		//})
-		//
+
 		//w.WriteHeader(http.StatusNoContent)
 	}
 }
