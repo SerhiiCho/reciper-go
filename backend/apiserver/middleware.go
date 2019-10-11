@@ -2,10 +2,12 @@ package apiserver
 
 import (
 	"context"
+	"fmt"
+	"github.com/google/uuid"
 	"net/http"
+	"time"
 )
 
-// appMiddleware sets http headers
 func (serv server) appMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Origin", "*")
@@ -19,7 +21,6 @@ func (serv server) appMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-// authenticateUser middleware
 func (serv server) authenticateUser(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		session, sessionErr := serv.sessionStore.Get(r, sessionName)
@@ -44,5 +45,28 @@ func (serv server) authenticateUser(next http.Handler) http.Handler {
 		}
 
 		next.ServeHTTP(w, r.WithContext(context.WithValue(r.Context(), contextKeyUser, user)))
+	})
+}
+
+func (serv *server) setRequestID(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		id := uuid.New().String()
+		w.Header().Set("X-Request-Id", id)
+
+		next.ServeHTTP(w, r.WithContext(context.WithValue(r.Context(), contextKeyRequestID, id)))
+	})
+}
+
+func (serv *server) logRequest(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+
+		next.ServeHTTP(w, r)
+
+		end := time.Now().Sub(start)
+		date := time.Now().Format("02.01.2006 15:04:05")
+		reqID := r.Context().Value(contextKeyRequestID)
+
+		fmt.Printf("[INFO]: %s %s in %v | %s | %s | %s", r.Method, r.RequestURI, end, r.RemoteAddr, date, reqID)
 	})
 }
