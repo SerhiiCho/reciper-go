@@ -2,6 +2,7 @@ package apiserver
 
 import (
 	"fmt"
+	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
@@ -17,16 +18,8 @@ import (
 
 // recipeCreate handles POST request on creating a new recipe item
 func (serv *server) recipeCreate() http.HandlerFunc {
-	//type request struct {
-	//	Title       string `json:"title"`
-	//	Intro       string `json:"intro"`
-	//	Text        string `json:"text"`
-	//	Ingredients string `json:"ingredients"`
-	//	Slug        string `json:"slug"`
-	//	Ready       string `json:"ready"`
-	//}
-
 	return func(w http.ResponseWriter, r *http.Request) {
+		serv.respond(w, r, http.StatusOK, r.Context().Value(contextKeyUser).(*model.User))
 		//serv.store.CreateRecipe(&model.Recipe{
 		//	TitleRu:       r.FormValue("title-ru"),
 		//	TitleEn:       r.FormValue("title-en"),
