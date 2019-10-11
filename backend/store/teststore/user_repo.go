@@ -11,8 +11,8 @@ type UserRepo struct {
 	users map[string]*model.User
 }
 
-// Create creates new user in database
-func (repo *UserRepo) Create(user *model.User) error {
+// CreateUser creates new user in database
+func (repo *UserRepo) CreateUser(user *model.User) error {
 	if err := user.Validate(); err != nil {
 		return err
 	}

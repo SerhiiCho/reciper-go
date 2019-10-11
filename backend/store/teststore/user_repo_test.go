@@ -9,10 +9,10 @@ import (
 
 func TestUserRepo_Create(t *testing.T) {
 	st := teststore.New()
-	userErr := st.User().Create(model.TestUser(t))
+	userErr := st.User().CreateUser(model.TestUser(t))
 
 	if userErr != nil {
-		t.Error("Method Create must return nil but error returned")
+		t.Error("Method CreateUser must return nil but error returned")
 	}
 }
 
@@ -33,7 +33,7 @@ func TestUserRepo_FindByEmail(t *testing.T) {
 	})
 
 	t.Run("user exist in db", func(t *testing.T) {
-		errUserCreate := st.User().Create(model.TestUser(t))
+		errUserCreate := st.User().CreateUser(model.TestUser(t))
 
 		if errUserCreate != nil {
 			t.Fatal("Can't create user in database", errUserCreate)
