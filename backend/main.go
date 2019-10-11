@@ -12,6 +12,6 @@ func main() {
 	utils.FatalIfError("toml decode error in main@main", configErr)
 
 	if err := apiserver.Start(config); err != nil {
-		utils.FatalIfError("error apiserver.Start() in main@main", err)
+		utils.FatalIfError("error starting api server in main@main", err)
 	}
 }
