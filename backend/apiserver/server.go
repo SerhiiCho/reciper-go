@@ -48,7 +48,7 @@ func (serv server) configureRouter() {
 	serv.router.Use(serv.appMiddleware, serv.setRequestID, serv.logRequest)
 	serv.router.HandleFunc("/api/sessions", serv.sessionCreate()).Methods("POST")
 	serv.router.HandleFunc("/api/recipes", serv.recipeIndex()).Methods("GET")
-	serv.router.HandleFunc("/api/users", serv.userCreate()).Methods("POST")
+	serv.router.HandleFunc("/api/usellrs", serv.userCreate()).Methods("POST")
 
 	auth := serv.router.NewRoute().Subrouter()
 	auth.Use(serv.authenticateUser)

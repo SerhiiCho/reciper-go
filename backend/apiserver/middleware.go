@@ -60,13 +60,20 @@ func (serv *server) setRequestID(next http.Handler) http.Handler {
 func (serv *server) logRequest(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
+		respWriter := &responseWriter{w, http.StatusOK}
 
-		next.ServeHTTP(w, r)
+		next.ServeHTTP(respWriter, r)
 
-		end := time.Now().Sub(start)
-		date := time.Now().Format("02.01.2006 15:04:05")
-		reqID := r.Context().Value(contextKeyRequestID)
-
-		fmt.Printf("[INFO]: %s %s in %v | %s | %s | %s", r.Method, r.RequestURI, end, r.RemoteAddr, date, reqID)
+		fmt.Printf(
+			"[INFO]: %s %s [%d %s] in %v | %s | %s | %s\n",
+			r.Method,
+			r.RequestURI,
+			respWriter.code,
+			http.StatusText(respWriter.code),
+			time.Now().Sub(start),
+			r.RemoteAddr,
+			time.Now().Format("02.01.2006 15:04:05"),
+			r.Context().Value(contextKeyRequestID),
+		)
 	})
 }
