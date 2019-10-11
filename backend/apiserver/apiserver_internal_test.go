@@ -1,13 +1,14 @@
 package apiserver
 
 import (
+	"github.com/SerhiiCho/reciper/backend/store/teststore"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
 
 func TestAPIServer_RecipeIndex(t *testing.T) {
-	server := New(NewConfig())
+	server := newServer(teststore.New())
 
 	rec := httptest.NewRecorder()
 	req, _ := http.NewRequest(http.MethodGet, "/api/recipes", nil)

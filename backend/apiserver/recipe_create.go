@@ -16,7 +16,7 @@ import (
 )
 
 // recipeCreate handles POST request on creating a new recipe item
-func (api *APIServer) recipeCreate() http.HandlerFunc {
+func (serv *server) recipeCreate() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		//api.App.Database.CreateRecipe(&model.Recipe{

@@ -1,53 +1,37 @@
 package apiserver
 
 import (
-	"github.com/SerhiiCho/reciper/backend/apiserver/middleware"
+	"database/sql"
 	"github.com/SerhiiCho/reciper/backend/store/sqlstore"
-	"github.com/SerhiiCho/reciper/backend/utils"
-	"github.com/gorilla/mux"
-	"log"
 	"net/http"
 )
 
-// APIServer struct
-type APIServer struct {
-	config *Config
-	router *mux.Router
-	store  *sqlstore.Store
-}
+// Start
+func Start(config *Config) error {
+	db, dbErr := newDB(config.DatabaseURL)
 
-// New returns pointer on APIServer
-func New(config *Config) *APIServer {
-	return &APIServer{
-		config: config,
-		router: mux.NewRouter().PathPrefix("/api").Subrouter(),
-	}
-}
-
-// Start configures routes and start the server
-func (api *APIServer) Start() error {
-	api.configureRouter()
-	api.configureStore()
-
-	log.Printf("Server started at %s", api.config.BindAddr)
-
-	return http.ListenAndServe(api.config.BindAddr, api.router)
-}
-
-// configureRouter adds routes
-func (api *APIServer) configureRouter() {
-	api.router.Use(middleware.AppMiddleware)
-	api.router.HandleFunc("/recipes", api.recipeIndex()).Methods("GET")
-	api.router.HandleFunc("/recipes", api.recipeCreate()).Methods("POST")
-}
-
-// configureStore configures database
-func (api *APIServer) configureStore() {
-	st := sqlstore.New(api.config.Store)
-
-	if err := st.Open(); err != nil {
-		utils.FatalIfError("Store.Open() error in apiserver@configureStore", err)
+	if dbErr != nil {
+		return dbErr
 	}
 
-	api.store = st
+	defer db.Close()
+
+	store := sqlstore.New(db)
+	serv := newServer(store)
+
+	return http.ListenAndServe(config.BindAddr, serv)
+}
+
+func newDB(databaseURL string) (*sql.DB, error) {
+	db, dbErr := sql.Open("mysql", databaseURL)
+
+	if dbErr != nil {
+		return nil, dbErr
+	}
+
+	if pingErr := db.Ping(); pingErr != nil {
+		return nil, pingErr
+	}
+
+	return db, nil
 }
