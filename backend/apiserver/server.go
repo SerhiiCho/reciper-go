@@ -11,6 +11,7 @@ import (
 const (
 	sessionName               = "reciper"
 	contextKeyUser contextKey = iota
+	contextKeyRequestID
 )
 
 var (
@@ -44,7 +45,7 @@ func (serv server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (serv server) configureRouter() {
-	serv.router.Use(serv.appMiddleware)
+	serv.router.Use(serv.appMiddleware, serv.setRequestID, serv.logRequest)
 	serv.router.HandleFunc("/api/sessions", serv.sessionCreate()).Methods("POST")
 	serv.router.HandleFunc("/api/recipes", serv.recipeIndex()).Methods("GET")
 	serv.router.HandleFunc("/api/users", serv.userCreate()).Methods("POST")
