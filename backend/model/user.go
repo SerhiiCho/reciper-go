@@ -21,10 +21,11 @@ type User struct {
 	OnlineCheck    string  `json:"online_check"`
 	ContactCheck   string  `json:"contact_check"`
 	Photo          string  `json:"photo"`
-	Password       string  `json:"-"`
+	Password       string  `json:"password,omitempty"`
 	HashedPassword string  `json:"-"`
 }
 
+// Validate validates user data
 func (user *User) Validate() error {
 	return valid.ValidateStruct(
 		user,
@@ -32,6 +33,11 @@ func (user *User) Validate() error {
 		valid.Field(&user.Email, valid.Required, valid.Length(7, 190), is.Email),
 		valid.Field(&user.Password, valid.By(requiredIf(user.HashedPassword == "")), valid.Length(8, 250)),
 	)
+}
+
+// SanitizeUserFields sets some user fields to empty string
+func (user *User) SanitizeUserFields() {
+	user.Password = ""
 }
 
 // BeforeCreate executes before new user is created
