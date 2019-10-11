@@ -88,6 +88,31 @@ func TestServer_sessionCreate(t *testing.T) {
 			data:         fmt.Sprintf("email=%s&password=%s", user.Email, user.Password),
 			expectedCode: http.StatusOK,
 		},
+		{
+			name:         "no fields",
+			data:         "other=some&diff=null",
+			expectedCode: http.StatusUnauthorized,
+		},
+		{
+			name:         "email is invalid",
+			data:         "email=somemail@mail&password=12345678910",
+			expectedCode: http.StatusUnauthorized,
+		},
+		{
+			name:         "email is missing",
+			data:         "password=12345635435243",
+			expectedCode: http.StatusUnauthorized,
+		},
+		{
+			name:         "password is short",
+			data:         "email=somemail@mail.ru&password=1234567",
+			expectedCode: http.StatusUnauthorized,
+		},
+		{
+			name:         "password is missing",
+			data:         "email=somemail@mail.ru",
+			expectedCode: http.StatusUnauthorized,
+		},
 	}
 
 	for _, tc := range testCases {
