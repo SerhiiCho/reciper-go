@@ -74,3 +74,39 @@ func (repo *UserRepo) FindByEmail(email string) (*model.User, error) {
 
 	return user, nil
 }
+
+// FindUser returns user from database with given id
+func (repo *UserRepo) FindUser(id uint) (*model.User, error) {
+	user := &model.User{}
+
+	row := repo.store.db.QueryRow(`
+		SELECT id, 'name', 'status', email, xp, streak_days, streak_check, password,
+			popularity, active, notif_check, online_check, updated_at, created_at
+		FROM users WHERE id = ?
+	`, id)
+
+	if scanErr := row.Scan(
+		&user.ID,
+		&user.Name,
+		&user.Status,
+		&user.Email,
+		&user.XP,
+		&user.StreakDays,
+		&user.StreakCheck,
+		&user.HashedPassword,
+		&user.Popularity,
+		&user.Active,
+		&user.NotifCheck,
+		&user.OnlineCheck,
+		&user.UpdatedAt,
+		&user.CreatedAt,
+	); scanErr != nil {
+		if scanErr == sql.ErrNoRows {
+			return nil, store.ErrRecordNotFound
+		}
+
+		return nil, scanErr
+	}
+
+	return user, nil
+}
