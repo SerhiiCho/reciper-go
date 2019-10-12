@@ -12,11 +12,8 @@
                     <div class="card__image waves-effect waves-block waves-light">
                         <a :href="`/recipes/${recipe.slug}`" :title="recipe.intro">
                             <!-- Recipe image -->
-                            <!-- <img :src="`storage/small/recipes/${recipe.image}`"
+                            <img :src="`storage/small/recipes/${recipe.image}`"
                                 :alt="recipe.title"
-                            > -->
-                            <img :src="recipe.image"
-                                 :alt="recipe.title"
                             >
                         </a>
                     </div>
