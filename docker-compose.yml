@@ -1,6 +1,21 @@
 version: '3'
 
 services:
+    reciper_db:
+        image: mysql:8.0
+        container_name: reciper_db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 111111
+            MYSQL_DATABASE: reciper
+        ports:
+            - 1001:3306
+        volumes:
+            - ./db/storage:/var/lib/mysql
+        networks:
+            - reciper_net
+
     reciper_nginx:
         container_name: reciper_nginx
         image: serhiicho/reciper:nginx
@@ -18,6 +33,7 @@ services:
             - 8000:80
         depends_on:
             - reciper_go
+            - reciper_db
 
     reciper_go:
         container_name: reciper_go
@@ -31,21 +47,8 @@ services:
             - 8080:8080
         links:
             - reciper_db
-
-    reciper_db:
-        image: mysql:8.0
-        container_name: reciper_db
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: 111111
-            MYSQL_DATABASE: reciper
-        ports:
-            - 1001:3306
-        volumes:
-            - ./db/storage:/var/lib/mysql
-        networks:
-            - reciper_net
+        depends_on:
+            - reciper_db
 
     reciper_phpmyadmin:
         image: phpmyadmin/phpmyadmin
