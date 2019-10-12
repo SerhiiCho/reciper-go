@@ -2,10 +2,11 @@ package apiserver
 
 import (
 	"errors"
+	"net/http"
+
 	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
-	"net/http"
 )
 
 const (
