@@ -7,16 +7,16 @@
 
             <form method="POST" action="/register" class="px-4">
                 <div class="input-field">
-                    <input type="text"
-                        id="username"
-                        name="username"
+                    <input type="email"
+                        id="email"
+                        name="email"
                         required
                     >
-                    <label for="username">
-                        {{ $t('auth.username') }}
-                        <!-- @include('includes.tip', ['tip' => trans('auth.username_desc')]) -->
+                    <label for="email">
+                        {{ $t('forms.email') }}
+                        <!-- @include('includes.tip', ['tip' => trans('auth.email_desc')]) -->
                     </label>
-                    <!-- @include('includes.input-error', ['field' => 'username']) -->
+                    <!-- @include('includes.input-error', ['field' => 'email']) -->
                 </div>
 
                 <Visibility :tooltip="$t('forms.pwd_desc')"
