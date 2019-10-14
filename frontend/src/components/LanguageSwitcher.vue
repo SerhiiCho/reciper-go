@@ -36,7 +36,7 @@ export default {
             this.flag = this.flag === 'ru' ? 'en' : 'ru'
 
             this.$axios.get(`/invokes/change-language-switcher/${this.selectedLang}`)
-                .then(res => location.reload())
+                .then(_ => location.reload())
                 .catch(e => console.error(e))
         },
     },

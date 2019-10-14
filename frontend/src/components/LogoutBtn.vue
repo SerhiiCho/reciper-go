@@ -13,7 +13,7 @@ export default {
         logout() {
             if (confirm(this.$t('messages.sure_to_logout'))) {
                 this.$axios.post('/logout')
-                    .then(res => window.location = '/')
+                    .then(_ => window.location = '/')
                     .catch(e => console.error(e))
             }
         },
