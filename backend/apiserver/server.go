@@ -1,26 +1,14 @@
 package apiserver
 
 import (
-	"errors"
+	"encoding/json"
+	"github.com/SerhiiCho/reciper/backend/utils"
 	"net/http"
 
 	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 )
-
-const (
-	sessionName               = "reciper"
-	contextKeyUser contextKey = iota
-	contextKeyRequestID
-)
-
-var (
-	errIncorrectEmailOrPassword = errors.New("incorrect email or password")
-	errNotAuthenticated         = errors.New("not authenticated")
-)
-
-type contextKey int8
 
 type server struct {
 	router       *mux.Router
@@ -54,4 +42,21 @@ func (serv server) configureRouter() {
 	auth := serv.router.NewRoute().Subrouter()
 	auth.Use(serv.authenticateUser)
 	auth.HandleFunc("/api/recipes", serv.recipeCreate()).Methods("POST")
+}
+
+func (serv *server) error(w http.ResponseWriter, r *http.Request, code int, err error) {
+	serv.respond(w, r, code, map[string]string{"error": err.Error()})
+}
+
+func (serv *server) respond(w http.ResponseWriter, r *http.Request, code int, data interface{}) {
+	w.WriteHeader(code)
+
+	if data == nil {
+		return
+	}
+
+	if err := json.NewEncoder(w).Encode(data); err != nil {
+		utils.HandleError("json encode error in user_create@respond", err, "")
+		w.WriteHeader(http.StatusInternalServerError)
+	}
 }
