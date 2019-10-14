@@ -1,4 +1,13 @@
 {
+    "recipers.amount_of_views": "All views from your recipes",
+    "recipers.amount_of_likes": "All likes from your recipes",
+    "recipers.amount_of_favs": "All stars from your recipes",
+    "recipers.streak_days": "Streak days",
+    "manage-users.manage": "Manage",
+    "date.online": "Online",
+    "recipers.level": "Level",
+    "recipers.reciper": "Reciper",
+    "recipers.xp": "Experience",
     "auth.username": "Username",
     "notifications.no_notifs": "There are no messages",
     "notifications.notifications": "Notifications",

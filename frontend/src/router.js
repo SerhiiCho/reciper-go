@@ -5,6 +5,7 @@ import Recipes from './views/Recipes.vue'
 import Register from './views/Register.vue'
 import Login from './views/Login.vue'
 import Contact from './views/Contact.vue'
+import UsersShow from './views/users/UsersShow.vue'
 
 Vue.use(Router)
 
@@ -33,6 +34,10 @@ const router = new Router({
         {
             path: '/contact',
             component: Contact,
+        },
+        {
+            path: '/users/:id',
+            component: UsersShow,
         },
         // {
         //   path: '/about',

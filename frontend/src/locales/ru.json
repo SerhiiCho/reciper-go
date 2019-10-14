@@ -1,4 +1,13 @@
 {
+    "recipers.amount_of_views": "Кол-во просмотров",
+    "recipers.amount_of_likes": "Кол-во полученных сердечек",
+    "recipers.amount_of_favs": "Кол-во полученных звезд",
+    "recipers.streak_days": "Дней в ударном режиме",
+    "manage-users.manage": "Управлять",
+    "date.online": "В сети",
+    "recipers.level": "Уровень",
+    "recipers.reciper": "Ресипёр",
+    "recipers.xp": "Опыт",
     "auth.username": "Логин",
     "notifications.no_notifs": "Нет оповещений",
     "notifications.notifications": "Оповещения",
