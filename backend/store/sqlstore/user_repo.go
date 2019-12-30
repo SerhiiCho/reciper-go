@@ -2,6 +2,7 @@ package sqlstore
 
 import (
 	"database/sql"
+
 	"github.com/SerhiiCho/reciper/backend/model"
 	"github.com/SerhiiCho/reciper/backend/store"
 )
@@ -28,10 +29,10 @@ func (repo *UserRepo) CreateUser(user *model.User) error {
 		return err
 	}
 
-	userID, lastIdErr := result.LastInsertId()
+	userID, lastIDErr := result.LastInsertId()
 
-	if lastIdErr != nil {
-		return lastIdErr
+	if lastIDErr != nil {
+		return lastIDErr
 	}
 
 	user.ID = uint(userID)
