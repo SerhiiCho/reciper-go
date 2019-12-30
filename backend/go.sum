@@ -5,6 +5,8 @@ cloud.google.com/go v0.37.4/go.mod h1:NHPJ89PdicEuT9hdPXMROBD91xc5uRDxsMtSB16k7h
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/SerhiiCho/reciper v0.0.0-20191009203012-809612d3bce6 h1:cKs0eRgTLS+jGImkeaOwmPphJhS2yM/0U+io4gaxJGA=
+github.com/SerhiiCho/timeago v0.0.0-20191024201203-d7dda1ce4257 h1:NA8uC7zL2OcbErVQIxZPh6q8oKQaGnK7RnofHor7FVc=
+github.com/SerhiiCho/timeago v0.0.0-20191024201203-d7dda1ce4257/go.mod h1:VqFhRqIPl4F4SES/I+BsJPXR3EpXZaSl2JlSiJxOZMo=
 github.com/Shopify/sarama v1.19.0/go.mod h1:FVkBWblsNy7DGZRfXLU0O9RCGt5g3g3yEuWXgklEdEo=
 github.com/Shopify/toxiproxy v2.1.4+incompatible/go.mod h1:OXgGpZ6Cli1/URJOF1DMxUHB2q5Ap20/P/eIdh4G0pI=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
