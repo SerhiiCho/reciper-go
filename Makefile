@@ -4,10 +4,10 @@ dev:
 
 .PHONY: build
 build:
-	docker build -t serhiicho/reciper:nginx ./frontend
-	docker build -t serhiicho/reciper:go ./backend
-	docker push serhiicho/reciper:go
-	docker push serhiicho/reciper:nginx
+	docker build -t serhiicho/reciper_go:nginx ./frontend
+	docker build -t serhiicho/reciper_go:go ./backend
+	docker push serhiicho/reciper_go:go
+	docker push serhiicho/reciper_go:nginx
 
 .PHONY: test
 test:

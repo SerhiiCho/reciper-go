@@ -1,4 +1,4 @@
 bind_addr = ":8080"
 database_url = "root:111111@tcp(localhost:1001)/reciper?charset=utf8"
-#database_url = "root:111111@tcp(reciper_db:3306)/reciper?charset=utf8"
+#database_url = "root:111111@tcp(reciper_go_db:3306)/reciper?charset=utf8"
 session_key = "j3jw-sj3xsh32n0fdkj2lnhd92jxj3lkd934k-dfsg3sf"
