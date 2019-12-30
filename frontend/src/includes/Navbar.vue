@@ -2,21 +2,21 @@
     <!-- User Dropdown menu -->
     <div>
         <ul id="user-menu-dropdown" class="dropdown bottom-borders">
-                <!-- home -->
-                <li>
-                    <a href="/users/master" :title="$t('recipers.my_account')">
-                        <i class="fas fa-user-circle fa-15x left with-red-hover"></i>
-                        {{ $t('recipers.my_account') }}
-                    </a>
-                </li>
+            <!-- home -->
+            <router-link to="/users/master" tag="li">
+                <a :title="$t('recipers.my_account')">
+                    <i class="fas fa-user-circle fa-15x left with-red-hover"></i>
+                    {{ $t('recipers.my_account') }}
+                </a>
+            </router-link>
 
-                <!-- add recipe -->
-                <li>
-                    <a href="#add-recipe-modal" :title="$t('recipes.new_recipe')" class="modal-trigger">
-                        <i class="fas fa-plus-circle fa-15x left with-red-hover"></i>
-                        {{ $t('recipes.new_recipe') }}
-                    </a>
-                </li>
+            <!-- add recipe -->
+            <li>
+                <a href="#add-recipe-modal" :title="$t('recipes.new_recipe')" class="modal-trigger">
+                    <i class="fas fa-plus-circle fa-15x left with-red-hover"></i>
+                    {{ $t('recipes.new_recipe') }}
+                </a>
+            </li>
 
                 <!-- my recipes -->
                 <li>
@@ -164,17 +164,17 @@
 
                     <div class="right">
                         <!-- Dropdown Trigger 2 User -->
-                        <a href="javascript:"
-                            class="right dropdown-trigger position-relative align-to-the-middle"
-                            data-target="user-menu-dropdown"
-                        >
-                            <i class="user-icon-navbar d-block">
-                                <img src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="" class="z-depth-1 hoverable">
-                            </i>
-                        </a>
+<!--                        <a href="javascript:"-->
+<!--                            class="right dropdown-trigger position-relative align-to-the-middle"-->
+<!--                            data-target="user-menu-dropdown"-->
+<!--                        >-->
+<!--                            <i class="user-icon-navbar d-block">-->
+<!--                                <img src="https://www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" alt="" class="z-depth-1 hoverable">-->
+<!--                            </i>-->
+<!--                        </a>-->
 
                         <!-- Dropdown Trigger 2  -->
-                        <!-- <a href="javascript:"
+                        <a href="javascript:"
                             class="right dropdown-trigger position-relative align-to-the-middle"
                             data-target="user-menu-dropdown"
                             id="_hamb-menu"
@@ -182,7 +182,7 @@
                             <i class="fas fa-bars user-icon-navbar z-depth-1 hoverable waves-effect waves-light d-block center"
                                 style="line-height:40px; font-size:19px"
                             ></i>
-                        </a> -->
+                        </a>
 
                         <!-- Search button -->
                         <a href="javascript:"
