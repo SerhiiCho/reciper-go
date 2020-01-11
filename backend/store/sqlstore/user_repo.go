@@ -22,8 +22,8 @@ func (repo *UserRepo) CreateUser(user *model.User) error {
 		return err
 	}
 
-	result, err := repo.store.db.Exec(`INSERT INTO users (email, password) 
-		VALUES (?, ?)`, user.Email, user.HashedPassword)
+	query := `INSERT INTO users (email, password) VALUES (?, ?)`
+	result, err := repo.store.db.Exec(query, user.Email, user.HashedPassword)
 
 	if err != nil {
 		return err
