@@ -2,8 +2,9 @@ package apiserver
 
 import (
 	"encoding/json"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"net/http"
+
+	"github.com/SerhiiCho/reciper/backend/utils"
 )
 
 // recipeIndex handles GET request on showing the list of all recipes
@@ -11,11 +12,18 @@ func (serv *server) recipeIndex() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		recipes := []map[string]string{
 			map[string]string{
-				"title":   "Cool title",
-				"content": "Cool content",
+				"title_ru":   "Cool title",
+				"content_ru": "Cool content",
+			},
+			map[string]string{
+				"title_ru":   "Another title",
+				"content_ru": "Some content",
 			},
 		}
-		result, _ := json.Marshal(recipes)
+
+		result, jsonErr := json.Marshal(recipes)
+		utils.HandleError("error trying to marshal recipes map", jsonErr, "")
+
 		_, err := w.Write([]byte(result))
 		utils.HandleError("error trying to write response for recipes index", err, "")
 	}
