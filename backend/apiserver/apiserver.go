@@ -2,9 +2,10 @@ package apiserver
 
 import (
 	"database/sql"
+	"net/http"
+
 	"github.com/SerhiiCho/reciper/backend/store/sqlstore"
 	"github.com/gorilla/sessions"
-	"net/http"
 )
 
 // Start starts the api server

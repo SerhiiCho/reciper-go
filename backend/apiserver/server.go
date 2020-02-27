@@ -2,8 +2,9 @@ package apiserver
 
 import (
 	"encoding/json"
-	"github.com/SerhiiCho/reciper/backend/utils"
 	"net/http"
+
+	"github.com/SerhiiCho/reciper/backend/utils"
 
 	"github.com/SerhiiCho/reciper/backend/store"
 	"github.com/gorilla/mux"
@@ -56,7 +57,7 @@ func (serv *server) respond(w http.ResponseWriter, r *http.Request, code int, da
 	}
 
 	if err := json.NewEncoder(w).Encode(data); err != nil {
-		utils.HandleError("json encode error in user_create@respond", err, "")
+		utils.HandleError("json encode error", err, "")
 		w.WriteHeader(http.StatusInternalServerError)
 	}
 }

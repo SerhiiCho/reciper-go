@@ -3,9 +3,10 @@ package apiserver
 import (
 	"context"
 	"fmt"
-	"github.com/google/uuid"
 	"net/http"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 func (serv server) appMiddleware(next http.Handler) http.Handler {
