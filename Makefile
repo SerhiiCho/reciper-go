@@ -9,6 +9,18 @@ build:
 	docker push serhiicho/reciper_go:go
 	docker push serhiicho/reciper_go:nginx
 
+.PHONY: migrateup
+migrateup:
+	migrate -path db/migrations/ -database "mysql://serhii:111111@tcp(localhost:3306)/reciper?charset=utf8" up
+
+.PHONY: migratedown
+migratedown:
+	migrate -path db/migrations/ -database "mysql://serhii:111111@tcp(localhost:3306)/reciper?charset=utf8" down
+
+.PHONY: migratecreate
+migratecreate:
+	migrate create -ext sql -dir db/migrations $(arg)
+
 .PHONY: test
 test:
 	go test -cover ./...
