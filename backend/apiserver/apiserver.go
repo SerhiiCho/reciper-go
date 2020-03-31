@@ -2,6 +2,7 @@ package apiserver
 
 import (
 	"database/sql"
+	"log"
 	"net/http"
 
 	"github.com/SerhiiCho/reciper/backend/store/sqlstore"
@@ -21,6 +22,8 @@ func Start(config *Config) error {
 	store := sqlstore.New(db)
 	sessionStore := sessions.NewCookieStore([]byte(config.SessionKey))
 	server := newServer(store, sessionStore)
+
+	log.Printf("Server started on port %s\n", config.BindAddr)
 
 	return http.ListenAndServe(config.BindAddr, server)
 }
