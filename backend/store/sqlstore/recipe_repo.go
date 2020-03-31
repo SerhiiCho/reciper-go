@@ -8,8 +8,6 @@ import (
 func (store *Store) GetRecipes() []*model.Recipe {
 	var recipes []*model.Recipe
 
-	//
-
 	return recipes
 }
 

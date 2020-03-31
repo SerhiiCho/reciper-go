@@ -1,8 +1,9 @@
 package apiserver
 
 import (
-	"github.com/SerhiiCho/reciper/backend/model"
 	"net/http"
+
+	"github.com/SerhiiCho/reciper/backend/model"
 )
 
 // userCreate adds new user to the store
