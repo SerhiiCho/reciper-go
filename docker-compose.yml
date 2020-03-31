@@ -10,7 +10,7 @@ services:
             MYSQL_ROOT_PASSWORD: 111111
             MYSQL_DATABASE: reciper
         ports:
-            - 1001:3306
+            - 2222:3306
         volumes:
             - ./db/storage:/var/lib/mysql
         networks:
