@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "image/jpeg"
+
 	"github.com/BurntSushi/toml"
 	"github.com/SerhiiCho/reciper/backend/apiserver"
 	"github.com/SerhiiCho/reciper/backend/utils"

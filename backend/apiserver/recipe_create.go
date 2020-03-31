@@ -2,16 +2,16 @@ package apiserver
 
 import (
 	"fmt"
-	"github.com/SerhiiCho/reciper/backend/model"
-	"github.com/nfnt/resize"
 	"image"
 	"image/jpeg"
-	_ "image/jpeg"
 	"math/rand"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/SerhiiCho/reciper/backend/model"
+	"github.com/nfnt/resize"
 
 	"github.com/SerhiiCho/reciper/backend/utils"
 )
