@@ -2,8 +2,8 @@ package sqlstore
 
 import (
 	"database/sql"
+
 	"github.com/SerhiiCho/reciper/backend/store"
-	_ "github.com/go-sql-driver/mysql"
 )
 
 // Store struct

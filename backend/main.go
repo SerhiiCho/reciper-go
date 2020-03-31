@@ -4,6 +4,7 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/SerhiiCho/reciper/backend/apiserver"
 	"github.com/SerhiiCho/reciper/backend/utils"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
