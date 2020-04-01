@@ -33,7 +33,7 @@ func HandleError(text string, err error, filePath string) bool {
 	logFile, err := os.OpenFile(filePath, os.O_APPEND|os.O_WRONLY, 0600)
 	printIfExist(err)
 
-	log.Print(msgError)
+	log.Println(msgError)
 
 	_, writeErr := logFile.WriteString(dateInfo + msgError)
 	printIfExist(writeErr)
@@ -46,12 +46,12 @@ func HandleError(text string, err error, filePath string) bool {
 // if error is not nil
 func FatalIfError(msg string, err error) {
 	if err != nil {
-		log.Fatal(msg, err)
+		log.Fatalln(msg, err)
 	}
 }
 
 func printIfExist(err error) {
 	if err != nil {
-		log.Print(err)
+		log.Println(err)
 	}
 }
