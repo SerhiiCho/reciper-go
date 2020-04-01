@@ -14,6 +14,7 @@ func TestStrLimit(t *testing.T) {
 		{"Long string will be short after this func", 1, "L..."},
 		{"short", 20, "short"},
 		{"sh", 2, "sh"},
+		{"sho", 2, "sh..."},
 		{"sh", 3, "sh"},
 		{"th", 4, "th"},
 	}
