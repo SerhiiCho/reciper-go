@@ -12,7 +12,10 @@ Vue.use(Router)
 const router = new Router({
     mode: 'history',
     scrollBehavior (to, from, savedPosition) {
-        return { x: 0, y: 0 }
+        document.querySelector('html').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        })
     },
     routes: [
         {
@@ -57,6 +60,7 @@ router.beforeEach((to, from, next) => {
 
     next()
 })
+
 
 
 export default router
