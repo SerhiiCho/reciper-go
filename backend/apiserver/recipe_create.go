@@ -68,24 +68,24 @@ func createFiles(filePath string, smImage image.Image, lgImage image.Image) {
 	filePathLg := fmt.Sprintf("storage/large/recipes/%s", filePath)
 
 	smImageOut, smErr := os.Create(filePathSm)
-	lgImageOut, lgErr := os.Create(filePathLg)
-
 	utils.HandleError("Error creating small recipe image", smErr, "")
+
+	lgImageOut, lgErr := os.Create(filePathLg)
 	utils.HandleError("Error creating large recipe image", lgErr, "")
 
 	smImageErr := jpeg.Encode(smImageOut, smImage, nil)
-	lgImageErr := jpeg.Encode(lgImageOut, lgImage, nil)
-
 	utils.HandleError("Error encoding small recipe image", smImageErr, "")
+
+	lgImageErr := jpeg.Encode(lgImageOut, lgImage, nil)
 	utils.HandleError("Error encoding large recipe image", lgImageErr, "")
 }
 
 // createNeededDirectories creates directories in storage
 func createNeededDirectories(dirPath string) {
 	mkdirErr1 := os.MkdirAll("storage/small/recipes/"+dirPath, os.ModePerm)
-	mkdirErr2 := os.MkdirAll("storage/large/recipes/"+dirPath, os.ModePerm)
-
 	utils.HandleError("Mkdir error", mkdirErr1, "")
+
+	mkdirErr2 := os.MkdirAll("storage/large/recipes/"+dirPath, os.ModePerm)
 	utils.HandleError("Mkdir error", mkdirErr2, "")
 }
 
