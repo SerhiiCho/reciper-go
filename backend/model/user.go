@@ -36,7 +36,11 @@ func (user *User) Validate() error {
 			valid.Length(7, 190).Error("Длина не пойдет"),
 			is.Email.Error("Не валидная почта"),
 		),
-		valid.Field(&user.Password, valid.By(requiredIf(user.HashedPassword == "")), valid.Length(8, 250)),
+		valid.Field(
+			&user.Password,
+			valid.By(requiredIf(user.HashedPassword == "")),
+			valid.Length(8, 250),
+		),
 	)
 }
 
