@@ -29,7 +29,10 @@ type User struct {
 func (user *User) Validate() error {
 	return valid.ValidateStruct(
 		user,
-		valid.Field(&user.Name, valid.Length(3, 50)),
+		valid.Field(
+			&user.Name,
+			valid.Length(3, 50).Error("Some error message"),
+		),
 		valid.Field(
 			&user.Email,
 			valid.Required.Error("Эл. адрес обязателен к заполнению"),
