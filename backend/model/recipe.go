@@ -1,5 +1,7 @@
 package model
 
+import valid "github.com/go-ozzo/ozzo-validation"
+
 // Recipe model
 type Recipe struct {
 	Model
@@ -23,4 +25,12 @@ type Recipe struct {
 	PublishedRu   byte   `json:"published_ru"`
 	PublishedEn   byte   `json:"published_en"`
 	Simple        byte   `json:"simple"`
+}
+
+// Validate validates recipe data
+func (recipe *Recipe) Validate() error {
+	return valid.ValidateStruct(
+		recipe,
+		valid.Field(&recipe.TitleRu, valid.Required),
+	)
 }
