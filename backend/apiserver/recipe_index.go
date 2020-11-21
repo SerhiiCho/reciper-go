@@ -11,11 +11,11 @@ import (
 func (serv *server) recipeIndex() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		recipes := []map[string]string{
-			map[string]string{
+			{
 				"title_ru":   "Cool title",
 				"content_ru": "Cool content",
 			},
-			map[string]string{
+			{
 				"title_ru":   "Another title",
 				"content_ru": "Some content",
 			},
