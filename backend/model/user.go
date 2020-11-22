@@ -6,7 +6,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// User model
+// User model that represents a user in database
 type User struct {
 	Model
 	Name           string  `json:"name"`
