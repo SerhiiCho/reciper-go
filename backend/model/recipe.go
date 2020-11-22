@@ -2,7 +2,7 @@ package model
 
 import valid "github.com/go-ozzo/ozzo-validation"
 
-// Recipe model
+// Recipe model represents user in database
 type Recipe struct {
 	Model
 	User        User   `json:"-"`
